@@ -1,12 +1,12 @@
-# rbo - Deploy Manual
+# rbo - Deployment Manual
 
-### Launch EC2 Instance
+## Launch EC2 Instance
 * EC2 Console (Ireland): https://eu-west-1.console.aws.amazon.com/ec2/v2/home?region=eu-west-1#LaunchInstanceWizard:
 * AMI: Amazon Linux 2 AMI (HVM), SSD Volume Type
 * Instance Type: t2.micro
 * Elastic IP to associate: 54.229.224.188
 
-### Host configuration
+## EC2 Host configuration
 
 ```bash
 # SSH to webserver - Alias
@@ -18,6 +18,7 @@ myblog
 # Update system and install dependencies
 sudo yum update -y
 sudo yum install gcc openssl-devel bzip2-devel libffi-devel git -y
+sudo amazon-linux-extras install nginx1
 
 # Install latest SQLite
 cd /opt
@@ -63,3 +64,92 @@ git clone git@github.com:ryanleonbutler/rbo.git
 cd /home/ec2-user/rbo
 python3.9 -m venv /home/ec2-user/rbo/venv
 /home/ec2-user/rbo/venv/bin/pip install -r /home/ec2-user/rbo/requirements.txt
+```
+
+## Setup Django
+```bash
+cd /home/ec2-user/rbo
+/home/ec2-user/rbo/venv/bin/python manage.py migrate
+/home/ec2-user/rbo/venv/bin/python manage.py makemigrations blog
+/home/ec2-user/rbo/venv/bin/python manage.py collectstatic
+```
+
+## Configure Gunicorn
+```bash
+# Test Gunicorn is running
+cd /home/ec2-user/rbo
+gunicorn --bind 0.0.0.0:8000 rbo_django.wsgi
+curl -vL http://127.0.0.1:8000/blog
+
+# Create service file
+sudo nano /etc/systemd/system/gunicorn.service
+```
+```
+# /etc/systemd/system/gunicorn.service - contents
+
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=ec2-user
+Group=nobody
+WorkingDirectory=/home/ec2-user/rbo
+ExecStart=/home/ec2-user/rbo/venv/bin/gunicorn --access-logfile - --workers 3 --bind unix:/home/ec2-user/rbo/rbo_django.sock rbo_django.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+sudo systemctl enable gunicorn.service
+sudo systemctl start gunicorn
+sudo systemctl status gunicorn
+```
+
+## Nginx Configuration
+```bash
+sudo nano /etc/nginx/nginx.conf
+```
+```bash
+# Add/edit the following to the file and comment out the default config
+...
+user ec2-user;
+...
+server {
+    listen 80;
+    server_name origin.ryanbutler.online;
+
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        root /home/ec2-user/rbo;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/ec2-user/rbo/rbo_django.sock;
+    }
+}
+...
+```
+
+```bash
+sudo nano /etc/nginx/proxy_params
+```
+```bash
+# /etc/nginx/proxy_params - contents
+
+proxy_set_header Host $http_host;
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header X-Forwarded-Proto $scheme;
+```
+```bash
+sudo systemctl restart nginx
+sudo nginx -t
+```
+
+## Test
+```
+curl -vL https://ryanbutler.online
+```

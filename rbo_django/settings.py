@@ -25,7 +25,7 @@ SECRET_KEY = 'q%pncb_nrjdstrq&+5^amqsg67=1r!36o(b1m7=z2cuy=q3kan'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.ryanbutler.online', 'ryanbutler.online', '127.0.0.1', '0.0.0.0', 'origin.ryanbutler.online']
+ALLOWED_HOSTS = ['www.ryanbutler.online', 'ryanbutler.online', '127.0.0.1', '0.0.0.0', 'origin.ryanbutler.online', 'ec2-54-229-224-188.eu-west-1.compute.amazonaws.com', '54.229.224.188']
 
 
 # Application definition
@@ -128,3 +128,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/var/www/static/',
 ]
+
+# STATIC_URL = '/static/'
