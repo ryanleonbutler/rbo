@@ -18,9 +18,6 @@ from django.urls import path, include
 from django.conf.urls import url
 from markdownx import urls as markdownx
 
-from django.contrib.sitemaps import GenericSitemap
-from django.contrib.sitemaps.views import sitemap
-
 from blog.models import Post
 
 info_dict = {
