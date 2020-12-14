@@ -10,7 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
+import socket
 from pathlib import Path
+
+# Get Server HOSTNAME in order to know if stage is DEV or PROD
+STAGE = ""
+HOSTNAME = socket.gethostname()
+if ".eu-west-1.compute.internal" in HOSTNAME:
+    STAGE = "PROD"
+else:
+    STAGE = "DEV"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +32,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'q%pncb_nrjdstrq&+5^amqsg67=1r!36o(b1m7=z2cuy=q3kan'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if STAGE == "PROD":
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = ['www.ryanbutler.online', 'ryanbutler.online', '127.0.0.1', '0.0.0.0', 'origin.ryanbutler.online', 'ec2-54-229-224-188.eu-west-1.compute.amazonaws.com', '54.229.224.188']
 
@@ -58,7 +70,6 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             "rbo_django/templates/",
-            #"rbo_hugo/public/"
             ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -122,11 +133,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    '/var/www/static/',
-]
-
-# STATIC_URL = '/static/'
+if STAGE == "PROD":
+    STATIC_URL = '/static/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+else:
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, "static"),
+        '/var/www/static/',
+    ]
