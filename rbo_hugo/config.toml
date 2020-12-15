@@ -1,4 +1,32 @@
-baseURL = "http://example.org/"
+baseURL = "https://ryanbutler.online/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "RBO"
 theme = "m10c"
+
+[params]
+    author = "Ryan Butler"
+    description = "Developer blog with a main focus on Cloud Computing, Python, Django and anything else."
+    avatar = "images/avatar.jpg"
+    menu_item_separator = "|"
+    favicon = "images/favicon.ico"
+
+    [[params.social]]
+        name = "github"
+        url = "https://github.com/ryanleonbutler"
+    [[params.social]]
+        name = "linkedin"
+        url = "https://www.linkedin.com/in/ryanleonbutler/"
+    [[params.social]]
+        name = "twitter"
+        url = "https://twitter.com/Ryan00609169"
+
+[menu]
+    [[menu.main]]
+        identifier = "Posts"
+        name = "Posts"
+        url = "/posts/"
+    [[menu.main]]
+        identifier = "Contact"
+        name = "Contact"
+        url = "/contact/"
+
