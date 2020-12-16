@@ -26,8 +26,9 @@ info_dict = {
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("resume/", include("resume.urls")),
-    path("blog/", include("blog.urls")),
+    url(r"^resume/", include("resume.urls")),
+    url("", include("blog.urls")),
+    
 ]
 
 urlpatterns += [url(r"^markdownx/", include(markdownx))]
