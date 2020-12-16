@@ -1,0 +1,15 @@
+- name: "Internal Webhook Message Delivery System"
+  date: "2020"
+  details: "Aggregates data from multiple sources and delivers live messages to Slack and Chime webhooks
+            in a digestible format in order to react or make informative decisions quickly. 
+            Built on Linux, Bash, Python, Amazon DynamoDB, Slack and Chime"
+
+- name: "Developer Blog"
+  date: "2020"
+  details: "Designed a Developer Blog to share my learnings and growth as a developer.
+            Built using Django, Gunicorn, NGINX, EC2, CloudFront."
+
+- name: "Continuous Delivery Pipeline (CD)"
+  date: "2020"
+  details: "Create a CD Pipeline to automatically apply changes to my personal blog in production when making changes.
+            Used AWS services - CodePipeline and CodeDeploy."
