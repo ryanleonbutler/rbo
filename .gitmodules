@@ -1,0 +1,3 @@
+[submodule "resume_hugo/themes/resume-a4"]
+	path = resume_hugo/themes/resume-a4
+	url = https://gitlab.com/mertbakir/resume-a4

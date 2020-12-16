@@ -133,3 +133,6 @@ dmypy.json
 
 # Mac OS
 .DS_Store
+
+# Django
+migrations/
