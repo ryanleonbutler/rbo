@@ -40,6 +40,7 @@ LD_RUN_PATH=/usr/local/lib make
 LD_RUN_PATH=/usr/local/lib sudo make altinstall
 cd /opt
 sudo rm -rf Python-3.9.0.tgz
+python3.9 -m pip install --upgrade pip
 
 # Test Python 3.9 and latest SQLite
 python3.9 -V >> /home/ec2-user/ec2_bootstrap.log 2>&1
@@ -47,16 +48,15 @@ python3.9 -c "import sqlite3; print(f'SQLite {sqlite3.sqlite_version}')" >> /hom
 
 # Create a directory for the project
 mkdir /home/ec2-user/rbo
+mkdir /home/ec2-user/rbo_backup
 
 # Python venv and pip install requirements.txt
-cd /home/ec2-user/rbo
 python3.9 -m venv /home/ec2-user/rbo/venv
 /home/ec2-user/rbo/venv/bin/pip install -r /home/ec2-user/rbo/requirements.txt
 ```
 
 ## Setup Django
 ```bash
-cd /home/ec2-user/rbo
 /home/ec2-user/rbo/venv/bin/python manage.py migrate
 /home/ec2-user/rbo/venv/bin/python manage.py makemigrations blog
 /home/ec2-user/rbo/venv/bin/python manage.py collectstatic

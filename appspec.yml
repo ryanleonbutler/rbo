@@ -115,10 +115,10 @@ hooks:
     #   runas:
 # During the ValidateService deployment lifecycle event, run the commands 
 #   in the script specified in "location".
-  # ValidateService:
-  #   - location:     
-  #     timeout: 
-  #     runas:
+  ValidateService:
+    - location: scripts/app_verify.sh     
+      timeout: 60
+      runas: ec2-user
   #   - location: 
   #     timeout:
   #     runas:
