@@ -45,20 +45,8 @@ sudo rm -rf Python-3.9.0.tgz
 python3.9 -V >> /home/ec2-user/ec2_bootstrap.log 2>&1
 python3.9 -c "import sqlite3; print(f'SQLite {sqlite3.sqlite_version}')" >> /home/ec2-user/ec2_bootstrap.log
 
-# Generate SSH Key and add to Github
-cd /home/ec2-user
-ssh-keygen -t rsa -b 4096 -C "ryanleonbutler@gmail.com" -f /home/ec2-user/.ssh/id_rsa -q -N ""
-eval "$(ssh-agent -s)" >> /home/ec2-user/ec2_bootstrap.log
-echo -e "Host github.com\n\tIdentityFile /home/ec2-user/.ssh/id_rsa\n\tStrictHostKeyChecking no" > /home/ec2-user/.ssh/config
-chmod go-w /home/ec2-user/.ssh/config
-ssh-add -k ~/.ssh/id_rsa
-ID_RSA_PUB=`cat /home/ec2-user/.ssh/id_rsa.pub`
-GITHUB_TOKEN="9da8d40c9b3d052eef398b3724381bc43f5c0ebd"
-curl -H "Authorization: token ${GITHUB_TOKEN}" --data "{\"title\":\"myblog\",\"key\":\"${ID_RSA_PUB}\"}" https://api.github.com/user/keys
-
-# Clone `rbo` repository
-cd /home/ec2-user
-git clone git@github.com:ryanleonbutler/rbo.git
+# Create a directory for the project
+mkdir /home/ec2-user/rbo
 
 # Python venv and pip install requirements.txt
 cd /home/ec2-user/rbo
