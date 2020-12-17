@@ -80,7 +80,7 @@ hooks:
 #   in the script specified in "location" starting from the root of the 
 #   revision's file bundle.
   ApplicationStop:
-    - location: app_stop.sh
+    - location: scripts/app_stop.sh
       timeout: 10
       runas: root
     # - location: 
@@ -89,8 +89,8 @@ hooks:
 # During the BeforeInstall deployment lifecycle event, run the commands 
 #   in the script specified in "location".
   BeforeInstall:
-    - location: app_before_install.sh
-      timeout: 15
+    - location: scripts/app_before_install.sh
+      timeout: 60
       runas: ec2-user
     # - location: 
     #   timeout:
@@ -98,8 +98,8 @@ hooks:
 # During the AfterInstall deployment lifecycle event, run the commands 
 #   in the script specified in "location".
   AfterInstall:
-    - location: app_install.sh     
-      timeout: 15
+    - location: scripts/app_install.sh     
+      timeout: 60
       runas: ec2-user
     # - location: 
     #   timeout:
@@ -107,7 +107,7 @@ hooks:
 # During the ApplicationStart deployment lifecycle event, run the commands 
 #   in the script specified in "location".
   ApplicationStart:
-    - location: app_start.sh
+    - location: scripts/app_start.sh
       timeout: 10
       runas: root
     # - location: 

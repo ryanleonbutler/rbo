@@ -17,3 +17,6 @@ then
         today=`date "+%Y-%m-%d_%H:%M:%S"`
         cp "$BACKUP_FILE" "$BACKUP_DIR/$today.sqlite3"
 fi
+
+# backup to S3
+/home/ec2-user/rbo/venv/bin/python3 /home/ec2-user/rbo/scripts/dbbackup_to_s3.py
