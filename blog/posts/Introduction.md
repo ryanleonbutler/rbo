@@ -1,3 +1,5 @@
+
+
 For many years now I have been trying to start my own blog. I just never got around to it. My go to excuse to myself was: "I just don't have time. I am too busy juggling family, work and life." The truth is, there is time, you just have to make some time available and cut some time out of other unimportant areas in your life, whilst keeping a balance of course.
 
 When trying to find half an hour to an hour a day, a few days a week, to deploy the blog and write these posts, I actually noticed I have more time available than I initially thought. Don't get me wrong, I love taking a break and just vegging it out on the couch with a good movie, series or sport. In the end, when I counted all of those hours over the course of a few months and a year, it was pretty scary how much time I spent in front of the television or wasting time on other non-essential activities.

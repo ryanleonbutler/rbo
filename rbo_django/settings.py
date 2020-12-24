@@ -148,5 +148,5 @@ else:
 # Markdownx Config
 MARKDOWNX_MEDIA_PATH = datetime.now().strftime('static/markdownx/%Y/%m/%d')
 MARKDOWNX_UPLOAD_MAX_SIZE = 50 * 1024 * 1024
-MARKDOWNX_UPLOAD_CONTENT_TYPES = ['image/jpeg', 'image/png', 'image/svg+xml']
+MARKDOWNX_UPLOAD_CONTENT_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/svg+xml']
 MARKDOWNX_EDITOR_RESIZABLE = True
