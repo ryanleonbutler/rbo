@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 import socket
 from pathlib import Path
+from datetime import datetime
 
 # Get Server HOSTNAME in order to know if stage is DEV or PROD
 STAGE = ""
@@ -143,3 +144,9 @@ else:
         os.path.join(BASE_DIR, "static"),
         '/var/www/static/',
     ]
+
+# Markdownx Config
+MARKDOWNX_MEDIA_PATH = datetime.now().strftime('static/markdownx/%Y/%m/%d')
+MARKDOWNX_UPLOAD_MAX_SIZE = 50 * 1024 * 1024
+MARKDOWNX_UPLOAD_CONTENT_TYPES = ['image/jpeg', 'image/png', 'image/svg+xml']
+MARKDOWNX_EDITOR_RESIZABLE = True
