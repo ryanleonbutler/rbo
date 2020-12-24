@@ -7,7 +7,7 @@
       {% for post in posts %}
       <li class="posts-list-item">
         <a class="posts-list-item-title"
-          href="{% url 'post_detail' post.pk%}">{{ post.title }}</a>
+          href="{% url 'post' post.pk%}">{{ post.title }}</a>
         <span class="posts-list-item-description">
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -5,15 +5,15 @@ from blog.models import Post
 # from .forms import CommentForm
 
 
-def blog_index(request):
+def posts(request):
     posts = Post.objects.all().order_by('-created_on')
     context = {
         "posts": posts,
     }
-    return render(request, "blog_index.html", context)
+    return render(request, "posts.html", context)
 
 
-def blog_category(request, category):
+def categories(request, category):
     posts = Post.objects.filter(
         categories__name__contains=category
     ).order_by(
@@ -23,10 +23,10 @@ def blog_category(request, category):
         "category": category,
         "posts": posts
     }
-    return render(request, "blog_category.html", context)
+    return render(request, "categories.html", context)
 
 
-def blog_detail(request, pk):
+def post(request, pk):
     post = Post.objects.get(pk=pk)
 
     # TODO: Comments
@@ -47,4 +47,4 @@ def blog_detail(request, pk):
         # "form": form, # TODO: Comments
     }
 
-    return render(request, "post_detail.html", context)
+    return render(request, "post.html", context)

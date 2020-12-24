@@ -1,0 +1,25 @@
+{% load i18n %}
+<div class="d-block w-100">
+    <nav>
+        <div class="nav nav-tabs">
+            <a class="nav-item nav-link active" id="{{widget.name}}-write-tab" href="#{{widget.name}}-tab-write"
+               data-toggle="tab" role="tab" aria-controls="write" aria-selected="true">
+                {% trans "Write" %}
+            </a>
+            <a class="nav-item nav-link" id="{{widget.name}}-preview-tab" href="#{{widget.name}}-tab-preview"
+               data-toggle="tab" role="tab" aria-controls="preview" aria-selected="true">
+                {% trans "Preview" %}
+            </a>
+        </div>
+    </nav>
+    <div class="markdownx tab-content" id="{{widget.name}}-tabs">
+        <div class="tab-pane fade show active" id="{{widget.name}}-tab-write" role="tabpanel"
+             aria-labelledby="{{widget.name}}-tab-write">
+            {% include 'django/forms/widgets/textarea.html' %}
+        </div>
+        <div class="tab-pane fade" id="{{widget.name}}-tab-preview" role="tabpanel"
+             aria-labelledby="{{widget.name}}-tab-preview">
+            <div class="markdownx-preview"></div>
+        </div>
+    </div>
+</div>
