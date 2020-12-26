@@ -1,5 +1,5 @@
-{% extends "base.html" %}
-{% block page_content %}
+{% extends "layout.html" %}
+{% block body %}
 <main class="app-container">
   <article>
     <h1>Blog Posts</h1>
@@ -7,7 +7,7 @@
       {% for post in posts %}
       <li class="posts-list-item">
         <a class="posts-list-item-title"
-          href="{% url 'post' post.pk%}">{{ post.title }}</a>
+          href="{% url 'blog:post' post.pk%}">{{ post.title }}</a>
         <span class="posts-list-item-description">
           <svg
             xmlns="http://www.w3.org/2000/svg"
