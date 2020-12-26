@@ -22,7 +22,7 @@ I believe Python found its way into my mind, heart and fingers:
 
 - and of course who can forget those peculiar yet practical and clever ideas contained in the [Zen of Python](https://www.python.org/dev/peps/pep-0020/).
 
-So without further ado, here we go, my first post, well technically my second as this introduction was the first. Please do reach out to me on [Twitter](https://twitter.com/Ryan00609169) or [LinkedIn](https://www.linkedin.com/in/ryanleonbutler/) with your thoughts about my blog or if you just want to talk about Python.
+So without further ado, here we go, my first post, well technically my second as this introduction was the first. Please do reach out to me on [Twitter](https://twitter.com/ryanleonbutler) or [LinkedIn](https://www.linkedin.com/in/ryanleonbutler/) with your thoughts about my blog or if you just want to talk about Python.
 
 Thank you for your time and support, really appreciate it.
 

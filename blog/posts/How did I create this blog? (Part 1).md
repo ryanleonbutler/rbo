@@ -1,4 +1,4 @@
-Welcome to this first part in multi-part series of posts, where I will be walking you through how I deployed this blog. But first, please do reach out to me on [Twitter](https://twitter.com/Ryan00609169) or [LinkedIn](https://www.linkedin.com/in/ryanleonbutler/) with your thoughts about my blog or if you just want to talk about anything related to Python.
+Welcome to this first part in multi-part series of posts, where I will be walking you through how I deployed this blog. But first, please do reach out to me on [Twitter](https://twitter.com/ryanleonbutler) or [LinkedIn](https://www.linkedin.com/in/ryanleonbutler/) with your thoughts about my blog or if you just want to talk about anything related to Python.
 
 # Part 1
 
@@ -16,7 +16,7 @@ In this post I will be guiding you on how to setup a host where you can deploy D
 ## Hosting
 You can choose any hosting provider, I just chose [AWS](https://aws.amazon.com/) and EC2 because of the breadth of services they have to offer as well as the maturity of their products. There is also the obvious [Free Tier](https://aws.amazon.com/free/) offering, which is great for starting out or playing around with their services for free.
 
-* If you also want to use AWS, open a new account here.
+* If you also want to use AWS, open a new account [here](https://portal.aws.amazon.com/billing/signup#/start).
 * Open the EC2 Console and choose the appropriate [Region](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/). I decide to use the [Ireland](https://eu-west-1.console.aws.amazon.com/ec2/v2/home?region=eu-west-1#LaunchInstanceWizard) Region.
 * Next, choose the following [AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html): Amazon Linux 2 AMI (HVM), SSD Volume Type. Again you can technically use any Linux based AMI, but in order to follow along with this guide I recommend you choose the same AMI I used.
 * Choose an appropriate [instance type](https://aws.amazon.com/ec2/instance-types/). I used a t3.micro instance which part of the Free Tier offering.
@@ -52,7 +52,7 @@ sudo make install
 cd /opt
 sudo rm -rf sqlite-autoconf-3340000.tar.gz
 
-# Install Python 3.9
+# Install Python 3.9, which is the latest Python version at the time of this post
 sudo wget https://www.python.org/ftp/python/3.9.0/Python-3.9.0.tgz
 sudo tar xzf Python-3.9.0.tgz
 cd Python-3.9.0 
@@ -74,7 +74,7 @@ source venv/bin/activate
 (venv) deactivate
 ```
 ```
-# Contents of requirements.txt
+# Contents of my requirements.txt and the versions I used at the time of this post
 asgiref==3.3.1
 boto3==1.16.38
 botocore==1.19.38
@@ -94,8 +94,10 @@ urllib3==1.26.2
 ```
 
 ## [Django](https://www.djangoproject.com/)
+Django is one of the most popular web frameworks for Python. It is mature, stable and approachable, therefore my first choice for developing web apps using Python.
+
+We will start a new Django project, create a "blog" app, create a super user and the default SQLite database.
 ```
-# Start a new Django project, create a blog application, super user and the database.
 cd ~/myproject
 source venv/bin/activate
 (venv) django-admin startproject myproject .
@@ -106,6 +108,7 @@ source venv/bin/activate
 ```
 
 ## [Gunicorn](https://gunicorn.org/)
+We will be using Gunicorn as a HTTP server for our Django web app.
 ```
 # Test if Gunicorn is working correctly.
 cd ~/myproject
@@ -142,7 +145,9 @@ sudo systemctl status gunicorn
 ```
 
 ## [NGINX](https://nginx.org/)
-Edit the default NGINX configuration file.
+We will be using NGINX as a reverse proxy to serve requests to our Gunicorn HTTP server. 
+
+First off, edit the default NGINX configuration file.
 ```
 sudo nano /etc/nginx/nginx.conf
 ```
@@ -190,10 +195,10 @@ sudo nginx -t
 ```
 
 ## Testing
-With both NGINX and your Gunicorn service running you should be able to test your Django website locally and publicly(if you already configured your public DNS record to resolve to your EC2 instance's elastic IP).
+With both NGINX and your Gunicorn service running you should be able to test your Django website locally and publicly (if you already configured your public DNS record to resolve to your EC2 instance's elastic IP).
 
 ```
-curl -vL https://example.com
+curl -vL http://127.0.0.0
 
 HTTP/2 200
 content-type: text/html; charset=utf-8
@@ -206,7 +211,9 @@ x-content-type-options: nosniff
 referrer-policy: same-origin
 ```
 
+![](/static/markdownx/2020/12/24/ca8921fb-5261-4c84-9cef-c385a88e5b5f.png)
 
+This wraps up Part 1 of my multi-series posts where we will be deploying a blog similar to the one I have. In the next part we will be diving deeper into Django and how I managed to add markdown support for easily writing posts. Till then, keep safe.
 
 *Best Regards*
 
