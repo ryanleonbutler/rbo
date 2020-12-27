@@ -4,10 +4,10 @@
   <article>
     <h1>Blog Posts</h1>
     <ul class="posts-list">
-      {% for post in posts %}
+      {% for post in post_list %}
       <li class="posts-list-item">
         <a class="posts-list-item-title"
-          href="{% url 'blog:post' post.pk%}">{{ post.title }}</a>
+          href="{{ post.get_absolute_url }}">{{ post.title }}</a>
         <span class="posts-list-item-description">
           <svg
             xmlns="http://www.w3.org/2000/svg"
