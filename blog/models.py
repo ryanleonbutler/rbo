@@ -4,6 +4,9 @@ from django.utils.text import slugify
 from markdownx.models import MarkdownxField
 
 
+STATUS = ((0, "Draft"), (1, "Publish"))
+
+
 class Category(models.Model):
     name = models.CharField(max_length=20)
 
@@ -23,6 +26,7 @@ class Post(models.Model):
     body = MarkdownxField()
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
+    status = models.IntegerField(choices=STATUS, default=0)
     categories = models.ManyToManyField("Category", related_name="posts")
     read_time = models.IntegerField(default=0)
     like_counter = models.IntegerField(default=0)
@@ -40,6 +44,6 @@ class Post(models.Model):
 
     class Meta:
         """Meta definition for Post."""
-
+        ordering = ['-created_on']
         verbose_name = "Post"
         verbose_name_plural = "Posts"

@@ -1,6 +1,7 @@
+from django.db import models
 from django.contrib import admin
 
-from markdownx.admin import MarkdownxModelAdmin
+from markdownx.widgets import AdminMarkdownxWidget
 
 from blog.models import Post, Category
 
@@ -9,5 +10,12 @@ class CategoryAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(Post, MarkdownxModelAdmin)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'slug',
+                    'status', 'created_on', 'last_modified')
+    formfield_overrides = {
+        models.TextField: {'widget': AdminMarkdownxWidget},
+    }
+
+admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
