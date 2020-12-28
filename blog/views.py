@@ -3,7 +3,7 @@ from blog.models import Post
 
 
 class PostListView(ListView):
-    model = Post
+    queryset = Post.objects.filter(status=1).order_by('-created_on')
     context_object_name = "post_list"
     template_name = "posts.html"
 
