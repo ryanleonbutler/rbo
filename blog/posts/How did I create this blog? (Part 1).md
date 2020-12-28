@@ -17,9 +17,9 @@ In this post I will be guiding you on how to setup a host where you can deploy D
 You can choose any hosting provider, I just chose [AWS](https://aws.amazon.com/) and EC2 because of the breadth of services they have to offer as well as the maturity of their products. There is also the obvious [Free Tier](https://aws.amazon.com/free/) offering, which is great for starting out or playing around with their services for free.
 
 * If you also want to use AWS, open a new account [here](https://portal.aws.amazon.com/billing/signup#/start).
-* Open the EC2 Console and choose the appropriate [Region](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/). I decide to use the [Ireland](https://eu-west-1.console.aws.amazon.com/ec2/v2/home?region=eu-west-1#LaunchInstanceWizard) Region.
+* Open the EC2 Console and choose the appropriate [Region](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/). I decided to use the [Ireland](https://eu-west-1.console.aws.amazon.com/ec2/v2/home?region=eu-west-1#LaunchInstanceWizard) Region.
 * Next, choose the following [AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html): Amazon Linux 2 AMI (HVM), SSD Volume Type. Again you can technically use any Linux based AMI, but in order to follow along with this guide I recommend you choose the same AMI I used.
-* Choose an appropriate [instance type](https://aws.amazon.com/ec2/instance-types/). I used a t3.micro instance which part of the Free Tier offering.
+* Choose an appropriate [instance type](https://aws.amazon.com/ec2/instance-types/). I used a t3.micro instance which is part of the Free Tier offering.
 * Associate an [Elastic IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html). This will provide you with a static public IP, which you can use in your public DNS record for your custom domain name in order to route to your website.
 
 ### EC2 Host configuration
