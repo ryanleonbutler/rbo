@@ -1,4 +1,4 @@
-
+![](/static/markdownx/2020/12/24/c5867b16-17b9-4dfd-a262-92eafecda0e3.png)
 
 For many years now I have been trying to start my own blog. I just never got around to it. My go to excuse to myself was: "I just don't have time. I am too busy juggling family, work and life." The truth is, there is time, you just have to make some time available and cut some time out of other unimportant areas in your life, whilst keeping a balance of course.
 
@@ -26,7 +26,7 @@ So without further ado, here we go, my first post, well technically my second as
 
 Thank you for your time and support, really appreciate it.
 
-### [How did I create this blog? (Part 1)](https://ryanbutler.online/3/)
+### [How did I create this blog? (Part 1)](https://ryanbutler.online/how-did-i-create-this-blog-part-1)
 
 *Best Regards*
 
