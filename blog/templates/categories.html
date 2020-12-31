@@ -30,7 +30,7 @@
             <line x1="8" y1="2" x2="8" y2="6"></line>
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg>
-          {{ post.last_modified.date }}
+          {{ post.publish_date.date }}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -49,6 +49,12 @@
           </svg>
           {{ post.read_time }} min read
         </span>
+        <small>
+          Categories:&nbsp; {% for category in post.categories.all %}
+          <a href="{% url 'blog_category' category.name %}">
+            {{ category.name }} </a
+          >&nbsp; {% endfor %}
+        </small>
       </li>
       {% endfor %}
     </ul>
