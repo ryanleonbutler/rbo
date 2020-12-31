@@ -28,7 +28,7 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    publish_date = models.DateTimeField(default=timezone.now)
+    publish_date = models.DateTimeField(default=timezone.now, null=True, blank=True)
     categories = models.ManyToManyField("Category", related_name="posts")
     read_time = models.IntegerField(default=0)
     like_counter = models.IntegerField(default=0)
