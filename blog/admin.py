@@ -11,11 +11,13 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug',
-                    'status', 'created_on', 'last_modified')
+    list_display = ("title", "slug", "status", "created_on", "last_modified")
+    list_filter = ("status",)
+    search_fields = ["title", "body"]
     formfield_overrides = {
-        models.TextField: {'widget': AdminMarkdownxWidget},
+        models.TextField: {"widget": AdminMarkdownxWidget},
     }
+
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)

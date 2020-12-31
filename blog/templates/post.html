@@ -1,6 +1,4 @@
-{% extends "layout.html" %}
-{% load markdown_extras %}
-{% block body %}
+{% extends "layout.html" %} {% load markdown_extras %} {% block body %}
 <div>
   <main class="app-container">
     <article class="post">
@@ -26,7 +24,7 @@
               <line x1="8" y1="2" x2="8" y2="6"></line>
               <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
-            {{ post_detail.last_modified.date }}
+            {{ post_detail.publish_date.date }}
           </div>
           <div>
             <svg
@@ -50,8 +48,7 @@
         </div>
       </header>
       <div class="post-content">
-        {{ form.media }}
-        {{ post_detail.body | markdown | safe }}
+        {{ form.media }} {{ post_detail.body | markdown | safe }}
       </div>
       <!-- <div>
           <button onclick="like_changer()" id="like-button" type="submit" style="background-color: Transparent;

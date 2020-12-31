@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.text import slugify
 from markdownx.models import MarkdownxField
 
@@ -15,6 +16,7 @@ class Category(models.Model):
 
     class Meta:
         """Meta definition for Category."""
+
         verbose_name = "Category"
         verbose_name_plural = "Categories"
 
@@ -26,6 +28,7 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    publish_date = models.DateTimeField(default=timezone.now)
     categories = models.ManyToManyField("Category", related_name="posts")
     read_time = models.IntegerField(default=0)
     like_counter = models.IntegerField(default=0)
@@ -43,6 +46,7 @@ class Post(models.Model):
 
     class Meta:
         """Meta definition for Post."""
-        ordering = ['-created_on']
+
+        ordering = ["-publish_date"]
         verbose_name = "Post"
         verbose_name_plural = "Posts"
