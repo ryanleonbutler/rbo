@@ -15,37 +15,6 @@ from pathlib import Path
 from datetime import datetime
 
 
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "formatters": {
-        "verbose": {
-            "format": "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-            "datefmt": "%d/%b/%Y %H:%M:%S",
-        },
-        "simple": {"format": "%(levelname)s %(message)s"},
-    },
-    "handlers": {
-        "file": {
-            "level": "DEBUG",
-            "class": "logging.FileHandler",
-            "filename": "mysite.log",
-            "formatter": "verbose",
-        },
-    },
-    "loggers": {
-        "django": {
-            "handlers": ["file"],
-            "propagate": True,
-            "level": "DEBUG",
-        },
-        "blog": {
-            "handlers": ["file"],
-            "level": "DEBUG",
-        },
-    },
-}
-
 # Get Server HOSTNAME in order to know if stage is DEV or PROD
 STAGE = ""
 HOSTNAME = socket.gethostname()
