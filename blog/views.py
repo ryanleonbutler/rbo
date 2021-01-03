@@ -2,6 +2,7 @@ from django.views.generic import ListView, DetailView
 from django.shortcuts import render
 from blog.models import Post
 from tracking_analyzer.models import Tracker
+from hitcount.views import HitCountDetailView
 
 
 class PostListView(ListView):
@@ -19,8 +20,9 @@ class PostListView(ListView):
         return obj
 
 
-class PostDetailView(DetailView):
+class PostDetailView(HitCountDetailView):
     model = Post
+    count_hit = True
     context_object_name = "post_detail"
     template_name = "post.html"
 
