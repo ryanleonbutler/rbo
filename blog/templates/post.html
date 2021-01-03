@@ -4,7 +4,7 @@
   <main class="app-container">
     <article class="post">
       <header class="post-header">
-        <h1 class="post-title">{{ post_detail.title }}</h1>
+        <h1 class="post-title">{{ object.title }}</h1>
         <div class="post-meta">
           <div>
             <svg
@@ -25,7 +25,7 @@
               <line x1="8" y1="2" x2="8" y2="6"></line>
               <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
-            {{ post_detail.publish_date.date }}
+            {{ object.publish_date.date }}
           </div>
           <div>
             <svg
@@ -44,7 +44,7 @@
               <circle cx="12" cy="12" r="10"></circle>
               <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
-            {{post_detail.read_time}} min read
+            {{object.read_time}} min read
           </div>
           <div>
             Categories:&nbsp; {% for category in post_detail.categories.all %}
@@ -73,7 +73,7 @@
         </div>
       </header>
       <div class="post-content">
-        {{ form.media }} {{ post_detail.body | markdown | safe }}
+        {{ form.media }} {{ object.body | markdown | safe }}
       </div>
       <div class="post-footer"></div>
     </article>
