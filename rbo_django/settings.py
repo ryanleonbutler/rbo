@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'django_user_agents',
+    'tracking_analyzer',
 
     'markdownx',
     'blog',
@@ -68,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_user_agents.middleware.UserAgentMiddleware',
 ]
 
 ROOT_URLCONF = 'rbo_django.urls'
@@ -159,3 +162,5 @@ MARKDOWNX_MEDIA_PATH = datetime.now().strftime('static/markdownx/%Y/%m/%d')
 MARKDOWNX_UPLOAD_MAX_SIZE = 50 * 1024 * 1024
 MARKDOWNX_UPLOAD_CONTENT_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/svg+xml']
 MARKDOWNX_EDITOR_RESIZABLE = True
+
+GEOIP_PATH = os.path.join(BASE_DIR, "geoip")
