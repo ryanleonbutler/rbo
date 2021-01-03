@@ -15,7 +15,7 @@ class PostDetailView(DetailView):
     template_name = "post.html"
 
 
-def blog_category(request, category):
+def post_category(request, category):
     posts = Post.objects.filter(
         categories__name__contains=category
     ).order_by(
@@ -26,3 +26,11 @@ def blog_category(request, category):
         "posts": posts
     }
     return render(request, "categories.html", context)
+
+
+def page_about(request):
+    return render(request, "about.html")
+
+
+def page_contact(request):
+    return render(request, "contact.html")
