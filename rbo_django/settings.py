@@ -16,20 +16,32 @@ from datetime import datetime
 
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'debug.log',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+            "datefmt": "%d/%b/%Y %H:%M:%S",
+        },
+        "simple": {"format": "%(levelname)s %(message)s"},
+    },
+    "handlers": {
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "filename": "mysite.log",
+            "formatter": "verbose",
         },
     },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
+    "loggers": {
+        "django": {
+            "handlers": ["file"],
+            "propagate": True,
+            "level": "DEBUG",
+        },
+        "blog": {
+            "handlers": ["file"],
+            "level": "DEBUG",
         },
     },
 }
@@ -50,7 +62,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'q%pncb_nrjdstrq&+5^amqsg67=1r!36o(b1m7=z2cuy=q3kan'
+SECRET_KEY = "q%pncb_nrjdstrq&+5^amqsg67=1r!36o(b1m7=z2cuy=q3kan"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if STAGE == "PROD":
@@ -58,75 +70,82 @@ if STAGE == "PROD":
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['www.ryanbutler.online', 'ryanbutler.online', '127.0.0.1', '0.0.0.0', 'origin.ryanbutler.online', 'ec2-54-229-224-188.eu-west-1.compute.amazonaws.com', '54.229.224.188']
+ALLOWED_HOSTS = [
+    "www.ryanbutler.online",
+    "ryanbutler.online",
+    "127.0.0.1",
+    "0.0.0.0",
+    "origin.ryanbutler.online",
+    "ec2-54-229-224-188.eu-west-1.compute.amazonaws.com",
+    "54.229.224.188",
+]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.sites',
-    'django.contrib.sitemaps',
-    'django_user_agents',
-    'tracking_analyzer',
-
-    'markdownx',
-    'blog',
-    'resume',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django.contrib.sites",
+    "django.contrib.sitemaps",
+    "django_user_agents",
+    "tracking_analyzer",
+    "markdownx",
+    "blog",
+    "resume",
 ]
 
 SITE_ID = 1
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_user_agents.middleware.UserAgentMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_user_agents.middleware.UserAgentMiddleware",
 ]
 
-ROOT_URLCONF = 'rbo_django.urls'
+ROOT_URLCONF = "rbo_django.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [
             "rbo_django/templates/",
-            ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        ],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'rbo_django.wsgi.application'
+WSGI_APPLICATION = "rbo_django.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blog',
-        'USER': 'ryan',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "blog",
+        "USER": "ryan",
+        "PASSWORD": "",
+        "HOST": "localhost",
+        "PORT": "",
     }
 }
 
@@ -136,16 +155,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -153,9 +172,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -168,19 +187,24 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 if STAGE == "PROD":
-    STATIC_URL = '/static/'
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+    STATIC_URL = "/static/"
+    STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 else:
-    STATIC_URL = '/static/'
+    STATIC_URL = "/static/"
     STATICFILES_DIRS = [
         os.path.join(BASE_DIR, "static"),
-        '/var/www/static/',
+        "/var/www/static/",
     ]
 
 # Markdownx Config
-MARKDOWNX_MEDIA_PATH = datetime.now().strftime('static/markdownx/%Y/%m/%d')
+MARKDOWNX_MEDIA_PATH = datetime.now().strftime("static/markdownx/%Y/%m/%d")
 MARKDOWNX_UPLOAD_MAX_SIZE = 50 * 1024 * 1024
-MARKDOWNX_UPLOAD_CONTENT_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/svg+xml']
+MARKDOWNX_UPLOAD_CONTENT_TYPES = [
+    "image/jpeg",
+    "image/jpg",
+    "image/png",
+    "image/svg+xml",
+]
 MARKDOWNX_EDITOR_RESIZABLE = True
 
 GEOIP_PATH = os.path.join(BASE_DIR, "geoip")
