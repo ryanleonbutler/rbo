@@ -33,7 +33,13 @@ urlpatterns = [
     path(
         "sitemap.xml",
         sitemap,  # new
-        {"sitemaps": {"blog": GenericSitemap(info_dict, priority=0.6, protocol="https")}},
+        {
+            "sitemaps": {
+                "blog": GenericSitemap(
+                    info_dict, priority=0.9, changefreq="weekly", protocol="https"
+                )
+            }
+        },
         name="django.contrib.sitemaps.views.sitemap",
     ),
 ]
