@@ -140,3 +140,4 @@ static/markdownx
 static/blog
 blog_hugo/
 resume_hugo/
+*.mmdb
