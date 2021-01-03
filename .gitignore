@@ -141,3 +141,4 @@ static/blog
 blog_hugo/
 resume_hugo/
 *.mmdb
+GeoLite2*/
