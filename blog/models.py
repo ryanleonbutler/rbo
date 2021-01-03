@@ -2,6 +2,8 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
+from django.contrib.contenttypes.fields import GenericRelation
+from hitcount.models import HitCountMixin, HitCount
 from markdownx.models import MarkdownxField
 
 
@@ -32,6 +34,11 @@ class Post(models.Model):
     categories = models.ManyToManyField("Category", related_name="posts")
     read_time = models.IntegerField(default=0)
     like_counter = models.IntegerField(default=0)
+    hit_count_generic = GenericRelation(
+        HitCount,
+        object_id_field="object_p",
+        related_query_name="hit_count_generic_relation",
+    )
 
     def get_absolute_url(self):
         return reverse("post", kwargs={"slug": self.slug})
