@@ -211,7 +211,7 @@ x-content-type-options: nosniff
 referrer-policy: same-origin
 ```
 
-![](/static/markdownx/2020/12/24/ca8921fb-5261-4c84-9cef-c385a88e5b5f.png)
+![](/static/markdownx/2020/12/24/django-default-ca8921fb-5261-4c84-9cef-c385a88e5b5f.png)
 
 This wraps up Part 1 of my multi-series posts where we will be deploying a blog similar to the one I have. In the next part we will be diving deeper into Django and how I managed to add markdown support for easily writing posts. Till then, keep safe.
 
