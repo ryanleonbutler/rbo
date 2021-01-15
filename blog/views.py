@@ -1,12 +1,13 @@
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView
 from django.shortcuts import render
+from django.db.models import Q
 from blog.models import Post
 from tracking_analyzer.models import Tracker
 from hitcount.views import HitCountDetailView
 
 
 class PostListView(ListView):
-    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    queryset = Post.objects.filter(status=1).order_by("-created_on")
     context_object_name = "post_list"
     template_name = "posts.html"
 
@@ -37,15 +38,10 @@ class PostDetailView(HitCountDetailView):
 
 
 def post_category(request, category):
-    posts = Post.objects.filter(
-        categories__name__contains=category
-    ).order_by(
-        '-created_on'
+    posts = Post.objects.filter(categories__name__contains=category).order_by(
+        "-created_on"
     )
-    context = {
-        "category": category,
-        "posts": posts
-    }
+    context = {"category": category, "posts": posts}
     return render(request, "categories.html", context)
 
 
@@ -55,3 +51,19 @@ def page_about(request):
 
 def page_contact(request):
     return render(request, "contact.html")
+
+
+def post_search(request):
+    if request.method == "GET":
+        query = request.GET.get("q")
+
+        if query is not None:
+            queryset = Q(title__icontains=query) | Q(body__icontains=query)
+            search_results = Post.objects.filter(queryset).distinct()
+            context = {"search_results": search_results}
+            return render(request, "search_results.html", context)
+        else:
+            return render(request, "search_results.html")
+
+    else:
+        return render(request, "search_results.html")
