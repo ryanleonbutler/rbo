@@ -78,6 +78,8 @@ Refer to the below steps for the editing the JSON file method. In the JSON file 
     "terminal.integrated.fontFamily": "Fira Code"
     "terminal.integrated.fontSize": 15,
     "files.autoSave": "afterDelay",
+    "python.formatting.provider": "black",
+    "python.linting.flake8Path": "flake8",
     "files.watcherExclude": {
         "**/build": true,
         "**/.pytest_cache": true,
