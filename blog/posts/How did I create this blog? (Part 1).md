@@ -3,17 +3,24 @@ Welcome to this first part in multi-part series of posts, where I will be walkin
 # Part 1
 
 # Table of Contents
-1. [Introduction](#Introduction)
-2. [Hosting](#Hosting)
-3. [Django](#Django)
-4. [Gunicorn](#Gunicorn)
-5. [NGINX](#NGINX)
-6. [Testing](#Testing)
+1. [Introduction](#intro)
+2. [Hosting](#hosting)
+3. [Django](#django)
+4. [Gunicorn](#gunicorn)
+5. [NGINX](#nginx)
+6. [Testing](#testing)
 
-## Introduction
+
+<div id='intro' markdown='1'></div>
+
+## 1. Introduction
 In this post I will be guiding you on how to setup a host where you can deploy Django, Gunicorn and NGINX in order to serve your website or blog. Note that I will be focusing on configuring the host, installing Django, Gunicorn and NGINX in order to serve the default Django new project website. I will be diving deeper into configuring and deploying the blog app using Django in Part 2 of this series.
 
-## Hosting
+</div>
+
+<div id='hosting' markdown='1'></div>
+
+## 2. Hosting
 You can choose any hosting provider, I just chose [AWS](https://aws.amazon.com/) and EC2 because of the breadth of services they have to offer as well as the maturity of their products. There is also the obvious [Free Tier](https://aws.amazon.com/free/) offering, which is great for starting out or playing around with their services for free.
 
 * If you also want to use AWS, open a new account [here](https://portal.aws.amazon.com/billing/signup#/start).
@@ -93,7 +100,11 @@ sqlparse==0.4.1
 urllib3==1.26.2
 ```
 
-## [Django](https://www.djangoproject.com/)
+</div>
+
+<div id='django' markdown='1'></div>
+
+## 3. [Django](https://www.djangoproject.com/)
 Django is one of the most popular web frameworks for Python. It is mature, stable and approachable, therefore my first choice for developing web apps using Python.
 
 We will start a new Django project, create a "blog" app, create a super user and the default SQLite database.
@@ -107,7 +118,11 @@ source venv/bin/activate
 (venv) deactivate
 ```
 
-## [Gunicorn](https://gunicorn.org/)
+</div>
+
+<div id='gunicorn' markdown='1'></div>
+
+## 4. [Gunicorn](https://gunicorn.org/)
 We will be using Gunicorn as a HTTP server for our Django web app.
 ```
 # Test if Gunicorn is working correctly.
@@ -144,7 +159,11 @@ sudo systemctl start gunicorn
 sudo systemctl status gunicorn
 ```
 
-## [NGINX](https://nginx.org/)
+</div>
+
+<div id='nginx' markdown='1'></div>
+
+## 5. [NGINX](https://nginx.org/)
 We will be using NGINX as a reverse proxy to serve requests to our Gunicorn HTTP server. 
 
 First off, edit the default NGINX configuration file.
@@ -194,7 +213,11 @@ sudo systemctl restart nginx
 sudo nginx -t
 ```
 
-## Testing
+</div>
+
+<div id='testing' markdown='1'></div>
+
+## 6. Testing
 With both NGINX and your Gunicorn service running you should be able to test your Django website locally and publicly (if you already configured your public DNS record to resolve to your EC2 instance's elastic IP).
 
 ```
@@ -212,6 +235,10 @@ referrer-policy: same-origin
 ```
 
 ![](/static/markdownx/2020/12/24/django-default-ca8921fb-5261-4c84-9cef-c385a88e5b5f.png)
+
+</div>
+
+## Last words
 
 This wraps up Part 1 of my multi-series posts where we will be deploying a blog similar to the one I have. In the next part we will be diving deeper into Django and how I managed to add markdown support for easily writing posts. Till then, keep safe.
 

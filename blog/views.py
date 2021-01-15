@@ -7,7 +7,7 @@ from hitcount.views import HitCountDetailView
 
 
 class PostListView(ListView):
-    queryset = Post.objects.filter(status=1).order_by("-created_on")
+    queryset = Post.objects.filter(status=1).order_by("-publish_date")
     context_object_name = "post_list"
     template_name = "posts.html"
 
