@@ -176,8 +176,5 @@ MARKDOWNX_UPLOAD_CONTENT_TYPES = [
     "image/svg+xml",
 ]
 MARKDOWNX_EDITOR_RESIZABLE = True
-MARKDOWNX_IMAGE_MAX_SIZE = {
-    'quality': 100
-}
 
 GEOIP_PATH = os.path.join(BASE_DIR, "geoip")

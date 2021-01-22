@@ -1,6 +1,7 @@
 from django.views.generic import ListView
 from django.shortcuts import render
 from django.db.models import Q
+from django.http import HttpResponse
 from blog.models import Post
 from tracking_analyzer.models import Tracker
 from hitcount.views import HitCountDetailView
@@ -67,3 +68,15 @@ def post_search(request):
 
     else:
         return render(request, "search_results.html")
+
+
+def yandex(request):
+    html = """
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        </head>
+        <body>Verification: fd81df80c0db7580</body>
+    </html>
+    """
+    return HttpResponse(html)
