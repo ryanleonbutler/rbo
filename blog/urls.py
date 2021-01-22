@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.urls import path
 from blog.views import PostDetailView, PostListView
+from django.views.generic import TemplateView
 from . import views
 
 
@@ -12,4 +13,5 @@ urlpatterns = [
     path("<slug:slug>", PostDetailView.as_view(), name="post"),
     path("<category>/", views.post_category, name="post_category"),
     url("yandex_fd81df80c0db7580.html", views.yandex, name="yandex"),
+    url(r'^robots\.txt$', TemplateView.as_view(template_name="robots.txt", content_type='text/plain'))
 ]

@@ -1,0 +1,15 @@
+User-agent: *
+Disallow: /*.pdf
+Disallow: /*.ppt
+Disallow: /*.doc
+Disallow: /*.xls
+Disallow: /*.txt
+
+User-agent: *
+Allow: /about/
+Allow: /contact/
+Disallow: /admin/
+Crawl-delay: 3
+
+Host: https://ryanbutler.online
+Sitemap: https://ryanbutler.online/sitemap.xml
