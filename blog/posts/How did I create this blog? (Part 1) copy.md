@@ -1,4 +1,4 @@
-<img align="center" src="/static/markdownx/2021/01/15/blogging-part1.jpg_5492f4cf-c58f-461b-82d9-f1f913a08201.jpg" alt="myvscode" width="1920"/>
+<img align="center" src="/static/markdownx/2021/01/15/blogging-part1.jpg_5492f4cf-c58f-461b-82d9-f1f913a08201.jpg" alt="blogging-part1" width="1920"/>
 
 Welcome to this first part in multi-part series of posts, where I will be walking you through how I deployed this blog. But first, please do reach out to me on [Twitter](https://twitter.com/ryanleonbutler) or [LinkedIn](https://www.linkedin.com/in/ryanleonbutler/) with your thoughts about my blog or if you just want to talk about anything related to Python.
 
@@ -214,7 +214,7 @@ sudo nginx -t
 With both NGINX and your Gunicorn service running you should be able to test your Django website locally and publicly (if you already configured your public DNS record to resolve to your EC2 instance's elastic IP).
 
 ```
-curl -vL http://127.0.0.0
+curl -vL http://127.0.0.1
 
 HTTP/2 200
 content-type: text/html; charset=utf-8

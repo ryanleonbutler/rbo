@@ -11,4 +11,5 @@ urlpatterns = [
     url("about/", views.page_about, name="page"),
     path("<slug:slug>", PostDetailView.as_view(), name="post"),
     path("<category>/", views.post_category, name="post_category"),
+    url("yandex_fd81df80c0db7580.html", views.yandex, name="yandex"),
 ]

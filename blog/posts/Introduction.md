@@ -1,4 +1,4 @@
-![](/static/markdownx/2020/12/24/c5867b16-17b9-4dfd-a262-92eafecda0e3.png)
+![](/static/markdownx/2020/12/24/backlit-keyboard-c5867b16-17b9-4dfd-a262-92eafecda0e3.png)
 
 For many years now I have been trying to start my own blog. I just never got around to it. My go to excuse to myself was: "I just don't have time. I am too busy juggling family, work and life." The truth is, there is time, you just have to make some time available and cut some time out of other unimportant areas in your life, whilst keeping a balance of course.
 
