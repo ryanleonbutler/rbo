@@ -136,7 +136,6 @@ dmypy.json
 
 # Django
 migrations/
-static/markdownx
 static/blog
 blog_hugo/
 resume_hugo/
