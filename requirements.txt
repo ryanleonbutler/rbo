@@ -26,8 +26,8 @@ jmespath==0.10.0
 Markdown==3.3.3
 maxminddb==2.0.3
 multidict==5.1.0
-mysqlclient==2.0.2
-Pillow==8.0.1
+mysqlclient
+Pillow
 python-dateutil==2.8.1
 pytz==2020.4
 PyYAML==5.3.1
