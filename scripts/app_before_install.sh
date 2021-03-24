@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BACKUP_FILE="/var/lib/mysql/blog"
-mkdir /home/ec2-user/rbo_backup
+mkdir -p /home/ec2-user/rbo_backup
 chown ec2-user -R /home/ec2-user/rbo_backup
 BACKUP_DIR="/home/ec2-user/rbo_backup"
 
