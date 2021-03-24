@@ -47,6 +47,7 @@ ALLOWED_HOSTS = [
     "origin.ryanbutler.online",
     "ec2-54-229-224-188.eu-west-1.compute.amazonaws.com",
     "54.229.224.188",
+    "192.168.0.11",
 ]
 
 
