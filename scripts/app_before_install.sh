@@ -15,7 +15,7 @@ then
 fi
 
 last_backup=$(ls -t "$BACKUP_DIR" | head -n 1)
-if [ ! "$last_backup" ] || ! cmp -s "$BACKUP_FILE" "$BACKUP_DIR/$last_backup"
+if [ ! "$last_backup" ] || ! cmp -s "$BACKUP_DIR"/"$BACKUP_FILE" "$BACKUP_DIR"/"$last_backup"
 then
         today=`date "+%Y-%m-%d_%H:%M:%S"`
         cp "$BACKUP_FILE" "$BACKUP_DIR/$today.dump"
