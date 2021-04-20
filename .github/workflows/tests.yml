@@ -1,0 +1,43 @@
+name: Tests
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'blog/*'
+      - 'resume/*'
+      - 'rbo_django/*'
+      - 'scripts/*'
+      - 'tests/*'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'blog/*'
+      - 'resume/*'
+      - 'rbo_django/*'
+      - 'scripts/*'
+      - 'tests/*'
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    name: pytest
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9.4"
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r requirements.txt
+          python3 -m pip install pytest
+      - name: Run pytest
+        run: |
+          python3 -m pytest -ra -v

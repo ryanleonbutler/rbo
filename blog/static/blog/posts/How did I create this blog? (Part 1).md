@@ -32,16 +32,16 @@ You can choose any hosting provider, I just chose [AWS](https://aws.amazon.com/)
 
 ### EC2 Host configuration
 For the EC2 Host configuration, you can run the below commands once you have a [SSH connection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html) to your instance or you can use it as a [start-up script](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the EC2 launch wizard.
-```
+```bash
 # SSH to your new instance - I configured an alias which is super handy.
 # In my ~/.zshrc file
 
 alias myblog="ssh <username>@<elastic-ip> -i ~/path/to/private_key.pem"
 ```
-```
+```bash
 myblog
 ```
-```
+```bash
 #! /bin/bash
 
 # Update system and install dependencies
@@ -81,7 +81,7 @@ source venv/bin/activate
 (venv) pip install -r requirements.txt
 (venv) deactivate
 ```
-```
+```text
 # Contents of my requirements.txt and the versions I used at the time of this post
 asgiref==3.3.1
 boto3==1.16.38
@@ -107,7 +107,7 @@ urllib3==1.26.2
 Django is one of the most popular web frameworks for Python. It is mature, stable and approachable, therefore my first choice for developing web apps using Python.
 
 We will start a new Django project, create a "blog" app, create a super user and the default SQLite database.
-```
+```bash
 cd ~/myproject
 source venv/bin/activate
 (venv) django-admin startproject myproject .
@@ -121,7 +121,7 @@ source venv/bin/activate
 
 ## 4. [Gunicorn](https://gunicorn.org/)
 We will be using Gunicorn as a HTTP server for our Django web app.
-```
+```bash
 # Test if Gunicorn is working correctly.
 cd ~/myproject
 source venv/bin/activate
@@ -132,7 +132,7 @@ source venv/bin/activate
 # Create a new service file for Gunicorn to run as a service on your host.
 sudo nano /etc/systemd/system/gunicorn.service
 ```
-```
+```text
 # Contents of /etc/systemd/system/gunicorn.service.
 
 [Unit]
@@ -149,7 +149,7 @@ ExecStart=/home/ec2-user/myproject/venv/bin/gunicorn --access-logfile - --worker
 WantedBy=multi-user.target
 ```
 
-```
+```bash
 # Enable and start the service.
 sudo systemctl enable gunicorn.service
 sudo systemctl start gunicorn
@@ -162,10 +162,10 @@ sudo systemctl status gunicorn
 We will be using NGINX as a reverse proxy to serve requests to our Gunicorn HTTP server. 
 
 First off, edit the default NGINX configuration file.
-```
+```bash
 sudo nano /etc/nginx/nginx.conf
 ```
-```
+```text
 # Truncated contents of /etc/nginx/nginx.conf.
 # Add/Edit the below to the config file and comment out the default server config.
 
@@ -190,10 +190,10 @@ server {
 ```
 
 Next we need to configure NGINX's reverse proxy parameters.
-```
+```bash
 sudo nano /etc/nginx/proxy_params
 ```
-```
+```text
 # Contents of /etc/nginx/proxy_params
 
 proxy_set_header Host $http_host;
@@ -203,7 +203,7 @@ proxy_set_header X-Forwarded-Proto $scheme;
 ```
 
 Restart NGINX and test.
-```
+```bash
 sudo systemctl restart nginx
 sudo nginx -t
 ```
@@ -213,7 +213,7 @@ sudo nginx -t
 ## 6. Testing
 With both NGINX and your Gunicorn service running you should be able to test your Django website locally and publicly (if you already configured your public DNS record to resolve to your EC2 instance's elastic IP).
 
-```
+```bash
 curl -vL http://127.0.0.0
 
 HTTP/2 200
