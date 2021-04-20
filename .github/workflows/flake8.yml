@@ -1,0 +1,42 @@
+name: Flake8
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'blog/*'
+      - 'resume/*'
+      - 'rbo_django/*'
+      - 'scripts/*'
+      - 'tests/*'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'blog/*'
+      - 'resume/*'
+      - 'rbo_django/*'
+      - 'scripts/*'
+      - 'tests/*'
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    name: flake8
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9.4"
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install flake8
+      - name: Run flake8
+        run: |
+          python3 -m flake8 --max-line-length=119

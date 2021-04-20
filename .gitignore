@@ -139,7 +139,15 @@ dmypy.json
 
 # Django
 migrations/
-static/blog
+static/blog/
+static/admin/
+static/dicts/
+static/hitcount/
+static/markdownx/admin/
+static/markdownx/js/
+static/martor/
+static/plugins/
+static/resume/
 blog_hugo/
 resume_hugo/
 *.mmdb
