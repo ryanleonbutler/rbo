@@ -7,14 +7,29 @@ from tracking_analyzer.models import Tracker
 from hitcount.views import HitCountDetailView
 
 
-class PostListView(ListView):
+class IndexListView(ListView):
     queryset = Post.objects.filter(status=1).order_by("-publish_date")
     context_object_name = "post_list"
-    template_name = "posts.html"
+    template_name = "index.html"
 
     def get_object(self, queryset=None):
         # Retrieve the blog post just using `get_object` functionality.
-        obj = super(PostListView, self).get_object(queryset)
+        obj = super(IndexListView, self).get_object(queryset)
+
+        # Track the users access to the blog by post!
+        Tracker.objects.create_from_request(self.request, obj)
+
+        return obj
+
+
+class BlogListView(ListView):
+    queryset = Post.objects.filter(status=1).order_by("-publish_date")
+    context_object_name = "post_list"
+    template_name = "blog.html"
+
+    def get_object(self, queryset=None):
+        # Retrieve the blog post just using `get_object` functionality.
+        obj = super(BlogListView, self).get_object(queryset)
 
         # Track the users access to the blog by post!
         Tracker.objects.create_from_request(self.request, obj)
@@ -26,7 +41,7 @@ class PostDetailView(HitCountDetailView):
     model = Post
     count_hit = True
     context_object_name = "post_detail"
-    template_name = "post.html"
+    template_name = "postv2.html"
 
     def get_object(self, queryset=None):
         # Retrieve the blog post just using `get_object` functionality.
@@ -43,7 +58,7 @@ def post_category(request, category):
         "-created_on"
     )
     context = {"category": category, "posts": posts}
-    return render(request, "categories.html", context)
+    return render(request, "tags.html", context)
 
 
 def page_about(request):
