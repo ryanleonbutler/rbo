@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Developer blog covering all things Python related">
+    <meta name="Author" content="Ryan Butler">
+    <meta name="title" content="Ryan Butler Online | RBO">
+    <meta name="keywords" content="python developer coding programming blog tutorials">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="RBO">
+    <meta name="twitter:description" content="Developer blog covering all things Python related">
+    <meta property="og:title" content="RBO">
+    <meta property="og:description" content="Developer blog covering all things Python related"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://ryanbutler.online"/>
+    <link rel="shortcut icon" type="image/png" href="{% static 'blog/favicon/favicon.ico' %}">
+    <link rel="stylesheet" href={% static 'blog/css/syntax.css' %}>
+    <link rel="stylesheet" href={% static 'blog/css/style.css' %}>
+    <script src="{% static 'blog/js/1b7478c139.js' %}" crossorigin="anonymous"></script>
+    <title>rbo</title>
+</head>
+<body>
+<aside id="sidenav">
+    <header>
+        <a href=https://ryanbutler.online><img src="{% static 'blog/images/avatar.jpg' %}" alt="avatar"></a>
+        <a id="branding" href=https://ryanbutler.online>rbo</a>
+    </header>
+    <nav>
+        <a href="/">
+            <i class="fas fa-home fa-sm"></i>
+            <span>home</span>
+        </a>
+        <a href="/blog/">
+            <i class="fas fa-keyboard fa-ms"></i>
+            <span>blog</span>
+        </a>
+{#        <a href="/tags">#}
+{#            <i class="fas fa-tags fa-ms"></i>#}
+{#            <span>tags</span>#}
+{#        </a>#}
+        <a href="https://github.com/ryanleonbutler" target="_blank">
+            <i class="fab fa-github fa-ms"></i>
+            <span>github</span>
+        </a>
+        <a href="/contact/">
+            <i class="far fa-envelope"></i>
+            <span>contact</span>
+        </a>
+        <a href="/about/">
+            <i class="fa fa-info"></i>
+            <span>about</span>
+        </a>
+    </nav>
+</aside>
+
+{% block body %}{% endblock %}
+
+{#<footer>#}
+{#    <div class="footer-content">#}
+{#        <p class="copyright meta">Copyright © 2021, Ryan Butler; all rights reserved.</p>#}
+{#    </div>#}
+{#</footer>#}
+<script src={% static 'blog/js/navbutton.js' %}></script>
+</html>
