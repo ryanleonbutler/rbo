@@ -45,53 +45,9 @@ blog
 ```
 
 Let's take a look at a basic `views.py` file with a good mix of different types of views:
-```python
-from django.views.generic import ListView, DetailView
-from django.shortcuts import render
-from blog.models import Post
 
-class PostListView(ListView):
-    """Class based View to list all posts on home page"""
-    queryset = Post.objects.filter(status=1).order_by("-publish_date")
-    context_object_name = "post_list"
-    template_name = "posts.html"
+<script src="https://gist.github.com/ryanleonbutler/bcc02c3e89de5a2a3cb67c14585d28a4.js"></script>
 
-    def get_object(self, queryset=None):
-        # Retrieve the blog post just using `get_object` functionality.
-        obj = super(PostListView, self).get_object(queryset)
-        return obj
-
-class PostDetailView(DetailView):
-    """Class based View to render specific post"""
-    model = Post
-    context_object_name = "post_detail"
-    template_name = "post.html"
-
-    def get_object(self, queryset=None):
-        # Retrieve the blog post just using `get_object` functionality.
-        obj = super(PostDetailView, self).get_object(queryset)
-
-        return obj
-
-
-def post_category(request, category):
-    """View function to filter posts by category"""
-    posts = Post.objects.filter(categories__name__contains=category).order_by(
-        "-created_on"
-    )
-    context = {"category": category, "posts": posts}
-    return render(request, "categories.html", context)
-
-
-def page_about(request):
-    """Basic View function for about page"""
-    return render(request, "about.html")
-
-
-def page_contact(request):
-    """Basic View function for contact page"""
-    return render(request, "contact.html")
-```
 Don't be intimidated by the above code snipped, it is actually pretty straight forward. Django comes with some awesome built-in generic views to assist in generating list and detail views of objects from your database. I used class-based views for the first two view functions and thereafter just my basic view functions to render the HTML. The class-based views are really simple to use. You only need an object(s)(which is a model or a list of objects from a query), pass in a context variable and reference an HTML template. The two functions, named `get_object` in each class-based view, is used to query the database and return an object(s). 
 
 See reference to the Django documentation [here](https://docs.djangoproject.com/en/3.2/topics/class-based-views/generic-display/), should you require more information on class-based views.
@@ -108,21 +64,8 @@ Let's first breakdown a URL and each part of a URL to better understand which pa
 
 Now that we know what the path part is, lets look at my `urls.py` file below:
 
-```python
-from django.conf.urls import url
-from django.urls import path
-from blog.views import PostDetailView, PostListView
-from blog import views
+<script src="https://gist.github.com/ryanleonbutler/6de8bc241f3f00cc6ae95f7e964fe5b4.js"></script>
 
-
-urlpatterns = [
-    path("", PostListView.as_view(), name="posts"),
-    url("contact/", views.page_contact, name="contact"),
-    url("about/", views.page_about, name="page"),
-    path("<slug:slug>", PostDetailView.as_view(), name="post"),
-    path("<category>/", views.post_category, name="post_category"),
-]
-```
 As you can see we can use two types of functions, `path` or `url`. You would use path to satisfy a specific path pattern for example `""`, which is the first path, and is a wild card which will catch all the URL paths that does not match any of the other patterns below it. You would use a URL if you know the specific path that you would want to route to, for example my `contact/` and `about/` pages will never change and has a static path.
 
 After the path part, the next argument is the class or function that is imported from your `views.py` file. Then you also assign a `name` variable.
