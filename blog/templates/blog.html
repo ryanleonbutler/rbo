@@ -15,6 +15,8 @@
                             {% for category in post.categories.all %}
                                 <a href="{% url 'post_category' category.name %}">{{ category.name }}</a>
                             {% endfor %}
+                            <br>
+                            <p> {{ post.preview }}...</p>
                         </div>
                     </div>
                 {% endfor %}
