@@ -27,6 +27,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(default="", max_length=200, editable=False)
     body = MarkdownxField()
+    preview = models.TextField(max_length=255, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)

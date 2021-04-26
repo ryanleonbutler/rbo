@@ -27,8 +27,8 @@ info_dict = {
 }
 
 urlpatterns = [
-    path("admin", admin.site.urls),
-    path("resume", include("resume.urls")),
+    path("admin/", admin.site.urls),
+    path("resume/", include("resume.urls")),
     path(
         "sitemap.xml",
         sitemap,  # new

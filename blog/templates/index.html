@@ -14,6 +14,8 @@
                             {% for category in post.categories.all %}
                                 <a href="{% url 'post_category' category.name %}">{{ category.name }}</a>
                             {% endfor %}
+                            <br>
+                            <p> {{ post.preview }}...</p>
                         </div>
                     </div>
                 {% endfor %}
@@ -22,9 +24,14 @@
                 <h3><div class="section-title">github repos</div></h3>
                     <div class="list-item">
                         {{ form.media }}
-                        {{ "[![Black Star Card](https://github-readme-stats.vercel.app/api/pin/?username=ryanleonbutler&repo=rbo&theme=dark)](https://github.com/ryanleonbutler/rbo)[![Black Star Card](https://github-readme-stats.vercel.app/api/pin/?username=ryanleonbutler&repo=black_star&theme=dark)](https://github.com/ryanleonbutler/black_star)   [![getitdone Card](https://github-readme-stats.vercel.app/api/pin/?username=ryanleonbutler&repo=getitdone&theme=dark)](https://github.com/ryanleonbutler/getitdone)" | markdown | safe }}
+                        {{ "[![Black Star Card](https://github-readme-stats.vercel.app/api/pin/?username=ryanleonbutler&repo=rbo&theme=dark)](https://github.com/ryanleonbutler/rbo)     [![Black Star Card](https://github-readme-stats.vercel.app/api/pin/?username=ryanleonbutler&repo=black_star&theme=dark)](https://github.com/ryanleonbutler/black_star)     [![getitdone Card](https://github-readme-stats.vercel.app/api/pin/?username=ryanleonbutler&repo=getitdone&theme=dark)](https://github.com/ryanleonbutler/getitdone)" | markdown | safe }}
                     </div>
             </div>
         </div>
     </main>
+    <footer>
+        <div class="footer-content">
+            <p class="copyright meta">Copyright © 2021, Ryan Butler; all rights reserved.</p>
+        </div>
+    </footer>
 {% endblock %}

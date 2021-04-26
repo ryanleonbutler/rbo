@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Developer blog covering all things Python related">
     <meta name="Author" content="Ryan Butler">
-    <meta name="title" content="Ryan Butler Online | RBO">
+    <meta name="title" content="rbo | developer blog">
     <meta name="keywords" content="python developer coding programming blog tutorials">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="RBO">
@@ -25,9 +25,9 @@
 <body>
 <aside id="sidenav">
     <header>
-        <a href=https://ryanbutler.online><img src="{% static 'blog/images/avatar.jpg' %}" alt="avatar"></a>
+        <a href=https://ryanbutler.online><img src="{% static 'blog/images/avatar.webp' %}" alt="avatar"></a>
         <h1><a id="branding" href=https://ryanbutler.online>rbo</a></h1>
-        <h3>python developer blog and tutorials</h3>
+        <h3 id="sub-branding">python developer blog and tutorials</h3>
     </header>
     <nav>
         <a href="/">
@@ -38,36 +38,32 @@
             <i class="fas fa-keyboard fa-ms"></i>
             <span>blog</span>
         </a>
-{#        <a href="/tags">#}
-{#            <i class="fas fa-tags fa-ms"></i>#}
-{#            <span>tags</span>#}
-{#        </a>#}
         <a href="https://github.com/ryanleonbutler" target="_blank">
             <i class="fab fa-github fa-ms"></i>
             <span>github</span>
         </a>
-        <a href="/contact">
+        <a href="/contact/">
             <i class="far fa-envelope"></i>
             <span>contact</span>
         </a>
-        <a href="/about">
+        <a href="/about/">
             <i class="fa fa-info"></i>
             <span>about</span>
         </a>
-        <a href="https://www.buymeacoffee.com/ryanonline" target="_blank">
-            <i class="fa fa-coffee" aria-hidden="true"></i>
-            <span>Buy me coffee!</span>
-        </a>
+{#        <a href="https://www.buymeacoffee.com/ryanonline" target="_blank">#}
+{#            <i class="fa fa-coffee" aria-hidden="true"></i>#}
+{#            <span>Buy me coffee!</span>#}
+{#        </a>#}
     </nav>
 </aside>
 
 {% block body %}{% endblock %}
 
-{#<footer>#}
-{#    <div class="footer-content">#}
-{#        <p class="copyright meta">Copyright © 2021, Ryan Butler; all rights reserved.</p>#}
-{#    </div>#}
-{#</footer>#}
-{#<script src={% static 'blog/js/navbutton.js' %}></script>#}
+<div class="bmc-button">
+            <a href="https://www.buymeacoffee.com/ryanonline"><img src="{% static 'blog/images/bmc-logo.webp' %}" alt="buy_me_coffee" id="bmcrocker"></a>
+</div>
+
+<script src={% static 'blog/js/navbutton.js' %}></script>
+
 </body>
 </html>
