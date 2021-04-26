@@ -21,6 +21,13 @@
                 {% endfor %}
             </div>
             <div class="section">
+                <h3><div class="section-title">github stats</div></h3>
+                    <div class="list-item">
+                        {{ form.media }}
+                        {{ "![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=ryanleonbutler&count_private=true&hide=stars,prs,issues,contribs&theme=dark)" | markdown | safe }}
+                    </div>
+            </div>
+            <div class="section">
                 <h3><div class="section-title">github repos</div></h3>
                     <div class="list-item">
                         {{ form.media }}
@@ -29,9 +36,9 @@
             </div>
         </div>
     </main>
-    <footer>
-        <div class="footer-content">
-            <p class="copyright meta">Copyright © 2021, Ryan Butler; all rights reserved.</p>
-        </div>
-    </footer>
+{#    <footer>#}
+{#        <div class="footer-content">#}
+{#            <p class="copyright meta">Copyright © 2021, Ryan Butler; all rights reserved.</p>#}
+{#        </div>#}
+{#    </footer>#}
 {% endblock %}
