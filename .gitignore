@@ -152,3 +152,6 @@ blog_hugo/
 resume_hugo/
 *.mmdb
 GeoLite2*/
+
+# Hugo
+*hugo*

@@ -1,10 +1,10 @@
 # rbo - Deployment Manual
 
 ## Launch EC2 Instance
-* EC2 Console (Ireland): https://eu-west-1.console.aws.amazon.com/ec2/v2/home?region=eu-west-1#LaunchInstanceWizard:
-* AMI: Amazon Linux 2 AMI (HVM), SSD Volume Type
-* Instance Type: t2.micro
-* Elastic IP to associate: 54.229.224.188
+* [AWS Console](https://console.aws.amazon.com/)
+* AMI -> Amazon Linux 2 AMI (HVM), SSD Volume Type
+* Choose Instance Type
+* Elastic IP to associate: xxx.xxx.xxx.xxx
 
 ## EC2 Host configuration
 
