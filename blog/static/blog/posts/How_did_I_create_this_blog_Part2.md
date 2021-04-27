@@ -90,60 +90,15 @@ The Project and Blog boilerplate is now ready to be changed.
 In essence a [Django Model](https://docs.djangoproject.com/en/3.1/topics/db/models/) represents the structure of your database and is the only source of information which represents your data stored for your Django App. Models contain all the fields and behaviors for the App's data. In general, a model maps to a single database table.
 
 See the below example which will create a table with 3 columns("id", "dog_name", "dog_breed"):
-```
-from django.db import models
 
-class Dog(models.Model):
-    dog_name = models.CharField(max_length=30)
-    dog_breed = models.CharField(max_length=30)
-```
+<script src="https://gist.github.com/ryanleonbutler/d377540cc6b7e6fa258a46a5ac074f84.js"></script>
+
 Note, the "id" field is implicitly created and automatically set as the Primary Key. This is one of my favorite features of working with Django. It abstracts all of the database semantics and nuances of writing your own SQL queries to create tables and instead lets you focus on modeling, creating and representing your data. Later when querying data, Django also exposes a [database API](https://docs.djangoproject.com/en/3.1/topics/db/queries/), which lets you easily create, retrieve, update and delete objects stored in the database.
 
 Now that we know what models are and their purpose, lets create the model for our Blog App:
-```
-# ~/myproject/blog/models.py
 
-from django.db import models
-from django.utils import timezone
+<script src="https://gist.github.com/ryanleonbutler/6a7cda393f3a36409df80b2261d9bbac.js"></script>
 
-
-STATUS = ((0, "Draft"), (1, "Publish"))
-
-
-class Category(models.Model):
-    name = models.CharField(max_length=20)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        """Meta definition for Category."""
-
-        verbose_name = "Category"
-        verbose_name_plural = "Categories"
-
-
-class Post(models.Model):
-    title = models.CharField(max_length=255)
-    body = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
-    last_modified = models.DateTimeField(auto_now=True)
-    status = models.IntegerField(choices=STATUS, default=0)
-    publish_date = models.DateTimeField(default=timezone.now, null=True, blank=True)
-    categories = models.ManyToManyField("Category", related_name="posts")
-    read_time = models.IntegerField(default=0)
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        """Meta definition for Post."""
-
-        ordering = ["-publish_date"]
-        verbose_name = "Post"
-        verbose_name_plural = "Posts"
-
-```
 Let's unpack the above. We created two tables:
 
 * Category; and 
@@ -201,27 +156,8 @@ You can now browse to http://127.0.0.1:8000/ to view the default Django project 
 
 Once you have logged into the Admin view, you will notice that only the "AUTHENTICATION AND AUTHORIZATION" section with Users and Groups is available. This is because we have not registered our new models in the Admin view. In order to add your models to the Admin view to create and manage posts and categories you need add the below to your admin.py view file located in the blog directory:
 
-```
-# ~/myproject/blog/admin.py
+<script src="https://gist.github.com/ryanleonbutler/59b08a8cbe7c2aa6f1f6ad22345d547f.js"></script>
 
-from django.db import models
-from django.contrib import admin
-from blog.models import Post, Category
-
-
-class CategoryAdmin(admin.ModelAdmin):
-    pass
-
-
-class PostAdmin(admin.ModelAdmin):
-    list_display = ("title", "status", "created_on", "last_modified")
-    list_filter = ("status",)
-    search_fields = ["title", "body"]
-
-
-admin.site.register(Post, PostAdmin)
-admin.site.register(Category, CategoryAdmin)
-```
 Once you applied the above, run the Django server again and browse to the Admin view and login with your super user. You should see the "BLOG" section with both Post and Category models listed.
 
 Now you can browse to each model to start creating categories and posts and they will be stored in your projects database.
