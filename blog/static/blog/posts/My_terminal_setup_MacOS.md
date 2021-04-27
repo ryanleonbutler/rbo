@@ -6,8 +6,8 @@ It also does not hurt if your terminal looks great when you boasting your termin
 
 
 # Table of Contents
-1. [Install Iterm2](#install_iterm2)
-2. [Customize Iterm2](#custom_iterm2)
+1. [Install iTerm2](#install_iterm2)
+2. [Customize iTerm2](#custom_iterm2)
 3. [Install Oh My Zsh](#install_ohmyzsh)
 4. [Customize Oh My Zsh](#custom_ohmyzsh)
 5. [Other zsh configuration](#other_zsh)
@@ -19,7 +19,7 @@ It also does not hurt if your terminal looks great when you boasting your termin
 
 [iTerm2](https://iterm2.com/), is arguably the most popular, customizable and great looking terminal window. Therefore my first choice for laying the foundation of a great terminal experience.
 
-Install iTerm2 terminal using [Homebrew](https://brew.sh/) or download the installer from Iterm's website [here](https://iterm2.com/).
+Install iTerm2 terminal using [Homebrew](https://brew.sh/) or download the installer from iTerm2's website [here](https://iterm2.com/).
 
 ```
 brew install --cask iterm2
@@ -108,20 +108,18 @@ alias gc='git checkout'
 I use the [AWS CLI](https://aws.amazon.com/cli/) a lot and without the below variable exported to the current terminal session, the API responses are returned to less, which I personally dislike. The below variable export will print it out to STD OUT in the terminal window only.
 
 ```
-echo "# AWS CLI /export AWS_PAGER="" >> ~/.zshrc
+export AWS_PAGER=""
 ```
 
 ### Pyenv
 I use [pyenv](https://github.com/pyenv/pyenv) to manage my Python versions and virtual environment. In order for it to work correctly you will require the below in your .zshrc configuration file as well:
 ```
-echo /
-'# Pyenv /
-export PYENV_ROOT="$HOME/.pyenv" /
-export PATH="$PYENV_ROOT/bin:$PATH" /
-if command -v pyenv 1>/dev/null 2>&1; then /
-  eval "$(pyenv init -)" /
-fi /
-eval "$(pyenv virtualenv-init -)"'
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+eval "$(pyenv virtualenv-init -)"
 ```
 
 ## Last words

@@ -1,5 +1,3 @@
-<img align="center" src="/static/markdownx/2021/04/20/views_code.png_1a277b54-5166-411a-ba26-04ed0c6fd190.png" alt="views_code"/>
-
 This is Part 3 of this series of how I created this blog using Django. It has been a long time since my last post, been pretty busy at work and at home with the kids, but finally got some time to focus and draft this post. This is the last tutorial in this three part series. I will however include some features, tips and tricks in my future posts, which I did not touch on in this series.
 
 In this post we will be looking at creating some views, managing the URL paths, creating some fancy HTML templates and finally adding some Markdown support.  Writing your posts in Markdown lets you focus on your content creation, without worrying about by adding HTML and CSS to your post.

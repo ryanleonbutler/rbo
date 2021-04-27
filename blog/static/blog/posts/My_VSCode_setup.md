@@ -179,7 +179,7 @@ This is arguably VSCode's best feature, the ability to install extensions and cu
 
 * WakaTime
     * Metrics, insights, and time tracking automatically generated from your programming activity.
-    * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=WakaTime.vscode-wakatime):
+    * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=WakaTime.vscode-wakatime)
 
 ### Theme and icons
 * Dracula Official
@@ -188,7 +188,7 @@ This is arguably VSCode's best feature, the ability to install extensions and cu
 
 * vscode-icons
     * Icons for Visual Studio Code.
-    * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons):
+    * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
 
 ## Last words
 There are still so many changes you can make and extensions you can install for your VSCode editor we just scratched the surface on this post. The above implementation is what I deemed as the essentials to improve your editing experience at the time of writing.

@@ -1,4 +1,4 @@
-<img align="center" src="/static/markdownx/" alt="" width="1920"/>
+<img align="center" src="/static/markdownx/2021/02/20/coding-monitor-laptop.jpg_9d384059-5af7-4a4a-b7e3-3c80c5f67fc2.jpg" alt="" />
 
 Welcome to Part 2 of the "How did I create this blog?" series. It has been a while since my last post, been really busy at work and home. Finally found some time to crank out this post and it feels great to be back and continuing with this series.
 
@@ -29,7 +29,7 @@ Great, that is pretty clear. Let's move on.
 
 When you installed Django, your system will not only have access to the [django-admin](https://docs.djangoProject.com/en/3.1/ref/django-admin/) commands, but you will also have a "admin.py" file in the root of the Django Project. We are going to use the "admin.py" file to create the Blog App. These are basically Django’s command-line utilities for administrative tasks of your Django Project.   
 
-```bash
+```
 # Ensure your are current working directory is in the root of the Django Project and
 # verify your virtual environment is activated
 cd ~/myproject
@@ -56,12 +56,12 @@ source venv/bin/activate
 ```
 
 Now create the Blog App.
-```bash
+```
 (venv) python admin.py startapp blog
 ```
 
 This should now be the contents of your Django Project directory excluding the venv directory.
-```bash
+```
 (venv) tree -I venv -L 2
 .
 ├── blog
@@ -89,8 +89,8 @@ The Project and Blog boilerplate is now ready to be changed.
 ## 2. Creating Models
 In essence a [Django Model](https://docs.djangoproject.com/en/3.1/topics/db/models/) represents the structure of your database and is the only source of information which represents your data stored for your Django App. Models contain all the fields and behaviors for the App's data. In general, a model maps to a single database table.
 
-See the below example which will create a table with 3 columns("id", "dog_name", "last_name"):
-```python
+See the below example which will create a table with 3 columns("id", "dog_name", "dog_breed"):
+```
 from django.db import models
 
 class Dog(models.Model):
@@ -100,7 +100,7 @@ class Dog(models.Model):
 Note, the "id" field is implicitly created and automatically set as the Primary Key. This is one of my favorite features of working with Django. It abstracts all of the database semantics and nuances of writing your own SQL queries to create tables and instead lets you focus on modeling, creating and representing your data. Later when querying data, Django also exposes a [database API](https://docs.djangoproject.com/en/3.1/topics/db/queries/), which lets you easily create, retrieve, update and delete objects stored in the database.
 
 Now that we know what models are and their purpose, lets create the model for our Blog App:
-```python
+```
 # ~/myproject/blog/models.py
 
 from django.db import models
@@ -144,11 +144,13 @@ class Post(models.Model):
         verbose_name_plural = "Posts"
 
 ```
-Let's unpack the above. We created two tables: 
+Let's unpack the above. We created two tables:
+
 * Category; and 
 * Post.
 
 In the Post table, there are eight fields.
+
 * title
 * body
 * created_on
@@ -159,6 +161,7 @@ In the Post table, there are eight fields.
 * read_time
 
 For the Category table we only have one field:
+
 * name
 
 Next, we will configure the Admin view, where we can manage our Posts and Categories for our Blog.
@@ -172,7 +175,7 @@ For example in our Blog App, the administrator or author will draft new posts an
 
 In order to create a superuser, we can use, yes you guessed it, the manage.py file and administrative commands. Run the below command and complete the relevant information in the prompts to create a superuser.
 
-```bash
+```
 (venv) python manage.py createsuperuser
 Username (leave blank to use 'user'): admin
 Email address: admin@test.com
@@ -182,7 +185,7 @@ Superuser created successfully.
 ```
 
 At this point you can run your Django project, with the below command:
-```bash
+```
 (venv) python manage.py runserver
 
 Watching for file changes with StatReloader
@@ -198,7 +201,7 @@ You can now browse to http://127.0.0.1:8000/ to view the default Django project 
 
 Once you have logged into the Admin view, you will notice that only the "AUTHENTICATION AND AUTHORIZATION" section with Users and Groups is available. This is because we have not registered our new models in the Admin view. In order to add your models to the Admin view to create and manage posts and categories you need add the below to your admin.py view file located in the blog directory:
 
-```python
+```
 # ~/myproject/blog/admin.py
 
 from django.db import models
@@ -223,7 +226,7 @@ Once you applied the above, run the Django server again and browse to the Admin 
 
 Now you can browse to each model to start creating categories and posts and they will be stored in your projects database.
 
-![](/static/markdownx/2021/02/20/admin_view.png_55a504c8-b850-47c4-906f-8df147173102.png)
+<img align="center" src="/static/markdownx/2021/02/20/admin_view.png_55a504c8-b850-47c4-906f-8df147173102.png" alt="" />
 
 ## Last words
 

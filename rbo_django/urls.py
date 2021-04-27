@@ -15,32 +15,32 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.sitemaps import GenericSitemap
-from django.contrib.sitemaps.views import sitemap
+# from django.contrib.sitemaps import GenericSitemap
+# from django.contrib.sitemaps.views import sitemap
 from markdownx import urls as markdownx
 
 
 from blog.models import Post
 
-info_dict = {
-    "queryset": Post.objects.all(),
-}
+# info_dict = {
+#     "queryset": Post.objects.all(),
+# }
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("resume/", include("resume.urls")),
-    path(
-        "sitemap.xml",
-        sitemap,  # new
-        {
-            "sitemaps": {
-                "blog": GenericSitemap(
-                    info_dict, priority=0.9, changefreq="weekly", protocol="https"
-                )
-            }
-        },
-        name="django.contrib.sitemaps.views.sitemap",
-    ),
+    # path(
+    #     "sitemap.xml",
+    #     sitemap,  # new
+    #     {
+    #         "sitemaps": {
+    #             "blog": GenericSitemap(
+    #                 info_dict, priority=0.9, changefreq="weekly", protocol="https"
+    #             )
+    #         }
+    #     },
+    #     name="django.contrib.sitemaps.views.sitemap",
+    # ),
     path("", include("blog.urls")),
 ]
 

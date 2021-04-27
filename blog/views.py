@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from blog.models import Post
 from tracking_analyzer.models import Tracker
 from hitcount.views import HitCountDetailView
+from blog.utils import get_post_content_from_file
 
 
 class IndexListView(ListView):
@@ -46,11 +47,28 @@ class PostDetailView(HitCountDetailView):
     def get_object(self, queryset=None):
         # Retrieve the blog post just using `get_object` functionality.
         obj = super(PostDetailView, self).get_object(queryset)
+        print(obj.post_path)
+        content = get_post_content_from_file(obj.post_path)
+        print(content)
 
         # Track the users access to the blog by post!
         Tracker.objects.create_from_request(self.request, obj)
 
         return obj
+
+
+def post_content(request, slug):
+    post = Post.objects.get(slug=slug)
+    content = get_post_content_from_file(post.post_path)
+
+    context = {
+        'post': post,
+        'content': content
+    }
+
+    Tracker.objects.create_from_request(request, post)
+
+    return render(request, 'postv2.html', context)
 
 
 def post_category(request, category):

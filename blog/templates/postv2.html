@@ -4,7 +4,7 @@
     <div class="content">
         <h1 id="title">{{ object.title }}</h1>
         <div class="post-content">
-          {{ form.media }} {{ object.body | markdown | safe }}
+          {{ form.media }} {{ content | markdown | safe }}
         </div>
     </div>
 </main>
