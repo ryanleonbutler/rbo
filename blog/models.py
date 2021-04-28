@@ -59,3 +59,38 @@ class Post(models.Model):
         ordering = ["-publish_date"]
         verbose_name = "Post"
         verbose_name_plural = "Posts"
+
+
+class Nibble(models.Model):
+    title = models.CharField(max_length=255)
+    slug = models.SlugField(default="", max_length=200, editable=False)
+    body = MarkdownxField(editable=False, blank=True)
+    nibble_path = models.CharField(max_length=255, default="", blank=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+    publish_date = models.DateTimeField(default=timezone.now, null=True, blank=True)
+    like_counter = models.IntegerField(default=0)
+    hit_count_generic = GenericRelation(
+        HitCount,
+        object_id_field="object_p",
+        related_query_name="hit_count_generic_relation",
+    )
+
+    def get_absolute_url(self):
+        return reverse("nibble", kwargs={"slug": self.slug})
+
+    def save(self, *args, **kwargs):
+        value = self.title
+        self.slug = slugify(value, allow_unicode=True)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        """Meta definition for a Nibble."""
+
+        ordering = ["-publish_date"]
+        verbose_name = "Nibble"
+        verbose_name_plural = "Nibbles"

@@ -1,5 +1,5 @@
 from django.contrib.sitemaps import Sitemap
-from blog.models import Post
+from blog.models import Post, Nibble
 from django.urls import reverse
 
 
@@ -10,6 +10,21 @@ class PostSitemap(Sitemap):
 
     def items(self):
         return Post.objects.filter(status=1)
+
+    def lastmod(self, obj):
+        return obj.publish_date
+
+    def location(self, obj):
+        return f"{obj.slug}"
+
+
+class NibbleSitemap(Sitemap):
+    changefreq = "weekly"
+    priority = 0.8
+    protocol = 'https'
+
+    def items(self):
+        return Nibble.objects.filter(status=1)
 
     def lastmod(self, obj):
         return obj.publish_date
