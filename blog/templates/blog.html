@@ -4,7 +4,7 @@
         <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
         <div class="content">
             <div class="section">
-                <div class="section-title"><h1>blog</h1></div>
+                <div class="section-title"><h2>blog</h2></div>
                 {% for post in post_list %}
                     <div class="list-item">
                         <a class="entry-title" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
