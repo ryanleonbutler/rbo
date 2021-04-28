@@ -1,12 +1,13 @@
 from django.contrib.sitemaps import Sitemap
-from blog.models import Post, Nibble
 from django.urls import reverse
+
+from blog.models import Nibble, Post
 
 
 class PostSitemap(Sitemap):
     changefreq = "weekly"
     priority = 0.8
-    protocol = 'https'
+    protocol = "https"
 
     def items(self):
         return Post.objects.filter(status=1)
@@ -21,7 +22,7 @@ class PostSitemap(Sitemap):
 class NibbleSitemap(Sitemap):
     changefreq = "weekly"
     priority = 0.8
-    protocol = 'https'
+    protocol = "https"
 
     def items(self):
         return Nibble.objects.filter(status=1)
@@ -36,10 +37,10 @@ class NibbleSitemap(Sitemap):
 class StaticSitemap(Sitemap):
     changefreq = "yearly"
     priority = 0.8
-    protocol = 'https'
+    protocol = "https"
 
     def items(self):
-        return ['home', 'contact', "about"]
+        return ["home", "contact", "about"]
 
     def location(self, item):
         return reverse(item)

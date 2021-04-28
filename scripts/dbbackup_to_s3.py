@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from pathlib import Path
 from bisect import bisect_left
+from pathlib import Path
 
 import boto3
 
@@ -40,9 +40,7 @@ class S3Sync:
             index = bisect_left(object_keys, path)
             if index == object_keys_length:
                 # If path not found in object_keys, it has to be sync-ed.
-                self.s3.upload_file(
-                    str(Path(source).joinpath(path)), Bucket=dest, Key=path
-                )
+                self.s3.upload_file(str(Path(source).joinpath(path)), Bucket=dest, Key=path)
 
     def list_bucket_objects(self, bucket: str) -> list[dict]:
         """

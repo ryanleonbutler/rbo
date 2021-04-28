@@ -11,9 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 import socket
-from pathlib import Path
 from datetime import datetime
-
+from pathlib import Path
 
 # Get Server HOSTNAME in order to know if stage is DEV or PROD
 STAGE = ""

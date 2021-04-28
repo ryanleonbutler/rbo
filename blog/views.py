@@ -1,10 +1,11 @@
-from django.views.generic import ListView
-from django.shortcuts import render
 from django.db.models import Q
 from django.http import HttpResponse
-from blog.models import Post, Nibble
-from tracking_analyzer.models import Tracker
+from django.shortcuts import render
+from django.views.generic import ListView
 from hitcount.views import HitCountDetailView
+from tracking_analyzer.models import Tracker
+
+from blog.models import Nibble, Post
 from blog.utils import get_post_content_from_file
 
 
@@ -76,34 +77,26 @@ def post_content(request, slug):
     post = Post.objects.get(slug=slug)
     content = get_post_content_from_file(post.post_path)
 
-    context = {
-        'post': post,
-        'content': content
-    }
+    context = {"post": post, "content": content}
 
     Tracker.objects.create_from_request(request, post)
 
-    return render(request, 'postv2.html', context)
+    return render(request, "postv2.html", context)
 
 
 def nibble_content(request, slug):
     nibble = Nibble.objects.get(slug=slug)
     content = get_post_content_from_file(nibble.post_path)
 
-    context = {
-        'post': nibble,
-        'content': content
-    }
+    context = {"post": nibble, "content": content}
 
     Tracker.objects.create_from_request(request, nibble)
 
-    return render(request, 'nibble.html', context)
+    return render(request, "nibble.html", context)
 
 
 def post_category(request, category):
-    posts = Post.objects.filter(categories__name__contains=category).order_by(
-        "-created_on"
-    )
+    posts = Post.objects.filter(categories__name__contains=category).order_by("-created_on")
     context = {"category": category, "posts": posts}
     return render(request, "tags.html", context)
 

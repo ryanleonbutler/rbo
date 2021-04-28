@@ -1,9 +1,8 @@
-from django.db import models
 from django.contrib import admin
-
+from django.db import models
 from markdownx.widgets import AdminMarkdownxWidget
 
-from blog.models import Post, Category, Nibble
+from blog.models import Category, Nibble, Post
 
 
 class CategoryAdmin(admin.ModelAdmin):

@@ -1,11 +1,10 @@
+from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
-from django.contrib.contenttypes.fields import GenericRelation
-from hitcount.models import HitCountMixin, HitCount
+from hitcount.models import HitCount, HitCountMixin
 from markdownx.models import MarkdownxField
-
 
 STATUS = ((0, "Draft"), (1, "Publish"))
 
