@@ -13,3 +13,7 @@ repos:
     rev: 5.8.0
     hooks:
       - id: isort
+  - repo: https://github.com/pycqa/pydocstyle
+    rev: 6.0.0
+    hooks:
+      - id: pydocstyle
