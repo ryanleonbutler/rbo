@@ -1,3 +1,68 @@
+[tool.poetry]
+name = "rbo"
+version = "1.0.0"
+description = "Python Developer Blog"
+authors = ["ryanleonbutler <ryanleonbutler@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+aiohttp = ">=3.7.4"
+asgiref = "3.3.1"
+async-timeout = "3.0.1"
+attrs = "20.3.0"
+boto3 = "1.16.38"
+botocore = ">=1.19.38"
+certifi = "2020.12.5"
+chardet = "3.0.4"
+Django = "3.1.12"
+django-appconf = "1.0.4"
+django-countries = "7.0"
+django-etc = "1.3.0"
+django-hitcount = "1.3.3"
+django-ipware = "3.0.2"
+django-markdown = "0.8.4"
+django-markdownx = "3.0.1"
+django-tracking-analyzer = "1.1.1"
+django-user-agents = "0.4.0"
+geoip2 = "4.1.0"
+gunicorn = "20.0.4"
+idna = "2.10"
+jmespath = "0.10.0"
+Markdown = ">=3.3.3"
+maxminddb = "2.0.3"
+multidict = "5.1.0"
+mysqlclient = "^2.0.3"
+Pillow = "^8.3.0"
+python-dateutil = "2.8.1"
+pytz = "2020.4"
+PyYAML = ">=5.4"
+requests = "2.25.1"
+s3transfer = "0.3.3"
+six = "1.15.0"
+sqlparse = "0.4.1"
+typing-extensions = "3.7.4.3"
+ua-parser = "0.10.0"
+urllib3 = ">=1.26.4"
+user-agents = "2.2.0"
+yarl = "1.6.3"
+martor = "^1.6.3"
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^2.13.0"
+black = "^21.6b0"
+flake8 = "^3.9.2"
+isort = "^5.9.1"
+flit = "^3.2.0"
+tox = "^3.23.1"
+pytest = "^6.2.4"
+pytest-cov = "^2.12.1"
+mccabe = "^0.6.1"
+pylint = "^2.9.2"
+coverage = "^5.5"
+mypy = "^0.910"
+pydocstyle = "^6.1.1"
+
 [tool.black]
 line-length = 119
 include = '\.pyi?$'
@@ -14,3 +79,34 @@ exclude = '''
   | dist
 )/
 '''
+
+[tool.isort]
+known_first_party = ["rbo_django", "resume", "blog"]
+known_third_party = ["pytest"]
+multi_line_output = 3
+lines_after_imports = 2
+force_grid_wrap = 0
+combine_as_imports = true
+include_trailing_comma = true
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+isolated_build = true
+envlist = py39
+[testenv]
+whitelist_externals = poetry
+commands =
+    poetry install -vvv
+    poetry run isort .
+    poetry run black .
+    poetry run flake8 .
+    poetry run mypy . --ignore-missing-imports
+    poetry run coverage erase
+    poetry run pytest -ra -v --cov=. --cov-report xml
+    poetry run coverage report -m
+"""
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
