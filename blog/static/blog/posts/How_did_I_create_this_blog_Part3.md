@@ -6,8 +6,8 @@ As always, please reach out to [me](https://ryanbutler.online/contact/) if you h
 
 Links to previous parts in the series:
 
-- [Part 1](https://ryanbutler.online/how-did-i-create-this-blog-part-1)
-- [Part 2](https://ryanbutler.online/how-did-i-create-this-blog-part-2)
+- [Part 1](https://ryanbutler.online/blog/how-did-i-create-this-blog-part-1)
+- [Part 2](https://ryanbutler.online/blog/how-did-i-create-this-blog-part-2)
 
 # Part 3
 
