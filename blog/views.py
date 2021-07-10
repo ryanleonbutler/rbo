@@ -47,7 +47,7 @@ class PostDetailView(DetailView):
 
 class NibbleListView(ListView):
     queryset = Nibble.objects.filter(status=1).order_by("-publish_date")
-    context_object_name = "nibble_list"
+    context_object_name = "nibbles_list"
     template_name = "nibbles.html"
 
     def get_object(self, queryset=None):
