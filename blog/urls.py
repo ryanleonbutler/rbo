@@ -1,13 +1,21 @@
-from blog.models import NibbleCategory
-from django.urls import re_path
 from django.contrib.sitemaps.views import sitemap
-from django.urls import path
+from django.urls import path, re_path
 from django.views.generic import TemplateView
 
-from blog.views import BlogListView, IndexListView, NibbleListView, PostDetailView, NibbleDetailView, PostCategoryView, NibbleCategoryView
+from blog.models import NibbleCategory
+from blog.views import (
+    BlogListView,
+    IndexListView,
+    NibbleCategoryView,
+    NibbleDetailView,
+    NibbleListView,
+    PostCategoryView,
+    PostDetailView,
+)
 
 from . import views
 from .sitemaps import NibbleSitemap, PostSitemap, StaticSitemap
+
 
 sitemaps = {"blog": PostSitemap, "static": StaticSitemap, "py-nibbles": NibbleSitemap}
 

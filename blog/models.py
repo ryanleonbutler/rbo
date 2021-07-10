@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.text import slugify
 
+
 STATUS = ((0, "Draft"), (1, "Publish"))
 
 
@@ -99,15 +100,15 @@ class Nibble(models.Model):
 
 class PostViews(models.Model):
     ip_address = models.GenericIPAddressField()
-    post = models.ForeignKey('Post', on_delete=models.CASCADE)
+    post = models.ForeignKey("Post", on_delete=models.CASCADE)
 
     def __str__(self):
-        return '{0} in {1} post'.format(self.ip_address, self.post.title)
+        return "{0} in {1} post".format(self.ip_address, self.post.title)
 
 
 class NibbleViews(models.Model):
     ip_address = models.GenericIPAddressField()
-    post = models.ForeignKey('Nibble', on_delete=models.CASCADE)
+    post = models.ForeignKey("Nibble", on_delete=models.CASCADE)
 
     def __str__(self):
-        return '{0} in {1} nibble'.format(self.ip_address, self.post.title)
+        return "{0} in {1} nibble".format(self.ip_address, self.post.title)

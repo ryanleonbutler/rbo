@@ -14,6 +14,7 @@ import socket
 from datetime import datetime
 from pathlib import Path
 
+
 # Get Server HOSTNAME in order to know if stage is DEV or PROD
 STAGE = ""
 HOSTNAME = socket.gethostname()
@@ -175,4 +176,4 @@ MARKDOWNX_EDITOR_RESIZABLE = True
 
 GEOIP_PATH = os.path.join(BASE_DIR, "geoip")
 
-DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"

@@ -1,8 +1,8 @@
 from django.db.models import Q
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import DetailView, ListView
 
-from blog.models import Nibble, Post, Category, NibbleCategory
+from blog.models import Category, Nibble, NibbleCategory, Post
 from blog.utils import get_post_content_from_file
 
 
@@ -15,8 +15,8 @@ class IndexListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['posts'] = Post.objects.all()
-        context['nibbles'] = Nibble.objects.all()
+        context["posts"] = Post.objects.all()
+        context["nibbles"] = Nibble.objects.all()
         return context
 
 
@@ -41,7 +41,7 @@ class PostDetailView(DetailView):
     def get_context_data(self, **kwargs):
         obj = super(PostDetailView, self).get_object()
         context = super().get_context_data(**kwargs)
-        context['content'] = get_post_content_from_file(obj.post_path)
+        context["content"] = get_post_content_from_file(obj.post_path)
         return context
 
 
@@ -65,7 +65,7 @@ class NibbleDetailView(DetailView):
     def get_context_data(self, **kwargs):
         obj = super(NibbleDetailView, self).get_object()
         context = super().get_context_data(**kwargs)
-        context['content'] = get_post_content_from_file(obj.nibble_path)
+        context["content"] = get_post_content_from_file(obj.nibble_path)
         return context
 
 
@@ -75,7 +75,7 @@ class PostCategoryView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['posts'] = Post.objects.all()
+        context["posts"] = Post.objects.all()
         return context
 
 
@@ -85,7 +85,7 @@ class NibbleCategoryView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['nibbles'] = Nibble.objects.all()
+        context["nibbles"] = Nibble.objects.all()
         return context
 
 
