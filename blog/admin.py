@@ -15,9 +15,7 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class NibbleAdmin(admin.ModelAdmin):
-    list_display = ("title", "slug", "status", "created_on", "last_modified")
-    list_filter = ("status",)
-    search_fields = ["title"]
+    pass
 
 
 admin.site.register(Post, PostAdmin)
