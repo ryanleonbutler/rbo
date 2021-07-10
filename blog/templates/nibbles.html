@@ -1,13 +1,25 @@
-{% extends "base.html" %} {% load hitcount_tags %} {% load markdown_extras %} {% block body %}
+{% extends "base.html" %} {% load markdown_extras %} {% block body %}
     <body>
     <main id="main">
         <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
         <div class="content">
             <div class="section">
                 <div class="section-title"><h2>py-nibbles</h2></div>
-                <div class="list-item">
-                    <p style="text-align: center; font-size: 30px; color: #40FF8D">coming soon...</p>
-                </div>
+                {% for nibble in nibble_list %}
+                    <div class="list-item">
+                        <a class="entry-title" href="{{ nibble.get_absolute_url }}">{{ nibble.title }}</a>
+                        <div class="meta">
+                            <i class="far fa-calendar-alt"></i>{{ nibble.publish_date.date }}
+                            <br>
+                            <i class="fas fa-tags"></i>
+                            {% for category in nibble.categories.all %}
+                                <a href="{% url 'nibble_category' category.name %}">{{ category.name }}</a>
+                            {% endfor %}
+                            <br>
+                            <p> {{ nibble.preview }}...</p>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </main>

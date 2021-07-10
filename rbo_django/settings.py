@@ -61,10 +61,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     "django.contrib.sitemaps",
-    "django_user_agents",
-    "tracking_analyzer",
     "markdownx",
-    "hitcount",
     "blog",
     "resume",
 ]
@@ -79,7 +76,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django_user_agents.middleware.UserAgentMiddleware",
 ]
 
 ROOT_URLCONF = "rbo_django.urls"
@@ -178,3 +174,5 @@ MARKDOWNX_UPLOAD_CONTENT_TYPES = [
 MARKDOWNX_EDITOR_RESIZABLE = True
 
 GEOIP_PATH = os.path.join(BASE_DIR, "geoip")
+
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

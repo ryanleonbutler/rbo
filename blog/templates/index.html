@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% load hitcount_tags %} {% load markdown_extras %} {% block body %}
+{% extends "base.html" %} {% load markdown_extras %} {% block body %}
     <main id="main">
         <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
         <div class="content">
@@ -7,7 +7,7 @@
             </div>
             <div class="section">
                 <div class="section-title"><h2>recent blog posts</h2></div>
-                {% for post in post_list|slice:":3" %}
+                {% for post in posts|slice:":3" %}
                     <div class="list-item">
                         <h3><a class="entry-title" href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
                         <div class="meta">
@@ -15,7 +15,7 @@
                             <br>
                             <i class="fas fa-tags"></i>
                             {% for category in post.categories.all %}
-                                <a href="{% url 'post_category' category.name %}">{{ category.name }}</a>
+                                <a href="{% url 'posts_category' category.name %}">{{ category.name }}</a>
                             {% endfor %}
                             <br>
                             <p> {{ post.preview }}...</p>
@@ -25,30 +25,22 @@
             </div>
             <div class="section">
                 <div class="section-title"><h2>recent py-nibbles</h2></div>
-{#                {% for nibble in post_list|slice:":3" %}#}
-{#                    <div class="list-item">#}
-{#                        <h3><a class="entry-title" href="{{ nibble.get_absolute_url }}">{{ nibble.title }}</a></h3>#}
-{#                        <div class="meta">#}
-{#                            <i class="far fa-calendar-alt"></i>{{ post.publish_date.date }}#}
-{#                            <br>#}
-{#                            <i class="fas fa-tags"></i>#}
-{#                            {% for category in post.categories.all %}#}
-{#                                <a href="{% url 'post_category' category.name %}">{{ category.name }}</a>#}
-{#                            {% endfor %}#}
-{#                            <br>#}
-{#                            <p> {{ post.preview }}...</p>#}
-{#                        </div>#}
-                          <p style="text-align: center; font-size: 25px; color: #40FF8D">coming soon...</p>
-{#                    </div>#}
-{#                {% endfor %}#}
+               {% for nibble in nibbles|slice:":3" %}
+                   <div class="list-item">
+                       <h3><a class="entry-title" href="{{ nibble.get_absolute_url }}">{{ nibble.title }}</a></h3>
+                       <div class="meta">
+                           <i class="far fa-calendar-alt"></i>{{ nibble.publish_date.date }}
+                           <br>
+                           <i class="fas fa-tags"></i>
+                           {% for category in nibble.categories.all %}
+                               <a href="{% url 'nibbles_category' category.name %}">{{ category.name }}</a>
+                           {% endfor %}
+                           <br>
+                           <p> {{ nibble.preview }}...</p>
+                       </div>
+                   </div>
+               {% endfor %}
             </div>
-{#            <div class="section">#}
-{#                <h2><div class="section-title">github stats</div></h2>#}
-{#                    <div class="list-item">#}
-{#                        {{ form.media }}#}
-{#                        {{ "![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=ryanleonbutler&count_private=true&hide=stars,prs,issues,contribs&theme=dark)" | markdown | safe }}#}
-{#                    </div>#}
-{#            </div>#}
             <div class="section">
                 <div class="section-title"><h2>github projects</h2></div>
                     <div class="list-item">
@@ -58,9 +50,9 @@
             </div>
         </div>
     </main>
-{#    <footer>#}
-{#        <div class="footer-content">#}
-{#            <p class="copyright meta">Copyright © 2021, Ryan Butler; all rights reserved.</p>#}
-{#        </div>#}
-{#    </footer>#}
+   <!-- <footer>
+       <div class="footer-content">
+           <p class="copyright meta">Copyright © 2021, Ryan Butler; all rights reserved.</p>
+       </div>
+   </footer> -->
 {% endblock %}

@@ -5,15 +5,15 @@
         <div class="content">
             <div class="section">
                 <div class="section-title">tags</div>
-                {% for post in posts %}
+                {% for nibble in nibbles %}
                     <div class="list-item">
-                        <a class="entry-title" href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                        <a class="entry-title" href="{{ post.get_absolute_url }}">{{ nibble.title }}</a>
                         <div class="meta">
-                            <i class="far fa-calendar-alt"></i>{{ post.publish_date.date }}
+                            <i class="far fa-calendar-alt"></i>{{ nibble.publish_date.date }}
                             <br>
                             <i class="fas fa-tags"></i>
-                            {% for category in post.categories.all %}
-                                <a href="{% url 'posts_category' category.name %}">{{ category.name }}</a>
+                            {% for category in nibble.categories.all %}
+                                <a href="{% url 'nibbles_category' category.name %}">{{ category.name }}</a>
                             {% endfor %}
                         </div>
                     </div>

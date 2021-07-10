@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% load hitcount_tags %} {% load markdown_extras %} {% block body %}
+{% extends "base.html" %} {% load markdown_extras %} {% block body %}
     <body>
     <main id="main">
         <a href="javascript:void(0)" id="closebtn" onclick="navToggle()"><i class="fas fa-bars fa-lg"></i></a>
@@ -13,7 +13,7 @@
                             <br>
                             <i class="fas fa-tags"></i>
                             {% for category in post.categories.all %}
-                                <a href="{% url 'post_category' category.name %}">{{ category.name }}</a>
+                                <a href="{% url 'posts_category' category.name %}">{{ category.name }}</a>
                             {% endfor %}
                             <br>
                             <p> {{ post.preview }}...</p>

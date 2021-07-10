@@ -1,2 +1,5 @@
-def test_rbo():
-    assert True
+from rbo_django import __version__
+
+
+def test_version():
+    assert __version__ == "2.0.0"

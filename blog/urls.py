@@ -1,9 +1,10 @@
-from django.conf.urls import url
+from blog.models import NibbleCategory
+from django.urls import re_path
 from django.contrib.sitemaps.views import sitemap
 from django.urls import path
 from django.views.generic import TemplateView
 
-from blog.views import BlogListView, IndexListView, NibbleListView
+from blog.views import BlogListView, IndexListView, NibbleListView, PostDetailView, NibbleDetailView, PostCategoryView, NibbleCategoryView
 
 from . import views
 from .sitemaps import NibbleSitemap, PostSitemap, StaticSitemap
@@ -11,17 +12,17 @@ from .sitemaps import NibbleSitemap, PostSitemap, StaticSitemap
 sitemaps = {"blog": PostSitemap, "static": StaticSitemap, "py-nibbles": NibbleSitemap}
 
 urlpatterns = [
-    url("yandex_fd81df80c0db7580.html", views.yandex, name="yandex"),
-    url("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
-    url("contact/", views.page_contact, name="contact"),
-    url("about/", views.page_about, name="about"),
-    url("search/", views.post_search, name="search_results"),
+    re_path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
+    re_path("contact/", views.page_contact, name="contact"),
+    re_path("about/", views.page_about, name="about"),
+    re_path("search/", views.post_search, name="search_results"),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
-    path("blog/<slug:slug>", views.post_content, name="post"),
+    path("blog/<slug:slug>", PostDetailView.as_view(), name="post"),
     path("blog/", BlogListView.as_view(), name="posts"),
-    path("blog/<category>", views.post_category, name="post_category"),
-    path("nibbles/<slug:slug>", views.nibble_content, name="nibble"),
+    path("blog/category/<category>", PostCategoryView.as_view(), name="posts_category"),
+    path("nibbles/<slug:slug>", NibbleDetailView.as_view(), name="nibble"),
     path("nibbles/", NibbleListView.as_view(), name="nibbles"),
+    path("nibbles/category/<category>", NibbleCategoryView.as_view(), name="nibbles_category"),
     path("", IndexListView.as_view(), name="home"),
 ]
 

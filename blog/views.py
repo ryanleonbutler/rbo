@@ -1,27 +1,23 @@
 from django.db.models import Q
-from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.generic import ListView
-from hitcount.views import HitCountDetailView
-from tracking_analyzer.models import Tracker
+from django.views.generic import ListView, DetailView
 
-from blog.models import Nibble, Post
+from blog.models import Nibble, Post, Category, NibbleCategory
 from blog.utils import get_post_content_from_file
 
 
 class IndexListView(ListView):
     queryset = Post.objects.filter(status=1).order_by("-publish_date")
-    context_object_name = "post_list"
     template_name = "index.html"
 
     def get_object(self, queryset=None):
-        # Retrieve the blog post just using `get_object` functionality.
-        obj = super(IndexListView, self).get_object(queryset)
+        return super(IndexListView, self).get_object(queryset)
 
-        # Track the users access to the blog by post!
-        Tracker.objects.create_from_request(self.request, obj)
-
-        return obj
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['posts'] = Post.objects.all()
+        context['nibbles'] = Nibble.objects.all()
+        return context
 
 
 class BlogListView(ListView):
@@ -30,32 +26,23 @@ class BlogListView(ListView):
     template_name = "blog.html"
 
     def get_object(self, queryset=None):
-        # Retrieve the blog post just using `get_object` functionality.
-        obj = super(BlogListView, self).get_object(queryset)
-
-        # Track the users access to the blog by post!
-        Tracker.objects.create_from_request(self.request, obj)
-
-        return obj
+        return super(BlogListView, self).get_object(queryset)
 
 
-class PostDetailView(HitCountDetailView):
+class PostDetailView(DetailView):
     model = Post
     count_hit = True
     context_object_name = "post_detail"
-    template_name = "postv2.html"
+    template_name = "post.html"
 
     def get_object(self, queryset=None):
-        # Retrieve the blog post just using `get_object` functionality.
-        obj = super(PostDetailView, self).get_object(queryset)
-        print(obj.post_path)
-        content = get_post_content_from_file(obj.post_path)
-        print(content)
+        return super(PostDetailView, self).get_object(queryset)
 
-        # Track the users access to the blog by post!
-        Tracker.objects.create_from_request(self.request, obj)
-
-        return obj
+    def get_context_data(self, **kwargs):
+        obj = super(PostDetailView, self).get_object()
+        context = super().get_context_data(**kwargs)
+        context['content'] = get_post_content_from_file(obj.post_path)
+        return context
 
 
 class NibbleListView(ListView):
@@ -64,41 +51,42 @@ class NibbleListView(ListView):
     template_name = "nibbles.html"
 
     def get_object(self, queryset=None):
-        # Retrieve the blog post just using `get_object` functionality.
-        obj = super(NibbleListView, self).get_object(queryset)
-
-        # Track the users access to the blog by post!
-        Tracker.objects.create_from_request(self.request, obj)
-
-        return obj
+        return super(NibbleListView, self).get_object(queryset)
 
 
-def post_content(request, slug):
-    post = Post.objects.get(slug=slug)
-    content = get_post_content_from_file(post.post_path)
+class NibbleDetailView(DetailView):
+    model = Nibble
+    context_object_name = "nibble_detail"
+    template_name = "nibble.html"
 
-    context = {"post": post, "content": content}
+    def get_object(self, queryset=None):
+        return super(NibbleDetailView, self).get_object(queryset)
 
-    Tracker.objects.create_from_request(request, post)
-
-    return render(request, "postv2.html", context)
-
-
-def nibble_content(request, slug):
-    nibble = Nibble.objects.get(slug=slug)
-    content = get_post_content_from_file(nibble.post_path)
-
-    context = {"post": nibble, "content": content}
-
-    Tracker.objects.create_from_request(request, nibble)
-
-    return render(request, "nibble.html", context)
+    def get_context_data(self, **kwargs):
+        obj = super(NibbleDetailView, self).get_object()
+        context = super().get_context_data(**kwargs)
+        context['content'] = get_post_content_from_file(obj.nibble_path)
+        return context
 
 
-def post_category(request, category):
-    posts = Post.objects.filter(categories__name__contains=category).order_by("-created_on")
-    context = {"category": category, "posts": posts}
-    return render(request, "tags.html", context)
+class PostCategoryView(ListView):
+    model = Category
+    template_name = "tags.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['posts'] = Post.objects.all()
+        return context
+
+
+class NibbleCategoryView(ListView):
+    model = NibbleCategory
+    template_name = "nibble_tags.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['nibbles'] = Nibble.objects.all()
+        return context
 
 
 def page_about(request):
@@ -123,15 +111,3 @@ def post_search(request):
 
     else:
         return render(request, "search_results.html")
-
-
-def yandex(request):
-    html = """
-    <html>
-        <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        </head>
-        <body>Verification: fd81df80c0db7580</body>
-    </html>
-    """
-    return HttpResponse(html)
