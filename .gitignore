@@ -155,3 +155,6 @@ GeoLite2*/
 
 # Hugo
 *hugo*
+
+# sqlite3
+*.sqlite3
