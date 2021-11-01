@@ -134,8 +134,8 @@ In order to create a superuser, we can use, yes you guessed it, the manage.py fi
 (venv) python manage.py createsuperuser
 Username (leave blank to use 'user'): admin
 Email address: admin@test.com
-Password: ********
-Password (again): ********
+Password: ******** <!--- # pragma: allowlist secret --->
+Password (again): ******** <!--- # pragma: allowlist secret --->
 Superuser created successfully.
 ```
 

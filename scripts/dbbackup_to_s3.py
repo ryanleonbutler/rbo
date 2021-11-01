@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 from bisect import bisect_left
 from pathlib import Path
 
@@ -13,7 +12,7 @@ class S3Sync:
         """Initialize class with boto3 client"""
         self.s3 = boto3.client("s3")
 
-    def sync(self, source: str, dest: str) -> list[str]:
+    def sync(self, source: str, dest: str):
         """
         Sync source to dest, this means that all elements existing in
         source that not exists in dest will be copied to dest.
@@ -49,20 +48,6 @@ class S3Sync:
         :param bucket: Bucket name.
         :return: A [dict] containing the elements in the bucket.
 
-        Example of a single object.
-
-        {
-            'Key': 'example/example.txt',
-            'LastModified': datetime.datetime(2019, 7, 4, 13, 50, 34, 893000, tzinfo=tzutc()),
-            'ETag': '"b11564415be7f58435013b414a59ae5c"',
-            'Size': 115280,
-            'StorageClass': 'STANDARD',
-            'Owner': {
-                'DisplayName': 'webfile',
-                'ID': '75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a'
-            }
-        }
-
         """
         try:
             contents = self.s3.list_objects(Bucket=bucket)["Contents"]
@@ -78,17 +63,6 @@ class S3Sync:
         :param source_folder:  Root folder for resources you want to list.
         :return: A [str] containing relative names of the files.
 
-        Example:
-
-            /tmp
-                - example
-                    - file_1.txt
-                    - some_folder
-                        - file_2.txt
-
-            >>> sync.list_source_objects("/tmp/example")
-            ['file_1.txt', 'some_folder/file_2.txt']
-
         """
 
         path = Path(source_folder)
@@ -99,7 +73,7 @@ class S3Sync:
             if file_path.is_dir():
                 continue
             str_file_path = str(file_path)
-            str_file_path = str_file_path.replace(f"{str(path)}/", "")
+            str_file_path = str_file_path.replace(f"{path}/", "")
             paths.append(str_file_path)
 
         return paths
