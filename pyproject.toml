@@ -7,7 +7,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-aiohttp = "^3.8"
+aiohttp = ">=3.8.0"
 asgiref = ">=3.3.2,<4"
 async-timeout = ">=3.0.1"
 attrs = "20.3.0"
@@ -43,7 +43,6 @@ martor = ">=1.6.3"
 django-environ = "^0.8"
 
 [tool.poetry.dev-dependencies]
-pre-commit = "*"
 black = "*"
 flake8 = "*"
 isort = "*"
@@ -51,8 +50,8 @@ tox = "*"
 pytest = "*"
 pytest-cov = "*"
 pylint = "*"
-coverage = "*"
 pydocstyle = "*"
+coverage = {version = "^6.1.1", extras = ["toml"]}
 
 [tool.black]
 line-length = 119
@@ -86,19 +85,20 @@ omit = ["blog/migrations/*", "resume/migrations/*"]
 [tool.tox]
 legacy_tox_ini = """
 [tox]
+isolated_build = True
 envlist = py{39}-django{32}
-isolated_build = true
 
 [testenv]
-deps = django32: Django==3.2.5
-whitelist_externals = poetry
+deps =
+    django32: Django==3.2.8
+whitelist_externals =
+    poetry
+    bash
 skip_install = true
-
 commands =
-    poetry install
-    poetry run python -Wa manage.py test
+    bash -c 'poetry export --dev --without-hashes -f requirements.txt | grep -v "^[dD]jango==" > .requirements.txt'
     poetry run isort blog/ resume/ rbo_django/ --float-to-top
-    poetry run black blog/ resume/ rbo_django/
+    poetry run black blog/ resume/ rbo_django/ --exclude blog/migrations/
     poetry run flake8 blog/ resume/ rbo_django/
     poetry run coverage erase
     poetry run pytest -ra -v --cov=blog --cov=resume --cov=rbo_django --cov-report xml
