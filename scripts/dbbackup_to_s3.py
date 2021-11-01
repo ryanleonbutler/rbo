@@ -12,34 +12,8 @@ class S3Sync:
         """Initialize class with boto3 client"""
         self.s3 = boto3.client("s3")
 
-    def sync(self, source: str, dest: str):
-        """
-        Sync source to dest, this means that all elements existing in
-        source that not exists in dest will be copied to dest.
-
-        No element will be deleted.
-
-        :param source: Source folder.
-        :param dest: Destination folder.
-
-        :return: None
-        """
-
-        paths = self.list_source_objects(source_folder=source)
-        objects = self.list_bucket_objects(dest)
-
-        # Getting the keys and ordering to perform binary search
-        # each time we want to check if any paths is already there.
-        object_keys = [obj["Key"] for obj in objects]
-        object_keys.sort()
-        object_keys_length = len(object_keys)
-
-        for path in paths:
-            # Binary search.
-            index = bisect_left(object_keys, path)
-            if index == object_keys_length:
-                # If path not found in object_keys, it has to be sync-ed.
-                self.s3.upload_file(str(Path(source).joinpath(path)), Bucket=dest, Key=path)
+    def upload_object(self, source: str, bucket: str, key: str):
+        self.s3.upload_file(source, Bucket=bucket, Key=key)
 
     def list_bucket_objects(self, bucket: str) -> list[dict]:
         """
@@ -57,28 +31,7 @@ class S3Sync:
         else:
             return contents
 
-    @staticmethod
-    def list_source_objects(source_folder: str) -> list[str]:
-        """
-        :param source_folder:  Root folder for resources you want to list.
-        :return: A [str] containing relative names of the files.
-
-        """
-
-        path = Path(source_folder)
-
-        paths = []
-
-        for file_path in path.rglob("*"):
-            if file_path.is_dir():
-                continue
-            str_file_path = str(file_path)
-            str_file_path = str_file_path.replace(f"{path}/", "")
-            paths.append(str_file_path)
-
-        return paths
-
 
 if __name__ == "__main__":
     sync = S3Sync()
-    sync.sync("/home/ec2-user/rbo_backup", "rbobackup")
+    sync.upload_object("/home/ec2-user/rbo_backup", "rbobackup", "rbo_backup")
