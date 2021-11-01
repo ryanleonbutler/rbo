@@ -1,7 +1,3 @@
-<div id='header-img'
-<img src="/static/markdownx/2021/02/20/coding-monitor-laptop.jpg_9d384059-5af7-4a4a-b7e3-3c80c5f67fc2.jpg" alt="" />
-</div>
-
 Have you ever struggled to manage your Python projects? From installing different Python versions, creating virtual environments, installing different libraries and dependencies and creating configuration files for your project. I have been through this journey a few times, tried multiple approaches and tools, none which really worked or which I liked. About a year or so ago, I was listening to a podcast about Python where the hosts were talking about a tool called [Poetry](https://python-poetry.org/). Some of you might have heard about Poetry before or even use it already, regardless I will share with you my experience using Poetry in managing Python projects and how it has made my life so much simpler. I will also share other tools in this post, which compliment Poetry. I will also share an example of my workflow when starting a new Python project. Please follow me on [Twitter](https://twitter.com/ryanleonbutler) and [LinkedIn](https://www.linkedin.com/in/ryanleonbutler/) if you like the content I am creating or just any Python related questions or questions regarding this post. Thank you for the support!
 
 # Contents
@@ -34,11 +30,11 @@ $ pipx ensure path
 Just a tip on using pipx, if you wan to use a specific Python version in your pipx environments, I recommend setting an environment variable in your shell start-up script (e.g. in "~/.zshrc") to change the version to use pyenv's path. This important when using Poetry, since Poetry will inherit the Python version from pipx to create its virtual own environments.
 ```bash
 # ~/.zshrc
-export PIPX_DEFAULT_PYTHON=/Users/$USER/.pyenv/shims/python
+export PIPX_DEFAULT_PYTHON=/Users/user/.pyenv/shims/python
 ```
 
 Now we can install Poetry using pipx.
-``````bash
+```bash
 $ pipx install poetry
 ```
 
@@ -78,7 +74,7 @@ $ poetry install # Installs all depedencies in the virtual environment
 
 Poetry also has some bonus features like exporting your dependencies to a requirements file.
 ```
-poetry export >> requirements.txt  # Exports all depedencies to requirements file
+poetry export --without-hashes -o requirements.txt  # Exports all depedencies to requirements file
 ```
 
 There are many more commands, which is very well documented on their beautifully crafted website [here]().
@@ -91,17 +87,17 @@ Moving to my workflow when starting a new project, I use a combination of Poetry
 $ cd ~/development
 
 $ ls -l
-drwxr-xr-x  20 butryan  staff   640B Oct 18 21:30 dotfiles/
-drwxr-xr-x   4 butryan  staff   128B Aug 25 20:01 scratches/
-drwxr-xr-x   5 butryan  staff   160B Jul 23 10:36 scripts/
-drwxr-xr-x  14 butryan  staff   448B Sep 20 13:52 tests/
+drwxr-xr-x  20 user  staff   640B Oct 18 21:30 dotfiles/
+drwxr-xr-x   4 user  staff   128B Aug 25 20:01 scratches/
+drwxr-xr-x   5 user  staff   160B Jul 23 10:36 scripts/
+drwxr-xr-x  14 user  staff   448B Sep 20 13:52 tests/
 ```
 
 First let's check which Python versions we have installed using pyenv.
 ```bash
 $ pyenv versions
   system
-* 3.9.7 (set by /Users/butryan/.pyenv/version)
+* 3.9.7 (set by /Users/user/.pyenv/version)
 ```
 
 As you can see from the above I have two Python versions installed, "system" which will be the version which is managed by my OS and the OS package manager, for example HomeBrew on MacOS and one that I previously installed with pyenv, namely 3.9.7. In the case I want to use 3.9.7 and in order to ensure I am using this Python version, I can set it as the global default on my system as well as check the version and location of the binary.
@@ -112,7 +108,7 @@ $ python -V
 Python 3.9.7
 
 $ which python
-/Users/butryan/.pyenv/shims/python
+/Users/user/.pyenv/shims/python
 ```
 
 Now that we can see my I am using Python 3.9.7 as my default Python runtime we can create our project using Poetry.
