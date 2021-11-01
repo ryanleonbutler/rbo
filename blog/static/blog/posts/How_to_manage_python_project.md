@@ -9,7 +9,7 @@ Have you ever struggled to manage your Python projects? From installing differen
 <div id='intro' markdown='1'></div>
 
 ## 1. What is Poetry?
-Poetry's main goal is dependency management and packaging in Python. The tool allows you to declare the libraries your project uses and will manage them for you, either by installing or updating them. It also has a bunch of other features, which include creating a "pyproject.toml", creating virtual environments and publishing a Python application or module to [PyPI](https://pypi.org/). 
+Poetry's main goal is dependency management and packaging in Python. The tool allows you to declare the libraries your project uses and will manage them for you, either by installing or updating them. It also has a bunch of other features, which include creating a 'pyproject.toml', creating virtual environments and publishing a Python application or module to [PyPI](https://pypi.org/). 
 
 <div id='install' markdown='1'></div>
 
@@ -27,7 +27,7 @@ $ brew install pipx
 $ pipx ensure path
 ```
 
-Just a tip on using pipx, if you wan to use a specific Python version in your pipx environments, I recommend setting an environment variable in your shell start-up script (e.g. in "~/.zshrc") to change the version to use pyenv's path. This important when using Poetry, since Poetry will inherit the Python version from pipx to create its virtual own environments.
+Just a tip on using pipx, if you wish to use a specific Python version in your pipx environments, I recommend setting an environment variable in your shell start-up script (e.g. in '~/.zshrc') to change the version to use pyenv's path. This is important when using Poetry, since Poetry will inherit the Python version from pipx in order to create its own virtual environments.
 ```bash
 # ~/.zshrc
 export PIPX_DEFAULT_PYTHON=/Users/user/.pyenv/shims/python
@@ -61,7 +61,7 @@ If you have an existing Python project and directory structure you can navigate 
 ```
 $ poetry init
 ```
-Enter the details in the prompts and at the end you will notice a new file called "pyproject.toml" is created in the root of your new project, if there if not one present already.
+Enter the details in the prompts and at the end you will notice a new file called 'pyproject.toml' is created in the root of your new project, if there if not one present already.
 
 To manage dependencies you can simply use the 'add', 'remove', 'install' and 'update' commands.
 ```
@@ -82,7 +82,7 @@ There are many more commands, which is very well documented on their beautifully
 <div id='workflow' markdown='1'></div>
 
 ## 4. My Workflow
-Moving to my workflow when starting a new project, I use a combination of Poetry and [pyenv](https://github.com/pyenv/pyenv) to setup my project. Typically I have a "workspace" or "development" folder in my home directory on my local machine. Within this directory I have all my projects.
+Moving to my workflow when starting a new project, I use a combination of Poetry and [pyenv](https://github.com/pyenv/pyenv) to setup my project. Typically I have a 'workspace' or 'development' folder in my home directory on my local machine. Within this directory I save store all my projects.
 ```bash
 $ cd ~/development
 
@@ -100,7 +100,7 @@ $ pyenv versions
 * 3.9.7 (set by /Users/user/.pyenv/version)
 ```
 
-As you can see from the above I have two Python versions installed, "system" which will be the version which is managed by my OS and the OS package manager, for example HomeBrew on MacOS and one that I previously installed with pyenv, namely 3.9.7. In the case I want to use 3.9.7 and in order to ensure I am using this Python version, I can set it as the global default on my system as well as check the version and location of the binary.
+As you can see from the above I have two Python versions installed, "system" which will be the version which is managed by my OS and the OS package manager, for example HomeBrew on MacOS and one that I previously installed with pyenv, namely 3.9.7. In this project I want to use 3.9.7 and in order to ensure I am using this Python version, I can set it as the global default on my system as well as check the version and location of the binary.
 ```bash
 $ pyenv global 3.9.7
 
@@ -111,36 +111,36 @@ $ which python
 /Users/user/.pyenv/shims/python
 ```
 
-Now that we can see my I am using Python 3.9.7 as my default Python runtime we can create our project using Poetry.
+Now that we have confirmed Python 3.9.7 is set as the default Python binary we can create our project using Poetry.
 ```bash
 $ poetry new my_project  
 ```
 
-Now we have our basic skeleton, let's change a few things.
+We now have our basic skeleton, let's change a few things.
 ```bash
-$ cd my_project && git init  # change directory into your new project and initialse it as a git repository to start source control
-$ rm README.rst && touch README.md  # I prefer markdown to restructered text for the README file
-$ echo '# my_project' >> README.md  # add heading to new README
-$ touch my_project/main.py  # create some source files and modules for your project
-$ echo 'import pprint as print\nprint("Poetry is great!")' >> my_project/main.py  # adding some code to my sample source file
+$ cd my_project && git init  
+$ rm README.rst && touch README.md  # I prefer markdown 
+$ echo '# my_project' >> README.md  
+$ touch my_project/main.py  
+$ echo 'import pprint as print\nprint("Poetry is great!")' >> my_project/main.py  
 ```
 
-See basic example of a "pyproject.toml" file for a Python project on my GitHub profile in the "python_project"" repository [here](https://github.com/ryanleonbutler/python_project/blob/main/pyproject.toml).
+See basic a example of a 'pyproject.toml' file for a Python project on my GitHub profile in the 'python_project' repository [here](https://github.com/ryanleonbutler/python_project/blob/main/pyproject.toml).
 
-You will notice there are a lot of other developer tools listed in the dev-dependencies section of the above "pyproject.toml" example, these are just some additional tools, which I added over time into my workflow. I might cover them in a future post, but for your ease of reference see the links to the respective home pages for more information:
+You will notice there are a lot of other developer tools listed in the dev-dependencies section of the above 'pyproject.toml' example. These are just some additional tools which I added over time into my workflow. I will cover them in a future post, but for your ease of reference see the links to the respective home pages for more information:
 
 - [Tox](https://tox.wiki/en/latest/)
 - [Pre-commit](https://pre-commit.com/)
 - [Black](https://github.com/psf/black)
-- [Flake8](https://flake8.pycqa.org/en/latest/)
-- [iSort](https://github.com/PyCQA/isort)
+- [flake8](https://flake8.pycqa.org/en/latest/)
+- [isort](https://github.com/PyCQA/isort)
 - [pytest](https://docs.pytest.org/en/6.2.x/)
 - [coverage](https://coverage.readthedocs.io/en/6.0.2/)
 - [Sphinx](https://www.sphinx-doc.org/en/master/)
 
-Now, if I want to run my Python project there are two ways you can achieve this.
+We are now reayd to run the Python project. There are two ways you can achieve this.
 ```bash
-# 1. Using the Poetry 'run' command to run the Python version which Poetry is managing for you
+# 1. Using the Poetry 'run' command will run the Python version which Poetry is managing for you
 $ poetry run python my_project/main.py
 
 Poetry is great!
@@ -152,9 +152,25 @@ $ poetry shell
 Poetry is great!
 ```
 
+Note, regarding option 2. above, if you prefer that Poetry creates a virtual environment in the root if your project, you can set the following configuration.
+```bash
+$ poetry config --list
+
+...
+virtualenvs.in-project = false
+...
+
+$ poetry config virtualenvs.in-project true
+$ poetry config --list
+
+...
+virtualenvs.in-project = true
+...
+```
+
 ## Last words
 
-Easy as that, I really like how Poetry has abstracted a lot of the repetative tasks. I trust the above information has provided you with some new insights into managing your Python projects using Poetry and other tools. Please follow me on [Twitter](https://twitter.com/ryanleonbutler) and [LinkedIn](https://www.linkedin.com/in/ryanleonbutler/) if you like the content I am creating and keep an eye out for my future posts. 
+It is as simple as that to get started with Poetry. I like how it has abstracted the repetative tasks and additional overheaded added to the developer in managing depedencies and virtual environments. I trust the above information has provided you with some new insights into managing your Python projects using Poetry. Please follow me on [Twitter](https://twitter.com/ryanleonbutler) and [LinkedIn](https://www.linkedin.com/in/ryanleonbutler/) if you like the content I am creating and keep an eye out for my future posts. 
 
 *Take care fellow Pythonistas,*
 *Ryan*
