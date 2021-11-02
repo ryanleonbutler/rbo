@@ -9,7 +9,7 @@ Have you ever struggled to manage your Python projects? From installing differen
 <div id='intro' markdown='1'></div>
 
 ## 1. What is Poetry?
-Poetry's main goal is dependency management and packaging in Python. The tool allows you to declare the libraries your project uses and will manage them for you, either by installing or updating them. It also has a bunch of other features, which include creating a 'pyproject.toml', creating virtual environments and publishing a Python application or module to [PyPI](https://pypi.org/). 
+Poetry's main goal is dependency management and packaging in Python. The tool allows you to declare the libraries your project uses and will manage them for you, either by installing or updating them. It also has a bunch of other features, which include creating a 'pyproject.toml', creating virtual environments and publishing a Python application or module to [PyPI](https://pypi.org/).
 
 <div id='install' markdown='1'></div>
 
@@ -18,7 +18,7 @@ Just like any other Python package, Poetry can be installed using pip.
 ```bash
 $  pip install poetry
 ```
-I recommend using [pipx](https://github.com/pypa/pipx) in this case. It is great for installing system wide Python applications in isolation. This avoids installing Poetry to a specific Python installation or virtual environment. It also adds the command line application to your system path allowing you to execute the tool even if other Python virtual environments are active. 
+I recommend using [pipx](https://github.com/pypa/pipx) in this case. It is great for installing system wide Python applications in isolation. This avoids installing Poetry to a specific Python installation or virtual environment. It also adds the command line application to your system path allowing you to execute the tool even if other Python virtual environments are active.
 
 
 ```bash
@@ -65,7 +65,7 @@ Enter the details in the prompts and at the end you will notice a new file calle
 
 To manage dependencies you can simply use the 'add', 'remove', 'install' and 'update' commands.
 ```
-$ poetry add pprint  # Adds pprint to you depedencies
+$ poetry add pprint  # Adds pprint to depedencies
 $ poetry add -D black  # Adds black to your developer dependencies
 $ poetry remove -D black  # Removes black
 $ poetry update  # Updates all depedencies
@@ -104,7 +104,7 @@ As you can see from the above I have two Python versions installed, "system" whi
 ```bash
 $ pyenv global 3.9.7
 
-$ python -V                            
+$ python -V
 Python 3.9.7
 
 $ which python
@@ -113,16 +113,16 @@ $ which python
 
 Now that we have confirmed Python 3.9.7 is set as the default Python binary we can create our project using Poetry.
 ```bash
-$ poetry new my_project  
+$ poetry new my_project
 ```
 
 We now have our basic skeleton, let's change a few things.
 ```bash
-$ cd my_project && git init  
-$ rm README.rst && touch README.md  # I prefer markdown 
-$ echo '# my_project' >> README.md  
-$ touch my_project/main.py  
-$ echo 'import pprint as print\nprint("Poetry is great!")' >> my_project/main.py  
+$ cd my_project && git init
+$ rm README.rst && touch README.md  # I prefer markdown
+$ echo '# my_project' >> README.md
+$ touch my_project/main.py
+$ echo 'import pprint as print\nprint("Poetry is great!")' >> my_project/main.py
 ```
 
 See basic a example of a 'pyproject.toml' file for a Python project on my GitHub profile in the 'python_project' repository [here](https://github.com/ryanleonbutler/python_project/blob/main/pyproject.toml).
@@ -138,7 +138,7 @@ You will notice there are a lot of other developer tools listed in the dev-depen
 - [coverage](https://coverage.readthedocs.io/en/6.0.2/)
 - [Sphinx](https://www.sphinx-doc.org/en/master/)
 
-We are now reayd to run the Python project. There are two ways you can achieve this.
+We are now ready to run the Python project. There are two ways you can achieve this.
 ```bash
 # 1. Using the Poetry 'run' command will run the Python version which Poetry is managing for you
 $ poetry run python my_project/main.py
@@ -170,7 +170,7 @@ virtualenvs.in-project = true
 
 ## Last words
 
-It is as simple as that to get started with Poetry. I like how it has abstracted the repetative tasks and additional overheaded added to the developer in managing depedencies and virtual environments. I trust the above information has provided you with some new insights into managing your Python projects using Poetry. Please follow me on [Twitter](https://twitter.com/ryanleonbutler) and [LinkedIn](https://www.linkedin.com/in/ryanleonbutler/) if you like the content I am creating and keep an eye out for my future posts. 
+It is as simple as that to get started with Poetry. I like how it has abstracted the repetitive tasks and additional overhead added to the developer in managing depedencies and virtual environments. I trust the above information has provided you with some new insights into managing your Python projects using Poetry. Please follow me on [Twitter](https://twitter.com/ryanleonbutler) and [LinkedIn](https://www.linkedin.com/in/ryanleonbutler/) if you like the content I am creating and keep an eye out for my future posts.
 
 *Take care fellow Pythonistas,*
 *Ryan*
