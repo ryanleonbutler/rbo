@@ -158,3 +158,6 @@ GeoLite2*/
 
 # sqlite3
 *.sqlite3
+
+# obsidian
+.obsidian
