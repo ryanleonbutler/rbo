@@ -2,29 +2,29 @@
 1. [Strings](#strings)
 2. [Numbers](#numbers)
 3. [Lists](#lists)
-4. [Dicionaries](#dictionaries)
-4. [Tuples](#tuples)
+4. [Dictionaries](#dictionaries)
+5. [Tuples](#tuples)
 
 
 <div id='strings' markdown='1'></div>
 
 # Strings
 ```python
-my_name: str = "Ryan"
+my_name = "Yoda"
 ```
 
 <div id='numbers' markdown='1'></div>
 
 # Numbers
 ```python
-age: int = 33
+age = 900
 ```
 
 <div id='lists' markdown='1'></div>
 
 # Lists
 ```python
-names: list = ['Ryan', 'John', 'Bob']
+sith_lords = ['Darth Bane', 'Darth Plagueis', 'Darth Sidious', 'Darth Maul', 'Darth Tyranus', 'Darth Vader']
 ```
 
 <div id='dictionaries' markdown='1'></div>
@@ -32,8 +32,14 @@ names: list = ['Ryan', 'John', 'Bob']
 # Dictionaries
 ```python
 person: dict = {
-    'name': 'Ryan',
-    'age': 33
+    'name': 'Obi-Wan Kenobi',
+    'species': 'Human',
+    'gender': 'Male',
+    'born': '57 BBY',
+    'homeworld': Stewjon,
+	'affiliation': ['Jedi Order', 'Galactic Republic']
+    'masters': ['Qui-Gon Jinn', 'Yoda'],
+	'apprentices': ['Anakin Skywalker', 'Luke Skywalker']
 }
 ```
 
@@ -41,5 +47,5 @@ person: dict = {
 
 # Tuples
 ```python
-postal_codes: tuple = (7443, 9001, 1400)
+mandalorians: tuple = ('Boba Fett', 'Jango Fett', 'Din Djarin', 'Bo-Katan Kryze', 'Sabine Wren')
 ```
