@@ -1,20 +1,20 @@
 repos:
   - repo: https://github.com/ambv/black
-    rev: 20.8b1
+    rev: 21.12b0
     hooks:
       - id: black
         language_version: python3.9
   - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.9.0
+    rev: 3.9.2
     hooks:
       - id: flake8
         args: [ --max-line-length=119 ]
   - repo: https://github.com/PyCQA/isort
-    rev: 5.8.0
+    rev: 5.10.1
     hooks:
       - id: isort
   - repo: https://github.com/Yelp/detect-secrets
-    rev: v0.13.0
+    rev: v1.1.0
     hooks:
     -   id: detect-secrets
         name: Detect secrets
