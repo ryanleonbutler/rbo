@@ -31,15 +31,15 @@ sith_lords = ["Darth Bane", "Darth Plagueis", "Darth Sidious", "Darth Maul", "Da
 
 # Dictionaries
 ```python
-person: dict = {
+person = {
     "name": "Obi-Wan Kenobi",
     "species": "Human",
     "gender": "Male",
     "born": "57 BBY",
     "homeworld": "Stewjon",
-	"affiliation": ["Jedi Order", "Galactic Republic"]
+	  "affiliation": ["Jedi Order", "Galactic Republic"]
     "masters": ["Qui-Gon Jinn", "Yoda"],
-	"apprentices": ["Anakin Skywalker", "Luke Skywalker"]
+	  "apprentices": ["Anakin Skywalker", "Luke Skywalker"]
 }
 ```
 
@@ -47,5 +47,5 @@ person: dict = {
 
 # Tuples
 ```python
-mandalorians: tuple = ("Boba Fett", "Jango Fett", "Din Djarin", "Bo-Katan Kryze", "Sabine Wren")
+mandalorians = ("Boba Fett", "Jango Fett", "Din Djarin", "Bo-Katan Kryze", "Sabine Wren")
 ```
