@@ -160,7 +160,7 @@ sudo systemctl restart nginx
 sudo nginx -t
 ```
 
-## Test
+## Testing
 ```
 curl -vL https://ryanbutler.online
 ```
