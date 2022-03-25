@@ -35,8 +35,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python3 -m pip install --upgrade pip
-          python3 -m pip install flake8
+            python -m pip install --upgrade pip
+            python -m pip install poetry 
+            poetry install -vvv
+
       - name: Run flake8
         run: |
-          python3 -m flake8 --max-line-length=119
+            poetry run flake8 blog/ resume/ rbo_django/ tests/
