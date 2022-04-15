@@ -1,25 +1,14 @@
-[![Black][black badge]][black]
-[![Flake8][flake8 badge]][flake8]
-[![Imports][isort badge]][isort]
-[![License][license badge]][license]
 [![Last Commit][commit badge]][commit]
+[![pre-commit.ci status][pre-commit badge]][pre-commit]
 
 
 <!-- Links -->
 [commit]: https://github.com/ryanleonbutler/rbo/commit/HEAD
-[python]: https://www.python.org/
-[license]: https://github.com/ryanleonbutler/rbo/blob/main/License.txt
-[github]: https://github.com/ryanleonbutler/rbo
-[black]: https://github.com/psf/black
-[flake8]: https://github.com/PyCQA/flake8
-[isort]: https://pycqa.github.io/isort/
+[pre-commit]: https://results.pre-commit.ci/latest/github/ryanleonbutler/rbo/main
 
 <!-- Badges -->
 [commit badge]: https://img.shields.io/github/last-commit/ryanleonbutler/rbo
-[license badge]: https://img.shields.io/github/license/ryanleonbutler/rbo
-[black badge]: https://img.shields.io/badge/code%20style-black-000000.svg
-[flake8 badge]: https://img.shields.io/badge/linter-flake8-yellow
-[isort badge]: https://img.shields.io/badge/%20imports-isort-%231674b1
+[pre-commit badge]: https://results.pre-commit.ci/badge/github/ryanleonbutler/rbo/main.svg
 
 # rbo - Deployment Manual
 
