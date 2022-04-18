@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://ryanbutler.online/posts/post-2/</loc>
+    <lastmod>2020-09-16T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://ryanbutler.online/posts/</loc>
+    <lastmod>2020-09-16T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://ryanbutler.online/tags/python-django/</loc>
+    <lastmod>2020-09-16T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://ryanbutler.online/</loc>
+    <lastmod>2020-09-16T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://ryanbutler.online/tags/</loc>
+    <lastmod>2020-09-16T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://ryanbutler.online/posts/post-1/</loc>
+    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://ryanbutler.online/tags/python/</loc>
+    <lastmod>2020-09-15T11:30:03+00:00</lastmod>
+  </url><url>
+    <loc>https://ryanbutler.online/categories/</loc>
+  </url>
+</urlset>

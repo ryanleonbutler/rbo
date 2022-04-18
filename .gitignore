@@ -148,16 +148,9 @@ static/markdownx/js/
 static/martor/
 static/plugins/
 static/resume/
-blog_hugo/
-resume_hugo/
 *.mmdb
 GeoLite2*/
-
-# Hugo
-*hugo*
 
 # sqlite3
 *.sqlite3
 
-# obsidian
-.obsidian

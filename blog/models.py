@@ -46,6 +46,7 @@ class Post(models.Model):
     read_time = models.IntegerField(default=0)
     like_counter = models.IntegerField(default=0, blank=True, editable=False)
     view_counter = models.IntegerField(default=0, blank=True, editable=False)
+    author = models.CharField(max_length=255, default="Ryan", blank=False)
 
     def get_absolute_url(self):
         return reverse("post", kwargs={"slug": self.slug})

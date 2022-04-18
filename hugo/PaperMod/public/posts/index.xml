@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on RBO</title>
+    <link>https://ryanbutler.online/posts/</link>
+    <description>Recent content in Posts on RBO</description>
+    <image>
+      <url>https://ryanbutler.online/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://ryanbutler.online/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 16 Sep 2020 11:30:03 +0000</lastBuildDate><atom:link href="https://ryanbutler.online/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My 2nd post</title>
+      <link>https://ryanbutler.online/posts/post-2/</link>
+      <pubDate>Wed, 16 Sep 2020 11:30:03 +0000</pubDate>
+      
+      <guid>https://ryanbutler.online/posts/post-2/</guid>
+      <description>Desc Text.</description>
+    </item>
+    
+    <item>
+      <title>My 1st post</title>
+      <link>https://ryanbutler.online/posts/post-1/</link>
+      <pubDate>Tue, 15 Sep 2020 11:30:03 +0000</pubDate>
+      
+      <guid>https://ryanbutler.online/posts/post-1/</guid>
+      <description>Desc Text.</description>
+    </item>
+    
+  </channel>
+</rss>
