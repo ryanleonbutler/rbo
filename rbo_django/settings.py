@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     "markdownx",
     "blog",
     "resume",
+    "livereload",
 ]
 
 SITE_ID = 2

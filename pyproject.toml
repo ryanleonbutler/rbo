@@ -6,7 +6,7 @@ authors = ["ryanleonbutler <ryanleonbutler@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 Django = "^3.2"
 django-environ = "^0.8.1"
 boto3 = "^1.21.27"
@@ -22,13 +22,14 @@ tox = "^3.24.5"
 pytest = "^7.1.1"
 pytest-cov = "^3.0.0"
 coverage = "^6.3.2"
+pywatchman = "^1.4.1"
 
 [tool.tox]
 legacy_tox_ini = """
 [tox]
 isolated_build = True
 envlist =
-    py{310,39,38}-django{32},
+    py{310,39}-django{32},
     flake8,
     tests
 
