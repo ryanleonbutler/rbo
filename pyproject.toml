@@ -13,6 +13,8 @@ boto3 = "^1.21.27"
 Markdown = "^3.3.6"
 django-markdownx = "^3.0.1"
 gunicorn = "^20.1.0"
+python-dotenv = "^0.20.0"
+pywatchman = "^1.4.1"
 
 [tool.poetry.dev-dependencies]
 black = "^22.1.0"
@@ -22,7 +24,6 @@ tox = "^3.24.5"
 pytest = "^7.1.1"
 pytest-cov = "^3.0.0"
 coverage = "^6.3.2"
-pywatchman = "^1.4.1"
 
 [tool.tox]
 legacy_tox_ini = """

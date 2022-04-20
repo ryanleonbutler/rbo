@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% load markdown_extras %} {% block body %}
+
+<main class="main">
+    {% for post in post_list %}
+    <article class="post-entry">
+        <header class="entry-header">
+            <h2>{{ post.title }}</a></h2>
+        </header>
+        <section class="entry-content">
+            <p> {{ post.preview }}...</p>
+        </section>
+        <footer class="entry-footer"><span title='2020-09-16 11:30:03 +0000 +0000'> {{ post.publish_date }}</span>&nbsp;·&nbsp;{{ post.read_time }}min&nbsp;·&nbsp;{{ post.author }}</footer>
+        <a class="entry-link" aria-label=" {{ post.title }} " href="{{ post.get_absolute_url }}""></a>
+    </article>
+    {% endfor %}
+</main>
+
+{% endblock %}

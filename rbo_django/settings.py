@@ -10,32 +10,28 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
-import socket
 from datetime import datetime
 from pathlib import Path
 
-import environ
+from dotenv import load_dotenv
 
 
-env = environ.Env()
-environ.Env.read_env()
-
-STAGE = env("STAGE")
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+load_dotenv()
+STAGE = os.getenv("STAGE")
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if STAGE == "PROD":
     DEBUG = False
 else:
     DEBUG = True
+
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 ALLOWED_HOSTS = [
     "www.ryanbutler.online",
@@ -63,7 +59,6 @@ INSTALLED_APPS = [
     "markdownx",
     "blog",
     "resume",
-    "livereload",
 ]
 
 SITE_ID = 2
@@ -104,25 +99,12 @@ WSGI_APPLICATION = "rbo_django.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {}
-if STAGE == "PROD":
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.mysql",
-            "NAME": "blog",
-            "USER": "ryan",
-            "PASSWORD": "",
-            "HOST": "localhost",
-            "PORT": "",
-        }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
-    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
