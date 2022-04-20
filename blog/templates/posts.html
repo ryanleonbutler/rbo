@@ -1,9 +1,9 @@
 {% extends "base.html" %} {% load markdown_extras %} {% block body %}
 
 <main class="main">
-    {% for post in post_list %}
+    {% for post in posts %}
     <article class="post-entry">
-        <header class="entry-header">
+        <header class="entry-header" >
             <h2>{{ post.title }}</a></h2>
         </header>
         <section class="entry-content">

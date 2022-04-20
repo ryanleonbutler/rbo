@@ -1,4 +1,6 @@
-![](/static/markdownx/2020/12/24/backlit-keyboard-c5867b16-17b9-4dfd-a262-92eafecda0e3.png)
+![](/static/markdownx/anchor-lee-VepnJaqqP6s-unsplash.webp)
+
+## Introduction to RBO
 
 For many years now I have been trying to start my own blog. I just never got around to it. My go to excuse to myself was: "I just don't have time. I am too busy juggling family, work and life." The truth is, there is time, you just have to make some time available and cut some time out of other unimportant areas in your life, whilst keeping a balance of course.
 
@@ -25,9 +27,3 @@ I believe Python found its way into my mind, heart and fingers:
 So without further ado, here we go, my first post, well technically my second as this introduction was the first. Please do reach out to me on [Twitter](https://twitter.com/ryanleonbutler) or [LinkedIn](https://www.linkedin.com/in/ryanleonbutler/) with your thoughts about my blog or if you just want to talk about Python.
 
 Thank you for your time and support, really appreciate it.
-
-### [How did I create this blog? (Part 1)](https://ryanbutler.online/how-did-i-create-this-blog-part-1)
-
-*Best Regards*
-
-*Ryan*
