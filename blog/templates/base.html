@@ -14,8 +14,8 @@
     <meta name="description" content="Developer Blog and Tutorials">
     <meta name="author" content="Ryan Butler">
     <link rel="canonical" href="https://ryanbutler.online/">
-    <link crossorigin="anonymous"
-        href="{% static 'blog/css/styles.css' %}" rel="preload stylesheet" as="style">
+    <link href="{% static 'blog/css/styles.css' %}" rel="preload stylesheet" as="style">
+    <link href="{% static 'blog/css/prism.css' %}" rel="preload stylesheet" as="style">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'blog/favicon/apple-touch-icon.webp' %}">
     <link rel="icon" type="image/webp" sizes="32x32" href="{% static 'blog/favicon/favicon-32x32.webp' %}">
     <link rel="icon" type="image/webp" sizes="16x16" href="{% static 'blog/favicon/favicon-16x16.webp' %}">
@@ -227,6 +227,7 @@
         })
 
     </script>
+    <script src="{% static 'blog/js/prism.js' %}"></script>
 </body>
 
 </html>

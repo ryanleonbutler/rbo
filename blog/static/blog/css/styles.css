@@ -146,11 +146,12 @@ input[type=submit] {
 
 input:-webkit-autofill,
 textarea:-webkit-autofill {
-    box-shadow: 0 0 0 50px var(--theme)inset
+    box-shadow: 0 0 0 50px var(--theme)
 }
 
 img {
     display: block;
+    margin: 0 auto;
     max-width: 100%
 }
 
@@ -242,7 +243,7 @@ img {
 .footer {
     max-width: calc(var(--main-width) + var(--gap) * 2);
     margin: auto;
-    padding: calc((var(--footer-height) - var(--gap))/2)var(--gap);
+    padding: calc((var(--footer-height) - var(--gap))/2) var(--gap);
     text-align: center;
     line-height: 24px
 }
@@ -467,7 +468,7 @@ pre:hover .copy-code {
     flex-direction: column;
     justify-content: center;
     min-height: 320px;
-    margin: var(--gap)0 calc(var(--gap) * 2)
+    margin: var(--gap) 0 calc(var(--gap) * 2)
 }
 
 .first-entry .entry-header {
@@ -601,7 +602,10 @@ pre:hover .copy-code {
 }
 
 .post-content {
-    color: var(--content)
+    color: var(--content);
+    max-width: calc(var(--nav-width) + var(--gap) * 2);
+    margin-inline-start: auto;
+    margin-inline-end: auto;
 }
 
 .post-content h3,
@@ -612,29 +616,35 @@ pre:hover .copy-code {
 }
 
 .post-content h1 {
-    margin: 40px auto 32px;
-    font-size: 40px
+    margin: 40px 0 32px;
+    font-size: 40px;
+    text-align: left;
 }
 
 .post-content h2 {
-    margin: 32px auto 24px;
-    font-size: 32px
+    margin: 24px 0 16px;
+    font-size: 32px;
+    text-align: left;
 }
 
 .post-content h3 {
-    font-size: 24px
+    font-size: 24px;
+    text-align: left;
 }
 
 .post-content h4 {
-    font-size: 16px
+    font-size: 16px;
+    text-align: left;
 }
 
 .post-content h5 {
-    font-size: 14px
+    font-size: 14px;
+    text-align: left;
 }
 
 .post-content h6 {
-    font-size: 12px
+    font-size: 12px;
+    text-align: left;
 }
 
 .post-content a,
@@ -645,12 +655,12 @@ pre:hover .copy-code {
 .post-content a code {
     margin: auto 0;
     border-radius: 0;
-    box-shadow: 0 -1px 0 var(--primary)inset
+    box-shadow: 0 -1px 0 var(--primary)
 }
 
 .post-content del {
     text-decoration: none;
-    background: linear-gradient(to right, var(--primary) 100%, transparent 0)0/1px 1px repeat-x
+    background: linear-gradient(to right, var(--primary) 100%, transparent 0) 0/1px 1px repeat-x
 }
 
 .post-content dl,
@@ -760,26 +770,6 @@ pre:hover .copy-code {
     display: none
 }
 
-.post-content code {
-    margin: auto 4px;
-    padding: 4px 6px;
-    font-size: .78em;
-    line-height: 1.5;
-    background: var(--code-bg);
-    border-radius: 2px
-}
-
-.post-content pre code {
-    display: block;
-    margin: auto 0;
-    padding: 10px;
-    color: #d5d5d6;
-    background: var(--hljs-bg) !important;
-    border-radius: var(--radius);
-    overflow-x: auto;
-    word-break: break-all
-}
-
 .post-content blockquote {
     margin: 20px 0;
     padding: 0 14px;
@@ -799,9 +789,8 @@ pre:hover .copy-code {
 }
 
 .post-content img {
-    border-radius: 4px;
-    margin: 0 auto;
-    max-width: 1024px;
+    border-radius: 5px;
+    width: 90%;
 }
 
 .post-content img[src*="#center"] {
@@ -1170,19 +1159,6 @@ h6:hover .anchor {
     font-weight: 700
 }
 
-#title {
-    text-align: center;
-}
-
-#blog-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    margin-inline-start: auto;
-    margin-inline-end: auto;
-    max-width: 1024px;
-}
-
 @media screen and (max-width:768px) {
     :root {
         --gap: 14px
@@ -1205,7 +1181,7 @@ h6:hover .anchor {
     }
 
     .footer {
-        padding: calc((var(--footer-height) - var(--gap) - 10px)/2)var(--gap)
+        padding: calc((var(--footer-height) - var(--gap) - 10px)/2) var(--gap)
     }
 }
 
