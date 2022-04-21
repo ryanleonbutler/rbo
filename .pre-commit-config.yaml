@@ -19,8 +19,8 @@ repos:
     -   id: detect-secrets
         name: Detect secrets
         language: python
-        exclude : poetry.lock 
-  # - repo: https://github.com/pycqa/pydocstyle
-    # rev: 6.0.0
-    # hooks:
-      # - id: pydocstyle
+        exclude : poetry.lock
+  - repo: https://github.com/adamchainz/pre-commit-oxipng
+    rev: v5.0.1
+    hooks:
+    -   id: oxipng

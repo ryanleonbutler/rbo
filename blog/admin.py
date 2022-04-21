@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.db import models
 
-from blog.models import Category, Nibble, NibbleCategory, Post
+from blog.models import Post, Tag
 
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -19,6 +19,4 @@ class NibbleAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Post, PostAdmin)
-admin.site.register(Category, CategoryAdmin)
-admin.site.register(Nibble, NibbleAdmin)
-admin.site.register(NibbleCategory, NibbleAdmin)
+admin.site.register(Tag, CategoryAdmin)

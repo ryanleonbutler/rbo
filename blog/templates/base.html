@@ -1,83 +1,233 @@
 <!DOCTYPE html lang="en">
-<html>
+<html lang="en" dir="auto">
 {% load static %}
+
 <head>
+    <meta name="generator" content="Hugo 0.97.0" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="index, follow">
+    <title>RBO</title>
+    <meta name="keywords"
+        content="Blog, Portfolio, Tutorials, Software, Development, Engineering, Programming, Python, Django">
+    <meta name="description" content="Developer Blog and Tutorials">
+    <meta name="author" content="Ryan Butler">
+    <link rel="canonical" href="https://ryanbutler.online/">
+    <link href="{% static 'blog/css/styles.css' %}" rel="preload stylesheet" as="style">
+    <link href="{% static 'blog/css/prism.css' %}" rel="preload stylesheet" as="style">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'blog/favicon/apple-touch-icon.webp' %}">
+    <link rel="icon" type="image/webp" sizes="32x32" href="{% static 'blog/favicon/favicon-32x32.webp' %}">
+    <link rel="icon" type="image/webp" sizes="16x16" href="{% static 'blog/favicon/favicon-16x16.webp' %}">
+    <link rel="manifest" href="{% static 'blog/favicon/site.webmanifest' %}">
+    <meta name="theme-color" content="#2e2e33">
+    <meta name="msapplication-TileColor" content="#2e2e33">
+    <link rel="alternate" type="application/rss+xml" href="/index.xml">
+    <noscript>
+        <style>
+            #theme-toggle,
+            .top-link {
+                display: none;
+            }
+        </style>
+        <style>
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --theme: rgb(29, 30, 32);
+                    --entry: rgb(46, 46, 51);
+                    --primary: rgb(218, 218, 219);
+                    --secondary: rgb(155, 156, 157);
+                    --tertiary: rgb(65, 66, 68);
+                    --content: rgb(196, 196, 197);
+                    --hljs-bg: rgb(46, 46, 51);
+                    --code-bg: rgb(55, 56, 62);
+                    --border: rgb(51, 51, 51);
+                }
+
+                .list {
+                    background: var(--theme);
+                }
+
+                .list:not(.dark)::-webkit-scrollbar-track {
+                    background: 0 0;
+                }
+
+                .list:not(.dark)::-webkit-scrollbar-thumb {
+                    border-color: var(--theme);
+                }
+            }
+        </style>
+    </noscript>
+    <meta property="og:title" content="RBO" />
+    <meta property="og:description" content="Developer Blog and Tutorials" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ryanbutler.online/" />
+    <meta property="og:image"
+        content="https://ryanbutler.online/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E" />
+    <meta property="og:site_name" content="RBO" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image"
+        content="https://ryanbutler.online/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E" />
+
+    <meta name="twitter:title" content="RBO" />
+    <meta name="twitter:description" content="Developer Blog and Tutorials" />
+
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "RBO",
+    "url": "https://ryanbutler.online/",
+    "description": "Developer Blog and Tutorials",
+    "thumbnailUrl": "https://ryanbutler.online/%3Clink%20/%20abs%20url%3E",
+    "sameAs": [
+        "https://github.com/ryanleonbutler", "https://linkedin.com/ryanleonbutler", "https://twitter.com/ryanleonbutler", "https://www.buymeacoffee.com/ryanonline"
+    ]
+    }
+    </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-160973492-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-      gtag('config', 'UA-160973492-1');
+        gtag('config', 'UA-160973492-1');
     </script>
-    <title>rbo | python developer blog with tutorials</title>
-    <meta charset="UTF-8">
-    <meta lang="en">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Developer blog covering all things Python related">
-    <meta name="Author" content="Ryan Butler">
-    <meta name="title" content="rbo | developer blog">
-    <meta name="keywords" content="python developer coding programming blog tutorials">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="RBO">
-    <meta name="twitter:description" content="Developer blog covering all things Python related">
-    <meta property="og:title" content="RBO">
-    <meta property="og:description" content="Developer blog covering all things Python related"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://ryanbutler.online"/>
-    <link rel="shortcut icon" type="image/png" href="{% static 'blog/favicon/favicon.ico' %}">
-    <link rel="stylesheet" href={% static 'blog/css/syntax.css' %}>
-    <link rel="stylesheet" href={% static 'blog/css/style.css' %}>
-    <link rel="stylesheet" href={% static 'blog/css/chaos.css' %}>
-    <script src="{% static 'blog/js/1b7478c139.js' %}" crossorigin="anonymous"></script>
 </head>
-<body>
-<aside id="sidenav">
-    <header>
-        <a href=https://ryanbutler.online><img src="{% static 'blog/images/avatar.webp' %}" alt="avatar"></a>
-        <a id="branding" href=https://ryanbutler.online><h1>rbo</h1></a>
-        <h3>python developer blog and tutorials</h3>
+
+<body class="list" id="top">
+    <script>
+        if (localStorage.getItem("pref-theme") === "dark") {
+            document.body.classList.add('dark');
+        } else if (localStorage.getItem("pref-theme") === "light") {
+            document.body.classList.remove('dark')
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add('dark');
+        }
+
+    </script>
+
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="https://ryanbutler.online/" accesskey="h" title="Home (Alt + H)">
+                    <img src="{% static 'blog/images/safari-pinned-tab.webp' %}" alt="logo" aria-label="logo"
+                        height="35">Home</a>
+                <span class="logo-switches">
+                    <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+                </span>
+            </div>
+            <ul id="menu">
+                <li>
+                    <a href="/blog/posts/" title="categories">
+                        <span>posts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/blog/tags/" title="tags">
+                        <span>tags</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/resume/" title="resume">
+                        <span>resume</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <a href="/">
-            <i class="fas fa-home fa-sm"></i>
-            <span>home</span>
-        </a>
-        <a href="/blog/">
-            <i class="fas fa-keyboard fa-ms"></i>
-            <span>blog</span>
-        </a>
-        <a href="/nibbles/">
-            <i class="fa fa-book" aria-hidden="true"></i>
-            <span>py-nibbles</span>
-        </a>
-        <a href="https://github.com/ryanleonbutler" target="_blank">
-            <i class="fab fa-github fa-ms"></i>
-            <span>github</span>
-        </a>
-        <a href="/contact/">
-            <i class="far fa-envelope"></i>
-            <span>contact</span>
-        </a>
-        <a href="/about/">
-            <i class="fa fa-info"></i>
-            <span>about</span>
-        </a>
-        <a href="https://www.buymeacoffee.com/ryanonline" target="_blank">
-            <i class="fa fa-coffee" aria-hidden="true"></i>
-            <span>buy me coffee!</span>
-        </a>
-    </nav>
-</aside>
 
-{% block body %}{% endblock %}
+    {% block body %}{% endblock %}
 
-{#<div class="bmc-button">#}
-{#            <a href="https://www.buymeacoffee.com/ryanonline"><img src="{% static 'blog/images/bmc-logo.webp' %}" alt="buy_me_coffee" id="bmcrocker"></a>#}
-{#</div>#}
+    <footer class="footer">
+        <span>&copy; 2022 - <a href="https://ryanbutler.online/">RBO</a></span>
+        <span>
+            theme by -
+            <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+        </span>
+    </footer>
+    <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </a>
 
-<script src={% static 'blog/js/navbutton.js' %}></script>
+    <script>
+        let menu = document.getElementById('menu')
+        if (menu) {
+            menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+            menu.onscroll = function () {
+                localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+            }
+        }
 
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                var id = this.getAttribute("href").substr(1);
+                if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                        behavior: "smooth"
+                    });
+                } else {
+                    document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+                }
+                if (id === "top") {
+                    history.replaceState(null, null, " ");
+                } else {
+                    history.pushState(null, null, `#${id}`);
+                }
+            });
+        });
+
+    </script>
+    <script>
+        var mybutton = document.getElementById("top-link");
+        window.onscroll = function () {
+            if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+                mybutton.style.visibility = "visible";
+                mybutton.style.opacity = "1";
+            } else {
+                mybutton.style.visibility = "hidden";
+                mybutton.style.opacity = "0";
+            }
+        };
+
+    </script>
+    <script>
+        document.getElementById("theme-toggle").addEventListener("click", () => {
+            if (document.body.className.includes("dark")) {
+                document.body.classList.remove('dark');
+                localStorage.setItem("pref-theme", 'light');
+            } else {
+                document.body.classList.add('dark');
+                localStorage.setItem("pref-theme", 'dark');
+            }
+        })
+
+    </script>
+    <script src="{% static 'blog/js/prism.js' %}"></script>
 </body>
+
 </html>

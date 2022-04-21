@@ -6,13 +6,15 @@ authors = ["ryanleonbutler <ryanleonbutler@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 Django = "^3.2"
 django-environ = "^0.8.1"
 boto3 = "^1.21.27"
 Markdown = "^3.3.6"
 django-markdownx = "^3.0.1"
 gunicorn = "^20.1.0"
+python-dotenv = "^0.20.0"
+pywatchman = "^1.4.1"
 
 [tool.poetry.dev-dependencies]
 black = "^22.1.0"
@@ -28,7 +30,7 @@ legacy_tox_ini = """
 [tox]
 isolated_build = True
 envlist =
-    py{310,39,38}-django{32},
+    py{310,39}-django{32},
     flake8,
     tests
 
