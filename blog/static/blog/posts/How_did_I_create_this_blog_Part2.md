@@ -1,4 +1,6 @@
-<img align="center" src="/static/markdownx/2021/02/20/coding-monitor-laptop.jpg_9d384059-5af7-4a4a-b7e3-3c80c5f67fc2.jpg" alt="" />
+![](/static/markdownx/marta-matyszczyk-Ss7TNu1QEH8-unsplash.webp)
+
+## How did I create this blog? (Part 2)
 
 Welcome to Part 2 of the "How did I create this blog?" series. It has been a while since my last post, been really busy at work and home. Finally found some time to crank out this post and it feels great to be back and continuing with this series.
 
@@ -17,7 +19,7 @@ Please do reach out to me using the [contact](https://ryanbutler.online/contact/
 <div id='create-app' markdown='1'></div>
 
 ## 1. Creating an App
-After finishing [Part 1 ](https://ryanbutler.online/how-did-i-create-this-blog-part-1), you will have a Python virtual environment and a vanilla Django Project configured. Now we want to create our Blog App using the same virtual environment and Django Project. 
+After finishing [Part 1 ](https://ryanbutler.online/how-did-i-create-this-blog-part-1), you will have a Python virtual environment and a vanilla Django Project configured. Now we want to create our Blog App using the same virtual environment and Django Project.
 
 At this stage, you might be asking yourself, "What is the difference between a Django Project and a Django App?". Good question. According to the Django documentation:
 
@@ -27,7 +29,7 @@ At this stage, you might be asking yourself, "What is the difference between a D
 
 Great, that is pretty clear. Let's move on.
 
-When you installed Django, your system will not only have access to the [django-admin](https://docs.djangoProject.com/en/3.1/ref/django-admin/) commands, but you will also have a "admin.py" file in the root of the Django Project. We are going to use the "admin.py" file to create the Blog App. These are basically Django’s command-line utilities for administrative tasks of your Django Project.   
+When you installed Django, your system will not only have access to the [django-admin](https://docs.djangoProject.com/en/3.1/ref/django-admin/) commands, but you will also have a "admin.py" file in the root of the Django Project. We are going to use the "admin.py" file to create the Blog App. These are basically Django’s command-line utilities for administrative tasks of your Django Project.
 
 ```
 # Ensure your are current working directory is in the root of the Django Project and
@@ -52,7 +54,7 @@ tree -L 2
     └── pyvenv.cfg
 
 source venv/bin/activate
-(venv) 
+(venv)
 ```
 
 Now create the Blog App.
@@ -101,7 +103,7 @@ Now that we know what models are and their purpose, lets create the model for ou
 
 Let's unpack the above. We created two tables:
 
-* Category; and 
+* Category; and
 * Post.
 
 In the Post table, there are eight fields.
@@ -124,7 +126,7 @@ Next, we will configure the Admin view, where we can manage our Posts and Catego
 <div id='django-admin' markdown='1'></div>
 
 ## 3. Admin View
-The Admin view is bundled by default in each Django project. In essence, the Admin view is used to manage your Apps from an administrator's point of view. 
+The Admin view is bundled by default in each Django project. In essence, the Admin view is used to manage your Apps from an administrator's point of view.
 
 For example in our Blog App, the administrator or author will draft new posts and publish them on the Blog using the Admin view. Viewers of the Blog are not allowed to draft and publish posts, they just get to browse your blog and read the posts. In order to access the Admin view, you need to create a superuser and authenticate with those credentials when prompted on the Admin view login page.
 
