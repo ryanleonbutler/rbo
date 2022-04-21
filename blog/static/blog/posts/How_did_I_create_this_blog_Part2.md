@@ -31,7 +31,7 @@ Great, that is pretty clear. Let's move on.
 
 When you installed Django, your system will not only have access to the [django-admin](https://docs.djangoProject.com/en/3.1/ref/django-admin/) commands, but you will also have a "admin.py" file in the root of the Django Project. We are going to use the "admin.py" file to create the Blog App. These are basically Django’s command-line utilities for administrative tasks of your Django Project.
 
-```
+<pre><code class="language-bash">
 # Ensure your are current working directory is in the root of the Django Project and
 # verify your virtual environment is activated
 cd ~/myproject
@@ -55,15 +55,17 @@ tree -L 2
 
 source venv/bin/activate
 (venv)
-```
+</code></pre>
 
 Now create the Blog App.
-```
+
+<pre><code class="language-bash">
 (venv) python admin.py startapp blog
-```
+</code></pre>
 
 This should now be the contents of your Django Project directory excluding the venv directory.
-```
+
+<pre><code class="language-bash">
 (venv) tree -I venv -L 2
 .
 ├── blog
@@ -83,7 +85,8 @@ This should now be the contents of your Django Project directory excluding the v
 │   ├── urls.py
 │   └── wsgi.py
 └── requirements.txt
-```
+</code></pre>
+
 The Project and Blog boilerplate is now ready to be changed.
 
 <div id='django-models' markdown='1'></div>
@@ -132,17 +135,18 @@ For example in our Blog App, the administrator or author will draft new posts an
 
 In order to create a superuser, we can use, yes you guessed it, the manage.py file and administrative commands. Run the below command and complete the relevant information in the prompts to create a superuser.
 
-```
+<pre><code class="language-bash">
 (venv) python manage.py createsuperuser
 Username (leave blank to use 'user'): admin
 Email address: admin@test.com
 Password: ******** <!--- # pragma: allowlist secret --->
 Password (again): ******** <!--- # pragma: allowlist secret --->
 Superuser created successfully.
-```
+</code></pre>
 
 At this point you can run your Django project, with the below command:
-```
+
+<pre><code class="language-bash">
 (venv) python manage.py runserver
 
 Watching for file changes with StatReloader
@@ -153,7 +157,8 @@ February 20, 2021 - 08:45:16
 Django version 3.1.5, using settings 'my_project.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
-```
+</code></pre>
+
 You can now browse to http://127.0.0.1:8000/ to view the default Django project page and http://127.0.0.1:8000/admin to the Admin logon screen. Use the username and password you configured in the previous step to logon as your super user.
 
 Once you have logged into the Admin view, you will notice that only the "AUTHENTICATION AND AUTHORIZATION" section with Users and Groups is available. This is because we have not registered our new models in the Admin view. In order to add your models to the Admin view to create and manage posts and categories you need add the below to your admin.py view file located in the blog directory:
@@ -163,13 +168,3 @@ Once you have logged into the Admin view, you will notice that only the "AUTHENT
 Once you applied the above, run the Django server again and browse to the Admin view and login with your super user. You should see the "BLOG" section with both Post and Category models listed.
 
 Now you can browse to each model to start creating categories and posts and they will be stored in your projects database.
-
-<img align="center" src="/static/markdownx/2021/02/20/admin_view.png_55a504c8-b850-47c4-906f-8df147173102.png" alt="" />
-
-## Last words
-
-This wraps up Part 2 of my multi-series posts where we will be deploying a blog similar to the one you are currently reading. In the next part we will be creating views, managing URL's and creating our blog's HTML templates. See you then!
-
-*Best Regards*
-
-*Ryan*
