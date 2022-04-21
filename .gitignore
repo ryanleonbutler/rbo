@@ -152,3 +152,5 @@ static/resume/
 # sqlite3
 *.sqlite3
 
+# hugo
+hugo/
