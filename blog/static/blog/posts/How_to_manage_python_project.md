@@ -94,7 +94,8 @@ $ poetry install # Installs all depedencies in the virtual environment
 Poetry also has some bonus features like exporting your dependencies to a requirements file.
 
 <pre><code class="language-bash">
-poetry export --without-hashes -o requirements.txt  # Exports all depedencies to requirements file
+# Exports all depedencies to requirements file
+poetry export --without-hashes -o requirements.txt
 </code></pre>
 
 There are many more commands, which is very well documented on their beautifully crafted website [here]().
