@@ -20,7 +20,3 @@ repos:
         name: Detect secrets
         language: python
         exclude : poetry.lock
-  - repo: https://github.com/adamchainz/pre-commit-oxipng
-    rev: v5.0.1
-    hooks:
-    -   id: oxipng
