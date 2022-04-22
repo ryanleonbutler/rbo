@@ -14,7 +14,7 @@ urlpatterns = [
     re_path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     re_path("contact/", views.page_contact, name="contact"),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
-    path("blog/<slug:slug>", PostDetailView.as_view(), name="post"),
+    path("blog/post/<slug:slug>", PostDetailView.as_view(), name="post"),
     path("blog/posts/", PostListView.as_view(), name="posts"),
     path("blog/tags/<tag>", views.blog_tag, name="tag"),
     path("blog/tags/", TagsListView.as_view(), name="tags"),

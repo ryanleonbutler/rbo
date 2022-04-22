@@ -16,7 +16,7 @@ class PostSitemap(Sitemap):
         return obj.publish_date
 
     def location(self, obj):
-        return f"{obj.slug}"
+        return f"/blog/post/{obj.slug}"
 
 
 class StaticSitemap(Sitemap):
@@ -25,7 +25,7 @@ class StaticSitemap(Sitemap):
     protocol = "https"
 
     def items(self):
-        return ["home", "contact", "about"]
+        return ["home", "posts", "tags"]
 
     def location(self, item):
         return reverse(item)
