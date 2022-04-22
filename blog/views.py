@@ -52,14 +52,10 @@ class TagsListView(ListView):
         return super(PostListView, self).get_object(queryset)
 
 
-class TagsView(ListView):
-    model = Tag
-    template_name = "tags.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["posts"] = Post.objects.all()
-        return context
+def blog_tag(request, tag):
+    posts = Post.objects.filter(tags__name__contains=tag).order_by("-created_on")
+    context = {"tag": tag, "posts": posts}
+    return render(request, "tag.html", context)
 
 
 def page_contact(request):

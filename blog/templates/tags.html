@@ -2,13 +2,13 @@
 
 <main class="main">
     <header class="page-header">
-        <h1>Tags</h1>
+        <h2>Tags</h2>
     </header>
 
     <ul class="terms-tags">
         {% for tag in tags %}
         <li>
-            <a href="/tags/{{ tag.name }}/">{{ tag.name }}<sup><strong><sup>
+            <a href="{{ tag.name }}">{{ tag.name }}<sup><strong><sup>
                             <!--TODO: implement counter-->
                         </sup></strong></sup></a>
         </li>
