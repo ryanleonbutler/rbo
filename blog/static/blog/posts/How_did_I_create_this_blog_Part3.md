@@ -1,3 +1,7 @@
+![](/static/markdownx/tavis-beck-EB1eIBu7yQo-unsplash.webp)
+
+## How did I create this blog? (Part 3)
+
 This is Part 3 of this series of how I created this blog using Django. It has been a long time since my last post, been pretty busy at work and at home with the kids, but finally got some time to focus and draft this post. This is the last tutorial in this three part series. I will however include some features, tips and tricks in my future posts, which I did not touch on in this series.
 
 In this post we will be looking at creating some views, managing the URL paths, creating some fancy HTML templates and finally adding some Markdown support.  Writing your posts in Markdown lets you focus on your content creation, without worrying about by adding HTML and CSS to your post.
@@ -30,7 +34,7 @@ Ref: [Django Documentation - Views](https://docs.djangoproject.com/en/3.2/topics
 
 The view functions can be stored anywhere in your project, but I prefer to keep them in the views.py file located in each app of my Django project, where possible.
 
-```bash
+<pre><code class="language-bash">
 (venv) tree blog -L 1
 blog
 ├── __init__.py
@@ -40,13 +44,13 @@ blog
 ├── models.py
 ├── tests.py
 └── views.py
-```
+</code></pre>
 
 Let's take a look at a basic `views.py` file with a good mix of different types of views:
 
 <script src="https://gist.github.com/ryanleonbutler/bcc02c3e89de5a2a3cb67c14585d28a4.js"></script>
 
-Don't be intimidated by the above code snipped, it is actually pretty straight forward. Django comes with some awesome built-in generic views to assist in generating list and detail views of objects from your database. I used class-based views for the first two view functions and thereafter just my basic view functions to render the HTML. The class-based views are really simple to use. You only need an object(s)(which is a model or a list of objects from a query), pass in a context variable and reference an HTML template. The two functions, named `get_object` in each class-based view, is used to query the database and return an object(s). 
+Don't be intimidated by the above code snipped, it is actually pretty straight forward. Django comes with some awesome built-in generic views to assist in generating list and detail views of objects from your database. I used class-based views for the first two view functions and thereafter just my basic view functions to render the HTML. The class-based views are really simple to use. You only need an object(s)(which is a model or a list of objects from a query), pass in a context variable and reference an HTML template. The two functions, named `get_object` in each class-based view, is used to query the database and return an object(s).
 
 See reference to the Django documentation [here](https://docs.djangoproject.com/en/3.2/topics/class-based-views/generic-display/), should you require more information on class-based views.
 
@@ -89,6 +93,6 @@ Our last topic, is adding Markdown support. I cannot stress this feature enough,
 I used the Django plugin, [Markdownx](https://pypi.org/project/django-markdownx/). It suited my needs and was pretty easy to implement. You can see the implementation guide [here](https://neutronx.github.io/django-markdownx/installation/).
 
 ## Last words
-And that is all folks. I hope this series of posts has not only inspired you to get started with Django and creating your own blog, but also guided you along the way. Please do share with me your blog if you used my series of posts as an inspiration to create your own blog using Django and Python. 
+And that is all folks. I hope this series of posts has not only inspired you to get started with Django and creating your own blog, but also guided you along the way. Please do share with me your blog if you used my series of posts as an inspiration to create your own blog using Django and Python.
 
 Thank you for your continued support and stay safe out there my fellow Pythonistas!

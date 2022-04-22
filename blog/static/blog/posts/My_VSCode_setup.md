@@ -1,10 +1,10 @@
-<img align="center" src="/static/markdownx/2021/01/12/myvscode.png_bd9705fa-2da5-41bd-ba17-15a4df26bf0f.png" alt="myvscode" width="1920"/>
+![](/static/markdownx/steve-harvey-HDAfyu1w0ug-unsplash.webp)
 
-In my [previous post](https://ryanbutler.online/my-terminal-setup-mac-os) we reviewed setting up your terminal on MacOS. Today we look at the most important tool in a developer's tool belt, the code editor/IDE.
+## My VSCode Setup
+
+In my [previous post](https://ryanbutler.online/my-terminal-setup-mac-os) we reviewed setting up a terminal. Today we look at the most important tool in a developer's tool belt, the code editor/IDE.
 
 Visual Studio Code (VSCode) is currently one of the most popular code editors. I myself use VSCode daily for multiple tasks, including taking notes, writing markdown for posts, writing other documentation and off course writing code.
-
-Follow along below where I will guide you on how to install and customize your VSCode to replicate my setup. Thank you once again for your time and support and please reach out to me on the [contact page](https://ryanbutler.online/contact/) if you have any questions or just want to chat about anything related to Python.
 
 # Table of Contents
 1. [Install VSCode](#install_vscode)
@@ -42,14 +42,14 @@ Press F1 to open the Command Palette, type "Preferences: Open Settings (JSON)" t
 * Disable Minimap
     * Search for "Minimap" and disable the Minimap. I personally don't like the minimap as it uses valuable screen real estate. If you need a minimap to navigate long code bases in single files you need to consider breaking up the code into smaller pieces for improved readability and maintainability (where possible of course).
 
-* Change Integrated Terminal 
+* Change Integrated Terminal
     * Search for "Terminal" and change the to iTerm.app. We configured our default terminal as iTerm in the [previous post](https://ryanbutler.online/my-terminal-setup-mac-os).
     * Change the integrated terminal shell to "Zsh" ("/bin/zsh"), change the font family to "Fira Code" and the font size to "15".
 
-* Change Auto Save 
+* Change Auto Save
     * Find "Auto Save" and change to "After delay". I find the default of 1000ms to be sufficient.
 
-* Python Specific Settings 
+* Python Specific Settings
     * Select a default Python interpreter
         * In the command palette, type "Python: Select Interpreter", press Enter. Choose the relevant interpreter or browse/enter path. *(Note: I use a combination of [pyenv](https://github.com/pyenv/pyenv) and [venv](https://docs.python.org/3/library/venv.html) to manage my Python versions and virtual environments. I use pyenv to install and manage different Python versions only and then venv to create and manage the virtual environments themselves. I will go into more detail about this in a future post)*
 
@@ -63,55 +63,9 @@ Refer to the below steps for the editing the JSON file method. In the JSON file 
 
 **Steps for JSON:**
 
-* Copy the below and edit your local JSON accordingly:
+* You can copy my `settings.json` [here](https://github.com/ryanleonbutler/dotfiles/blob/main/private_Library/private_Application%20Support/private_Code/User/settings.json) and modify it to meet your needs.
 
-```
-{
-    "editor.fontFamily": "Fira Code",
-    "editor.fontSize": 15,
-    "editor.minimap.renderCharacters": false,
-    "editor.minimap.enabled": false
-    "editor.renderWhitespace": "all",
-    "editor.suggestSelection": "first",
-    "terminal.external.osxExec": "iTerm.app",
-    "terminal.integrated.shell.osx": "/bin/zsh",
-    "terminal.integrated.fontFamily": "Fira Code"
-    "terminal.integrated.fontSize": 15,
-    "files.autoSave": "afterDelay",
-    "python.formatting.provider": "black",
-    "python.linting.flake8Path": "flake8",
-    "files.watcherExclude": {
-        "**/build": true,
-        "**/.pytest_cache": true,
-        "**/.vscode": true,
-        "**/build-tools": true,
-        "**/env": true,
-        "**/logs": true,
-        "**/venv": true,
-        "**/__pycache__": true
-    },
-    "files.exclude": {
-        "**/.pytest_cache": true,
-        "**/.vscode": true,
-        "**/build": true,
-        "**/build-tools": true,
-        "**/env": true,
-        "**/logs": true,
-        "**/venv": true,
-        "**/__pycache__": true
-    },
-    "search.exclude": {
-        "**/build": true,
-        "**/.pytest_cache": true,
-        "**/.vscode": true,
-        "**/build-tools": true,
-        "**/env": true,
-        "**/logs": true,
-        "**/venv": true,
-        "**/__pycache__": true
-    },
-}
-```
+* You can also copy my `keybindings.json` [here](https://github.com/ryanleonbutler/dotfiles/blob/main/private_Library/private_Application%20Support/private_Code/User/keybindings.json) and modify it to meet your needs.
 
 That's all that needs changing with regards to the VSCode specific settings. In the next section we will cover installing extensions.
 
@@ -124,26 +78,17 @@ This is arguably VSCode's best feature, the ability to install extensions and cu
 
 * Python
     * Linting, Debugging (multi-threaded, remote), Intellisense, Jupyter Notebooks, code formatting, refactoring, unit tests, snippets, and more.
-    * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=ms-python.python) 
-
-* Pylance
-    * A performant, feature-rich language server for Python in VS Code.
-    * [Marketplace Link]( https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
+    * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 * Python Docstring Generator
     * Automatically generates detailed docstrings for python functions.
-    * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring) 
-
-* indent-rainbow
-    * Makes indentation easier to read.
-    * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow) 
-
-* Bracket Pair Colorizer 2
-    * A customizable extension for colorizing matching brackets.
-    * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2)
-
+    * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring)
 
 ### Productivity Extensions
+
+* Vim
+    * Vim emulation for Visual Studio Code
+    * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
 
 * GitLens — Git supercharged
     * Supercharge the Git capabilities built into Visual Studio Code — Visualize code authorship at a glance via Git blame annotations and code lens, seamlessly navigate and explore Git repositories, gain valuable insights via powerful comparison commands, and so much more.
@@ -169,10 +114,6 @@ This is arguably VSCode's best feature, the ability to install extensions and cu
     * Open any folder on a remote machine using SSH and take advantage of VS Code's full feature set.
     * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
 
-* Settings Sync
-    * Synchronize Settings, Snippets, Themes, File Icons, Launch, Keybindings, Workspaces and Extensions Across Multiple Machines Using GitHub Gist.
-    * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)
-
 * Todo Tree
     * Show TODO, FIXME, etc. comment tags in a tree view.
     * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree)
@@ -182,19 +123,12 @@ This is arguably VSCode's best feature, the ability to install extensions and cu
     * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=WakaTime.vscode-wakatime)
 
 ### Theme and icons
-* Dracula Official
-    * Official Dracula Theme. A dark theme for many editors, shells, and more.
-    * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula)
+* Atom One Dark Theme
+    *  One Dark Theme based on Atom.
+    * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=akamud.vscode-theme-onedark)
 
-* vscode-icons
-    * Icons for Visual Studio Code.
-    * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
+* Material Theme Icons
+    * Material Theme Icons, the most epic icons theme for Visual Studio Code and Material Theme.
+    * [Marketplace Link](https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme-icons)
 
-## Last words
-There are still so many changes you can make and extensions you can install for your VSCode editor we just scratched the surface on this post. The above implementation is what I deemed as the essentials to improve your editing experience at the time of writing.
-
-That is all for now and I trust you found the above information useful.
-
-*Best Regards*
-
-*Ryan*
+There are still so many changes you can make and extensions you can install for your VSCode editor we just scratched the surface on this post.

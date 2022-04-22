@@ -1,4 +1,6 @@
-![](/static/markdownx/2021/01/07/myterminal.png_ff66f794-7909-4499-bda5-b4e528e60302.png)
+![](/static/markdownx/trevor-mckinnon-H3z8BDFIByU-unsplash.webp)
+
+## My terminal setup (MacOS)
 
 Having an efficient and tailored terminal setup is almost as important as your IDE or code editor in my opinion. Lets face it, whether your a Software Engineer, working DevOps or any other role within IT, chances are pretty good you will be spending a lot of your time working inside a terminal window.
 
@@ -21,9 +23,9 @@ It also does not hurt if your terminal looks great when you boasting your termin
 
 Install iTerm2 terminal using [Homebrew](https://brew.sh/) or download the installer from iTerm2's website [here](https://iterm2.com/).
 
-```
+<pre><code class="language-bash">
 brew install --cask iterm2
-```
+</code></pre>
 
 <div id='custom_iterm2' markdown='1'></div>
 
@@ -50,12 +52,14 @@ Firstly change your shell to use zsh if not already done (macOS Mojave and earli
 * Click OK to save your changes.
 
 Once your default shell is configured to use zsh, there are two methods for installing [Oh My Zsh](https://ohmyz.sh/#install), via curl or wget:
-```
+
+<pre><code class="language-bash">
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-```
+</code></pre>
+
+<pre><code class="language-bash">
 sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
-```
+</code></pre>
 
 Once you installed Oh My Zsh, close and re-open your terminal window.
 
@@ -65,12 +69,13 @@ Once you installed Oh My Zsh, close and re-open your terminal window.
 
 Open ~/.zshrc with your favourite terminal text editer. I prefer nano.
 
-```
+<pre><code class="language-bash">
 nano ~/.zshrc
-```
+</code></pre>
 
 Add/edit below in your local .zshrc file:
-```
+
+<pre><code class="language-bash">
 ZSH_THEME="spaceship"   # My current favorite theme
 DEFAULT_USER=<enter_username>   # This avoids your username appearing in the prompt
 
@@ -99,7 +104,7 @@ alias gm='git commit -m'
 alias gma='git commit -am'
 alias gb='git branch'
 alias gc='git checkout'
-```
+</code></pre>
 
 <div id='other_zsh' markdown='1'></div>
 
@@ -107,20 +112,21 @@ alias gc='git checkout'
 ### AWS CLI
 I use the [AWS CLI](https://aws.amazon.com/cli/) a lot and without the below variable exported to the current terminal session, the API responses are returned to less, which I personally dislike. The below variable export will print it out to STD OUT in the terminal window only.
 
-```
+<pre><code class="language-bash">
 export AWS_PAGER=""
-```
+</code></pre>
 
 ### Pyenv
 I use [pyenv](https://github.com/pyenv/pyenv) to manage my Python versions and virtual environment. In order for it to work correctly you will require the below in your .zshrc configuration file as well:
-```
+
+<pre><code class="language-bash">
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 eval "$(pyenv virtualenv-init -)"
-```
+</code></pre>
 
 ## Last words
 That's it, basic, but found this setup to work for me day-to-day in most environments. From here you can extend and modify your terminal experience to your specific needs.
