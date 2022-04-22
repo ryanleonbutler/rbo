@@ -21,8 +21,10 @@ Poetry's main goal is dependency management and packaging in Python. The tool al
 Just like any other Python package, Poetry can be installed using pip.
 
 <pre><code class="language-bash">
+# install poetry
 $  pip install poetry
 </code></pre>
+
 I recommend using [pipx](https://github.com/pypa/pipx) in this case. It is great for installing system wide Python applications in isolation. This avoids installing Poetry to a specific Python installation or virtual environment. It also adds the command line application to your system path allowing you to execute the tool even if other Python virtual environments are active.
 
 <pre><code class="language-bash">
@@ -41,6 +43,7 @@ export PIPX_DEFAULT_PYTHON=/Users/user/.pyenv/shims/python
 Now we can install Poetry using pipx.
 
 <pre><code class="language-bash">
+# using pipx to install poetry globally
 $ pipx install poetry
 </code></pre>
 
@@ -50,12 +53,14 @@ $ pipx install poetry
 In order to create a new directory with predefined files and project structure you can simply run:
 
 <pre><code class="language-bash">
+# creates new project
 $ poetry new my_project
 </code></pre>
 
 You will be presented with a few prompts regarding your project and once completed a new directory will be created with the below contents:
 
 <pre><code class="language-bash">
+# example project structure
 my_project
 ├── pyproject.toml
 ├── README.rst
@@ -69,6 +74,7 @@ my_project
 If you have an existing Python project and directory structure you can navigate to the project directory and then run:
 
 <pre><code class="language-bash">
+# creates poetry project in existing project
 $ poetry init
 </code></pre>
 
@@ -77,6 +83,7 @@ Enter the details in the prompts and at the end you will notice a new file calle
 To manage dependencies you can simply use the 'add', 'remove', 'install' and 'update' commands.
 
 <pre><code class="language-bash">
+# example poetry commands for managing depedencies
 $ poetry add pprint  # Adds pprint to depedencies
 $ poetry add -D black  # Adds black to your developer dependencies
 $ poetry remove -D black  # Removes black
@@ -98,6 +105,7 @@ There are many more commands, which is very well documented on their beautifully
 Moving to my workflow when starting a new project, I use a combination of Poetry and [pyenv](https://github.com/pyenv/pyenv) to setup my project. Typically I have a 'workspace' or 'development' folder in my home directory on my local machine. Within this directory I save store all my projects.
 
 <pre><code class="language-bash">
+# contents of development folder
 $ cd ~/development
 
 $ ls -l
@@ -110,6 +118,7 @@ drwxr-xr-x  14 user  staff   448B Sep 20 13:52 tests/
 First let's check which Python versions we have installed using pyenv.
 
 <pre><code class="language-bash">
+# check available versions
 $ pyenv versions
   system
 * 3.9.7 (set by /Users/user/.pyenv/version)
@@ -118,6 +127,7 @@ $ pyenv versions
 As you can see from the above I have two Python versions installed, "system" which will be the version which is managed by my OS and the OS package manager, for example HomeBrew on MacOS and one that I previously installed with pyenv, namely 3.9.7. In this project I want to use 3.9.7 and in order to ensure I am using this Python version, I can set it as the global default on my system as well as check the version and location of the binary.
 
 <pre><code class="language-bash">
+# set python version
 $ pyenv global 3.9.7
 
 $ python -V
@@ -130,12 +140,14 @@ $ which python
 Now that we have confirmed Python 3.9.7 is set as the default Python binary we can create our project using Poetry.
 
 <pre><code class="language-bash">
+# creates new project
 $ poetry new my_project
 </code></pre>
 
 We now have our basic skeleton, let's change a few things.
 
 <pre><code class="language-bash">
+# additional project setup
 $ cd my_project && git init
 $ rm README.rst && touch README.md  # I prefer markdown
 $ echo '# my_project' >> README.md
@@ -159,12 +171,11 @@ You will notice there are a lot of other developer tools listed in the dev-depen
 We are now ready to run the Python project. There are two ways you can achieve this.
 
 <pre><code class="language-bash">
-# 1. Using the Poetry 'run' command will run the Python version which Poetry is managing for you
+# 1. using the Poetry 'run' command will run the Python version which Poetry is managing for you
 $ poetry run python my_project/main.py
-
 Poetry is great!
 
-# 2. Drop into a new shell with the Poetry Python version as the activated virtual environment
+# 2. drop into a new shell with the Poetry Python version as the activated virtual environment
 $ poetry shell
 (.venv) $ python my_project/main.py
 
@@ -174,6 +185,7 @@ Poetry is great!
 Note, regarding option 2. above, if you prefer that Poetry creates a virtual environment in the root if your project, you can set the following configuration.
 
 <pre><code class="language-bash">
+# example venv path configuration
 $ poetry config --list
 
 ...
