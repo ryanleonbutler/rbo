@@ -10,8 +10,8 @@
     <meta name="robots" content="index, follow">
     <title>RBO</title>
     <meta name="keywords"
-        content="Blog, Portfolio, Tutorials, Software, Development, Engineering, Programming, Python, Django">
-    <meta name="description" content="Developer Blog and Tutorials">
+        content="Portfolio, Resume, Software, Development, Engineering, Programming, Python, Django, AWS">
+    <meta name="description" content="Ryan's Resume">
     <meta name="author" content="Ryan Butler">
     <link rel="canonical" href="https://ryanbutler.online/">
     <link href="{% static 'blog/css/styles.css' %}" rel="preload stylesheet" as="style">
@@ -61,14 +61,14 @@
     <meta property="og:title" content="RBO" />
     <meta property="og:description" content="Developer Blog and Tutorials" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ryanbutler.online/" />
+    <meta property="og:url" content="https://ryanbutler.online/resume" />
     <meta property="og:image"
-        content="https://ryanbutler.online/static/blog/images/rbo.webp" />
+        content="{% static 'resume/avatar.jpg' %}" />
     <meta property="og:site_name" content="RBO" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image"
-        content="https://ryanbutler.online/static/blog/images/rbo.webp" />
+        content="{% static 'resume/avatar.jpg' %}" />
 
     <meta name="twitter:title" content="RBO" />
     <meta name="twitter:description" content="Developer Blog and Tutorials" />
@@ -78,9 +78,9 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "RBO",
-    "url": "https://ryanbutler.online/",
-    "description": "Developer Blog and Tutorials",
-    "thumbnailUrl": "https://ryanbutler.online/static/blog/images/rbo.web",
+    "url": "https://ryanbutler.online/resume",
+    "description": "Ryan's Resume",
+    "thumbnailUrl": "{% static 'resume/avatar.jpg' %}",
     "sameAs": [
         "https://github.com/ryanleonbutler", "https://linkedin.com/in/ryanleonbutler", "https://twitter.com/ryanleonbutler", "https://www.buymeacoffee.com/ryanonline"
     ]

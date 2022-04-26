@@ -1,266 +1,154 @@
-<!DOCTYPE html>
-<html lang="en-us">
-<!DOCTYPE html>
+{% extends "base.html" %} {% block body %}
 
-<head>
-    {% load static %}
-    <link rel="shortcut icon" type="image/png" href="{% static 'resume/favicon/favicon.ico' %}" />
-    <meta name="generator" content="Hugo 0.79.0" />
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet"
-        href="{% static 'resume/css/main.min.333f7e5a3b3fde4bfea19b2f7dd1e79d57ab7612186787f4face547110102c42.css' %}" />
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+{% load static %}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="crossorigin="anonymous" /> <!-- # pragma: allowlist secret -->
-
-    <title itemprop="name">Resume | Ryan Butler</title>
-</head>
-
-<body>
-    <main class="resumeCanvas">
-        <div class="gridParent">
-            <header class="flex-row">
-                <div class="titleHeader">
-
-                    <h1 class="name">Ryan Butler</h1>
-                    <h3 class="tagline">Python Developer</h3>
-                    <span class="contact"> | <a href="mailto:ryanleonbutler@gmail.com">ryanleonbutler@gmail.com</a></span>
-                    <span class="contact"> | <a href="https://github.com/ryanleonbutler/">github.com/ryanleonbutler</a></span>
-
-                </div>
-
-                <div><img class="avatar right" src="{% static 'resume/avatar.jpg' %}"></div>
-            </header>
-
-            <div class="leftSide">
+<main class="main">
+    <header style="display: flex; flex-wrap: wrap; justify-content: left; margin-top: 10px; margin-bottom: 25px; align-items: center;">
+        <div><img style="width: 100px; border-radius: 50px; margin-right: 25px;" src="{% static 'resume/avatar.jpg' %}">
+        </div>
+        <div style="margin-right: 50px">
+            <h2>Ryan Butler</h2>
+            <h4>Python and AWS Developer</h3>
+                <span><a href="https://github.com/ryanleonbutler/">GitHub</a></span>
+                <span> | <a href="https://linkedin.com/in/ryanleonbutler/">LinkedIn</a></span>
+        </div>
+        <div class="resume-certs">
+            <img src="https://images.credly.com/size/680x680/images/98466bc2-11cb-4b17-8a08-1c7e8349adce/image.png"
+                alt="CloudFront Subject Matter Expert">
+            <img src="https://images.credly.com/size/680x680/images/bd31ef42-d460-493e-8503-39592aaf0458/image.png"
+                alt="DevOps Professional">
+            <img src="https://images.credly.com/size/680x680/images/2d84e428-9078-49b6-a804-13c15383d0de/image.png"
+                alt="Solutions Architect Professional">
+            <img src="https://images.credly.com/size/680x680/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png"
+                alt="Developer Associate">
+            <img src="https://images.credly.com/size/680x680/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png"
+                alt="Solutions Architect Associate">
+        </div>
+    </header>
 
 
+    <div class="resume-category">
 
-                <div class="section">
-                    <h1 class="section-title">Experience</h1>
-                    <div class="item group">
-                        <h3 class="item-title">Amazon Web Services</h3>
+        <div id="skills">
+                    <h2>Skills</h2>
+                    <pre><code class="language-python">
+def skills():
+    for skill in skills:
+        if skill in ["Python", "AWS", "Bash", "Unix/Linux"]:
+            print("Professional")
+        elif skill in ["JavaScript", "HTML", "CSS"]:
+            print("Intermediate")
+                    </code></pre>
+        </div>
 
-                        <div class="item">
-                            <div class="flex-row">
-                                <span class="job-title">Senior Cloud Support Engineer</span>
-                                <span class="date">04.2018 - Present</span>
-                            </div>
-                            <p>Supporting customers on AWS Services. Training and mentoring of peers.
-                            Interviewing. Software development on multiple internal projects and tools
-                            (Python and NodeJS). Promoted four times from Associate to Senior Engineer.</p>
-                        </div>
+        <h2>Experience</h2>
+        <div class="resume-category-sub-element">
+            <h3>Amazon Web Services</h3>
+            <span>Senior Cloud Support Engineer</span>
+            <span>04.2018 - Present</span>
+            <p>Supporting customers on AWS Services. Training and mentoring of peers.
+                Interviewing. Software development on multiple internal projects and tools
+                (Python and NodeJS). Promoted four times from Associate to Senior Engineer.</p>
+        </div>
 
-                    </div>
+        <div class="resume-category-sub-element">
+            <h3>NOSA PTY LTD</h3>
+            <span>Group IT Manager</span>
+            <span>09.2011 - 03.2018</span>
+            <p>IT Manager for the NOSA Group of companies. The department overseas software
+                installations, architectural implementation of software and software support to clients.
+                We provide all internal IT support as well as systems administration of internal
+                management information systems. Promoted from Software Support to Group IT Manager.</p>
+        </div>
 
-                    <div class="item group">
-                        <h3 class="item-title">NOSA PTY LTD</h3>
+        <div class="resume-category-sub-element">
+            <h3>University of Pretoria</h3>
+            <span>Support Technician</span>
+            <span>09.2007 - 11.2010</span>
+            <p>First line IT support to students from the university. Maintenance, upkeep and security
+                of computer lab environment.</p>
+        </div>
 
-                        <div class="item">
-                            <div class="flex-row">
-                                <span class="job-title">Group IT Manager</span>
-                                <span class="date">09.2011 - 03.2018</span>
-                            </div>
-                            <p>IT Manager for the NOSA Group of companies. The department overseas software
-                                installations, architectural implementation of software and software support to clients.
-                                We provide all internal IT support as well as systems administration of internal
-                                management information systems. Promoted from Software Support to Group IT Manager.</p>
-                        </div>
-                    </div>
+        <h2>Projects</h2>
+        <div class="resume-category-sub-element">
+            <h3>Internal Webhook Message Delivery System</h3>
+            <span>2020 - Present</span>
+            <p>Aggregates data from multiple sources and delivers live smart messages to Slack and Chime
+                webhooks in a digestible format in order to react or make informative decisions quickly.
+                Built on Linux, Bash, Python, Amazon DynamoDB, Slack and Chime</p>
+        </div>
 
+        <div class="resume-category-sub-element">
+            <h3>Developer Blog</h3>
+            <span>2020 - Present</span>
+            <p>Designed a Developer Blog to share my knowledge and growth as a developer. Built using
+                Django, Gunicorn, NGINX, EC2, CloudFront.</p>
+        </div>
+        <div class="resume-category-sub-element">
+            <h3>Continuous Delivery Pipeline (CD)</h3>
+            <span>2020 - Present</span>
+            <p>Create a CD Pipeline to automatically apply changes to my personal blog in production
+                when making changes and integrates with GitHub Actions. Used AWS services - CodePipeline and
+                CodeDeploy.</p>
+        </div>
 
-                    <div class="item group">
-                        <h3 class="item-title">University of Pretoria</h3>
-
-                        <div class="item">
-                            <div class="flex-row">
-                                <span class="job-title">Support Technician</span>
-                                <span class="date">09.2007 - 11.2010</span>
-                            </div>
-                            <p>First line IT support to students from the university. Maintenance, upkeep and security
-                                of computer lab environment.</p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="section">
-                    <h1 class="section-title">Projects</h1>
-
-                    <div class="item group">
-                        <h3 class="item-title">Internal Webhook Message Delivery System</h3>
-
-                        <div class="item">
-                            <div class="flex-row">
-                                <span class="date">2020 - Present</span>
-                            </div>
-                            <p>Aggregates data from multiple sources and delivers live smart messages to Slack and Chime
-                                webhooks in a digestible format in order to react or make informative decisions quickly.
-                                Built on Linux, Bash, Python, Amazon DynamoDB, Slack and Chime</p>
-                        </div>
-                    </div>
-
-
-                    <div class="item group">
-                        <h3 class="item-title">Developer Blog</h3>
-
-                        <div class="item">
-                            <div class="flex-row">
-                                <span class="date">2020 - Present</span>
-                            </div>
-                            <p>Designed a Developer Blog to share my knowledge and growth as a developer. Built using
-                                Django, Gunicorn, NGINX, EC2, CloudFront.</p>
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="item group">
-                        <h3 class="item-title">Continuous Delivery Pipeline (CD)</h3>
-
-                        <div class="item">
-                            <div class="flex-row">
-                                <span class="date">2020 - Present</span>
-                            </div>
-                            <p>Create a CD Pipeline to automatically apply changes to my personal blog in production
-                                when making changes and integrates with GitHub Actions. Used AWS services - CodePipeline and CodeDeploy.</p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-
+        <div id="education">
+            <h2>Education</h2>
+            <div class="resume-category-sub-element">
+                <h3>AWS - Certifications (2021)</h3>
+                <span>SA and DevOps Pro.</span><br>
+                <span>SA and Developer Ass.</span><br>
             </div>
-
-            <div class="rightSide">
-
-                <div class="section">
-                    <h1 class="section-title">Education</h1>
-
-                    <div class="item">
-                        <h3 class="item-title">AWS - Certifications (2021)</h3>
-                        <span>SA and DevOps Pro.</span><br>
-                        <span>SA and Developer Ass.</span><br>
-                    </div>
-
-                    <div class="item">
-                        <h3 class="item-title">Python Programming (2017 - 2022)</h3>
-                        <span>Linux Academy / A Cloud Guru / Hackerank</span><br>
-                    </div>
-
-                    <div class="item">
-                        <h3 class="item-title">LPI - Essentials (2016)</h3>
-                        <span>Linux Professional Institute</span><br>
-                    </div>
-
-                    <div class="item">
-                        <h3 class="item-title">Matric (2006)</h3>
-                        <span>DR. E.G. Jansen</span><br>
-                    </div>
-
-                </div>
-
-
-                <div class="section">
-                    <h1 class="section-title">Languages</h1>
-
-                    <div class="item">
-                        <h3 class="item-title">Afrikaans
-                            <span class="item-title-span"> - Native</span>
-                        </h3>
-
-                    </div>
-
-                    <div class="item">
-                        <h3 class="item-title">English
-                            <span class="item-title-span"> - Professional</span>
-                        </h3>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="section">
-                    <h1 class="section-title">Awards</h1>
-
-                    <div class="item">
-                        <h3 class="item-title">Engineer of the Quarter (Q3)</h3>
-                        - 2020
-                    </div>
-
-                    <div class="item">
-                        <h3 class="item-title">Amazon CloudFront - SME</h3>
-                        - 2019
-                    </div>
-
-                </div>
-
-
-
-                <div class="section">
-                    <h1 class="section-title">Skills</h1>
-                    <div class="item">
-
-                        <li>Python - JS - HTML - CSS</li>
-
-                        <li>NodeJS - SQL - Bash - Git</li>
-
-                        <li>Jupyter Notebooks - MS Office</li>
-
-                        <li>Networking - NGINX - CDN</li>
-
-                        <li>Linux - Docker - AWS</li>
-
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h1 class="section-title">Interests</h1>
-                    <div class="item">
-
-                        <li>Web and API Development</li>
-
-                        <li>Automation & Data Science</li>
-
-                    </div>
-                </div>
-
+            <div class="resume-category-sub-element">
+                <h3>Python Programming (2017 - 2022)</h3>
+                <span>Linux Academy / A Cloud Guru / Hackerank</span><br>
             </div>
-    </main>
+            <div class="resume-category-sub-element">
+                <h3>LPI - Essentials (2016)</h3>
+                <span>Linux Professional Institute</span><br>
+            </div>
+            <div class="resume-category-sub-element">
+                <h3>Matric (2006)</h3>
+                <span>DR. E.G. Jansen</span><br>
+            </div>
+        </div>
 
-    <footer>
-        <span class="footer-item">
+        <div id="languages">
+            <h2>Languages</h2>
+            <div class="resume-category-sub-element">
+                <h3>Afrikaans
+                    <span> - Native</span>
+                </h3>
+            </div>
+            <div class="resume-category-sub-element">
+                <h3>English
+                    <span> - Professional</span>
+                </h3>
+            </div>
+        </div>
 
-            <span id="link">
-                Contact me on <a href="https://www.linkedin.com/in/ryanleonbutler/"><span class="link-text">Linkedin
-                    </span>
-                    <i class="fab fa-linkedin"></i>
-                </a></span>
+        <div id="awards">
+            <h2>Awards</h2>
+            <div class="resume-category-sub-element">
+                <h3>Engineer of the Quarter (Q3)</h3>
+                - 2020
+            </div>
+            <div class="resume-category-sub-element">
+                <h3>Amazon CloudFront - SME</h3>
+                - 2019
+            </div>
+        </div>
 
-            <span id="link">
-                Check out my <a href="https://ryanbutler.online/"><span class="link-text">Website </span>
-                    <i class="fas fa-globe"></i>
-                </a></span>
 
-        </span>
+        <div id="interests">
+            <h2>Interests</h2>
+            <div class="resume-category-sub-element">
+                <li>Web and API Development</li>
+                <li>Automation & Data Science</li>
+            </div>
+        </div>
+    </div>
+    </div>
+</main>
 
-
-        <span class="footer-item">
-            You can print this resume in A4 size or save as pdf. | Last update on 15.01.2022.
-        </span>
-    </footer>
-
-</body>
-
-</html>
+{% endblock %}

@@ -1210,3 +1210,15 @@ h6:hover .anchor {
         transform: none
     }
 }
+
+
+/* resume css */
+.resume-certs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+}
+
+.resume-certs img {
+    max-width: 100px;
+}
