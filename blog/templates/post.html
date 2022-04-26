@@ -5,7 +5,7 @@
     <header class="post-header">
       <div class="breadcrumbs"><a href="/">Home</a>&nbsp;»&nbsp;<a href=posts />Posts</a>
       </div>
-      <div class="post-meta"><span title='2020-09-15 11:30:03 +0000 +0000'>S{{ post_detail.publish_date | date:'d M Y' }}</span>&nbsp;·&nbsp;{{ post_detail.read_time }}min&nbsp;·&nbsp;
+      <div class="post-meta"><span title='2020-09-15 11:30:03 +0000 +0000'>{{ post_detail.publish_date | date:'d M Y' }}</span>&nbsp;·&nbsp;{{ post_detail.read_time }}min&nbsp;·&nbsp;
         {% for tag in post_detail.tags.all %}
           {{ tag.name }}&nbsp;
         {% endfor %}
