@@ -1,0 +1,8 @@
+[input]
+base_directory = "output"
+html_selector = "main"
+
+[[input.files]]
+path = "how-to-manage-python-projects.html"
+url = "/how-to-manage-python-projects.html"
+title = "How to manage Python projects"

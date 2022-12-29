@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>RBO</title><link href="https://ryanbutler.online/" rel="alternate"></link><link href="https://ryanbutler.online/feeds/all.atom.xml" rel="self"></link><id>https://ryanbutler.online/</id><updated>2022-01-10T00:00:00+02:00</updated><entry><title>How to manage Python projects</title><link href="https://ryanbutler.online/how-to-manage-python-projects.html" rel="alternate"></link><published>2022-01-10T00:00:00+02:00</published><updated>2022-01-10T00:00:00+02:00</updated><author><name>Ryan Butler</name></author><id>tag:ryanbutler.online,2022-01-10:/how-to-manage-python-projects.html</id><summary type="html">&lt;p&gt;Have you ever struggled to manage your Python&lt;/p&gt;</summary><content type="html">&lt;p&gt;projects? Let's see how Poetry can help manage your Python projects.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="screenshot" src="https://ryanbutler.online/images/joshua-j-cotten-uyKB8ZZApU0-unsplash.webp" style="width:100%;"/&gt;&lt;/p&gt;
+&lt;p&gt;From installing different Python versions, creating virtual environments,
+installing different libraries and dependencies and creating configuration
+files for your project. I have been through this journey a few times, tried
+multiple approaches and tools, none which really worked or which I liked. About
+a year or so ago, I was listening to a podcast about Python where the hosts
+were talking about a tool called &lt;a href="https://python-poetry.org/"&gt;Poetry&lt;/a&gt;. Some of
+you might have heard about Poetry before or even use it already, regardless I
+will share with you my experience using Poetry in managing Python projects and
+how it has made my life so much simpler. I will also share other tools in this
+post, which compliment Poetry. I will also share an example of my workflow when
+starting a new Python project. Please follow me on
+&lt;a href="https://twitter.com/ryanleonbutler"&gt;Twitter&lt;/a&gt; and
+&lt;a href="https://www.linkedin.com/in/ryanleonbutler/"&gt;LinkedIn&lt;/a&gt; if you like the content
+I am creating or just any Python related questions or questions regarding this
+post. Thank you for the support!&lt;/p&gt;
+&lt;h1 id="1-what-is-poetry"&gt;1. What is Poetry?&lt;/h1&gt;
+&lt;p&gt;Poetry's main goal is dependency management and packaging in Python. The tool
+allows you to declare the libraries your project uses and will manage them for
+you, either by installing or updating them. It also has a bunch of other
+features, which include creating a 'pyproject.toml', creating virtual
+environments and publishing a Python application or module to
+&lt;a href="https://pypi.org/"&gt;PyPI&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id="2-installation"&gt;2. Installation&lt;/h1&gt;
+&lt;p&gt;Just like any other Python package, Poetry can be installed using pip.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// Install poetry 
+❯ pip install poetry
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I recommend using &lt;a href="https://github.com/pypa/pipx"&gt;pipx&lt;/a&gt; in this case. It is
+great for installing system wide Python applications in isolation. This avoids
+installing Poetry to a specific Python installation or virtual environment. It
+also adds the command line application to your system path allowing you to
+execute the tool even if other Python virtual environments are active.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// Install pipx and add it to the system path 
+❯ brew install pipx 
+❯ pipx ensure path
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Just a tip on using pipx, if you wish to use a specific Python version in your
+pipx environments, I recommend setting an environment variable in your shell
+start-up script (e.g. in 'config.fish') to change the version to use
+&lt;a href="https://asdf-vm.com/"&gt;asdf&lt;/a&gt;'s path. This is important when using Poetry, since
+Poetry will inherit the Python version from pipx in order to create its own
+virtual environments.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// ~/.config/fish/config.fish 
+❯ &lt;span class="nb"&gt;set&lt;/span&gt; -g PIPX_DEFAULT_PYTHON ~/.asdf/shims/python
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now we can install Poetry using pipx.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// using pipx to install poetry globally 
+❯ pipx install poetry
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id="3-basic-usage-in-order-to-create-a-new-directory-with-predefined-files-and"&gt;3. Basic Usage In order to create a new directory with predefined files and&lt;/h1&gt;
+&lt;p&gt;project structure you can simply run:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// creates new project 
+❯ poetry new my_project
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You will be presented with a few prompts regarding your project and once
+completed a new directory will be created with the below contents:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// example project structure 
+my_project 
+&amp;boxvr;&amp;boxh;&amp;boxh; pyproject.toml 
+&amp;boxvr;&amp;boxh;&amp;boxh; README.rst
+&amp;boxvr;&amp;boxh;&amp;boxh; my_project 
+&amp;boxv;   &amp;boxur;&amp;boxh;&amp;boxh; __init__.py 
+&amp;boxur;&amp;boxh;&amp;boxh; tests 
+    &amp;boxvr;&amp;boxh;&amp;boxh; __init__.py 
+    &amp;boxur;&amp;boxh; test_my_project.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you have an existing Python project and directory structure you can navigate
+to the project directory and then run:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// creates poetry project &lt;span class="k"&gt;in&lt;/span&gt; existing project 
+❯ poetry init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Enter the details in the prompts and at the end you will notice a new file
+called 'pyproject.toml' is created in the root of your new project, if there if
+not one present already.&lt;/p&gt;
+&lt;p&gt;To manage dependencies you can simply use the 'add', 'remove', 'install' and
+'update' commands.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// example poetry commands &lt;span class="k"&gt;for&lt;/span&gt; managing depedencies 
+❯ poetry add pprint  // Adds pprint to depedencies 
+❯ poetry add -D black  // Adds black to your developer dependencies 
+❯ poetry remove -D black  // Removes black 
+❯ poetry update  // Updates all depedencies 
+❯ poetry install // Installs all depedencies &lt;span class="k"&gt;in&lt;/span&gt; the virtual environment
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Poetry also has some bonus features like exporting your dependencies to a
+requirements file.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// Exports all depedencies to requirements file 
+❯ poetry &lt;span class="nb"&gt;export&lt;/span&gt; --without-hashes -o requirements.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="4-my-workflow"&gt;4. My Workflow&lt;/h2&gt;
+&lt;p&gt;Moving to my workflow when starting a new project, I use a combination of
+Poetry and asdf to setup my project. Typically I have a 'workspace' or
+'development' folder in my home directory on my local machine. Within this
+directory I save store all my projects.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// contents of development folder 
+❯ &lt;span class="nb"&gt;cd&lt;/span&gt; ~/development
+
+❯ ls -l 
+drwxr-xr-x  &lt;span class="m"&gt;20&lt;/span&gt; user  staff   640B Oct &lt;span class="m"&gt;18&lt;/span&gt; &lt;span class="m"&gt;21&lt;/span&gt;:30 dotfiles/ 
+drwxr-xr-x   &lt;span class="m"&gt;4&lt;/span&gt; user  staff   128B Aug &lt;span class="m"&gt;25&lt;/span&gt; &lt;span class="m"&gt;20&lt;/span&gt;:01 scratches/ 
+drwxr-xr-x   &lt;span class="m"&gt;5&lt;/span&gt; user  staff   160B Jul &lt;span class="m"&gt;23&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt;:36 scripts/ 
+drwxr-xr-x  &lt;span class="m"&gt;14&lt;/span&gt; user  staff   448B Sep &lt;span class="m"&gt;20&lt;/span&gt; &lt;span class="m"&gt;13&lt;/span&gt;:52 tests/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;First let's check which Python versions we have installed using asdf.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// check available versions 
+❯ asdf list python
+  &lt;span class="m"&gt;3&lt;/span&gt;.11.0
+ *3.11.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As you can see from the above I have two Python versions installed, "system"
+which will be the version which is managed by my OS and the OS package manager,
+for example HomeBrew on MacOS and one that I previously installed with pyenv,
+namely 3.9.7. In this project I want to use 3.9.7 and in order to ensure I am 
+using this Python version, I can set it as the global default on my system  as 
+well as check the version and location of the binary.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// &lt;span class="nb"&gt;set&lt;/span&gt; python version 
+❯ pyenv global &lt;span class="m"&gt;3&lt;/span&gt;.9.7
+
+❯ python -V 
+Python &lt;span class="m"&gt;3&lt;/span&gt;.9.7
+
+❯ which python 
+/Users/user/.pyenv/shims/python-poetry
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now that we have confirmed Python 3.9.7 is set as the default Python binary we
+can create our project using Poetry.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# creates new project &lt;/span&gt;
+❯ poetry new my_project
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We now have our basic skeleton, let's change a few things.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// additional project setup 
+❯ &lt;span class="nb"&gt;cd&lt;/span&gt; my_project &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; git init 
+❯ rm README.rst &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; touch README.md  // I prefer markdown 
+❯ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;'# my_project'&lt;/span&gt; &amp;gt;&amp;gt; README.md 
+❯ touch my_project/main.py 
+❯ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;'import pprint as print\nprint("Poetry is great!")'&lt;/span&gt; &amp;gt;&amp;gt; my_project/main.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;See basic a example of a 'pyproject.toml' file for a Python project on my GitHub
+profile in the 'python_project' repository
+&lt;a href="https://github.com/ryanleonbutler/python_project/blob/main/pyproject.toml"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You will notice there are a lot of other developer tools listed in the
+dev-dependencies section of the above 'pyproject.toml' example. These are just
+some additional tools which I added over time into my workflow. I will cover
+them in a future post, but for your ease of reference see the links to the
+respective home pages for more information:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://tox.wiki/en/latest/"&gt;Tox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pre-commit.com/"&gt;Pre-commit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/psf/black"&gt;Black&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://flake8.pycqa.org/en/latest/"&gt;flake8&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/PyCQA/isort"&gt;isort&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://docs.pytest.org/en/6.2.x/"&gt;pytest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://coverage.readthedocs.io/en/6.0.2/"&gt;coverage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.sphinx-doc.org/en/master/"&gt;Sphinx&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We are now ready to run the Python project. There are two ways you can achieve
+this.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// &lt;span class="m"&gt;1&lt;/span&gt;. using the Poetry &lt;span class="s1"&gt;'run'&lt;/span&gt; &lt;span class="nb"&gt;command&lt;/span&gt; will run the Python version which
+Poetry is managing &lt;span class="k"&gt;for&lt;/span&gt; you 
+❯ poetry run python my_project/main.py
+
+Poetry is great!
+
+// &lt;span class="m"&gt;2&lt;/span&gt;. drop into a new shell with the Poetry Python version as the activated
+virtual environment 
+❯ poetry shell &lt;span class="o"&gt;(&lt;/span&gt;.venv&lt;span class="o"&gt;)&lt;/span&gt; ❯ python my_project/main.py
+
+Poetry is great!
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note, regarding option 2. above, if you prefer that Poetry creates a virtual
+environment in the root if your project, you can set the following
+configuration.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// example venv path configuration 
+❯ poetry config --list
+
+... virtualenvs.in-project &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;false&lt;/span&gt; ...
+
+❯ poetry config virtualenvs.in-project &lt;span class="nb"&gt;true&lt;/span&gt;
+❯ poetry config --list
+
+... virtualenvs.in-project &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt; ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It is as simple as that to get started with Poetry. I like how it has abstracted
+the repetitive tasks and additional overhead added to the developer in managing
+depedencies and virtual environments.&lt;/p&gt;</content><category term="Productivity"></category><category term="Python"></category><category term="Tools"></category></entry></feed>

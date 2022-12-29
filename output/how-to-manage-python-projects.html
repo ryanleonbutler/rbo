@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Pelican" />
+    <title>How to manage Python projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/main.css" />
+    <link rel="stylesheet" href="./theme/css/stork.css">
+    <link rel="stylesheet" media="screen and (prefers-color-scheme: dark)"
+        href="./theme/css/stork-dark.css">
+    <link
+        href="https://ryanbutler.online/feeds/all.atom.xml"
+        type="application/atom+xml" rel="alternate" title="RBO Atom Feed" />
+<meta name="description" content="Have you ever struggled to manage your Python" />
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+</head>
+
+<body class="min-h-screen flex flex-col max-w-7xl lg:max-w-none text-zinc-800 bg-neutral-100 
+    dark:bg-neutral-900 dark:text-zinc-300 container mx-auto justify-center md:px-3 ">
+    <nav class="sm:flex sm:justify-between xl:ml-32 pl-4 items-center">
+        <div class="flex pt-4">
+            <h1 class="font-semibold text-2xl"><a href="./">RBO</a></h1>
+            <button id="theme-toggle" type="button"
+                class="text-zinc-700 dark:text-zinc-400 rounded-full focus:outline-none text-sm ml-2 p-1">
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                        fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+        <ul class="flex flex-wrap lg:mr-24 md:pt-0">
+            <li class="mr-4 pt-6"><a  href="./archives.html">Archive</a></li>
+            <li class="mr-4 pt-6"><a                     href="./categories.html">Categories</a></li>
+            <li class="mr-4 pt-6"><a  href="./tags.html">Tags</a></li>
+            <li class="mr-4 pt-6"><a  href="./search.html">Search</a></li>
+        </ul>
+    </nav>
+    <div class="flex-grow md:max-w-screen-md md:mx-auto md:w-3/4 px-4">
+        <nav class="text-zinc-800 dark:text-zinc-300 mt-12 pb-2 md:mt-16" aria-label="Breadcrumb">
+            <ul class="p-0 inline-flex items-center">
+                <li class="flex items-center">
+                    <a href="./" class="text-zinc-800 dark:text-zinc-300 inline-flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                            </path>
+                        </svg>
+                        Home
+                    </a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+                <li class="flex items-center">
+                    <a href="./categories.html">Categories</a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+                <li class="flex items-center">
+                    <a href="./category/productivity.html">Productivity</a>
+                </li>
+                <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <path
+                        d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                </svg>
+            </ul>
+        </nav>
+
+<main>
+  <header>
+    <h1 class="font-semibold text-3xl my-2">How to manage Python projects</h1>
+    <footer class="flex text-sm text-zinc-800 dark:text-zinc-400">
+      <div class="flex text-xs text-zinc-800 dark:text-zinc-400">
+        <time>January 10, 2022</time>
+        <div>
+          <span>&nbsp;·&nbsp;6 min read</span>
+        </div>
+        <div>
+          <span>&nbsp;·&nbsp;Ryan Butler</span>
+        </div>
+      </div>
+    </footer>
+  </header>
+  <details class="flex flex-col my-6 p-4 bg-zinc-200 dark:bg-zinc-800 rounded-lg">
+    <summary class="text-lg font-bold">Table of contents</summary>
+    <div class="mx-4 px-4 underline">
+      <div id="toc"><ul><li><a class="toc-href" href="#1-what-is-poetry" title="1. What is Poetry?">1. What is Poetry?</a></li><li><a class="toc-href" href="#2-installation" title="2. Installation">2. Installation</a></li><li><a class="toc-href" href="#3-basic-usage-in-order-to-create-a-new-directory-with-predefined-files-and" title="3. Basic Usage In order to create a new directory with predefined files and">3. Basic Usage In order to create a new directory with predefined files and</a><ul><li><a class="toc-href" href="#4-my-workflow" title="4. My Workflow">4. My Workflow</a></li></ul></li></ul></div>
+    </div>
+  </details>
+  <div class="max-w-7xl container mx-auto my-8 text-zinc-800 dark:text-zinc-300  
+              prose lg:max-w-none prose-headings:text-zinc-800 prose-headings:dark:text-zinc-300 
+              prose-h1:text-3xl lg:prose-h1:text-3xl prose-headings:font-semibold 
+              prose-pre:bg-zinc-200 prose-pre:text-zinc-800
+              dark:prose-pre:bg-zinc-800 dark:prose-pre:text-zinc-200
+              prose-blockquote:text-zinc-800
+              dark:prose-blockquote:text-zinc-200
+              prose-a:text-gray-500
+              dark:prose-a:text-gray-400
+              dark:prose-strong:text-zinc-200 
+              dark:prose-code:text-zinc-200
+              dark:prose-code:bg-zinc-800
+              prose-code:bg-zinc-200
+              prose-code:font-light
+              prose-img:rounded-md
+              ">
+    <p>projects? Let's see how Poetry can help manage your Python projects.</p>
+<p><img alt="screenshot" src="./images/joshua-j-cotten-uyKB8ZZApU0-unsplash.webp" style="width:100%;"/></p>
+<p>From installing different Python versions, creating virtual environments,
+installing different libraries and dependencies and creating configuration
+files for your project. I have been through this journey a few times, tried
+multiple approaches and tools, none which really worked or which I liked. About
+a year or so ago, I was listening to a podcast about Python where the hosts
+were talking about a tool called <a href="https://python-poetry.org/">Poetry</a>. Some of
+you might have heard about Poetry before or even use it already, regardless I
+will share with you my experience using Poetry in managing Python projects and
+how it has made my life so much simpler. I will also share other tools in this
+post, which compliment Poetry. I will also share an example of my workflow when
+starting a new Python project. Please follow me on
+<a href="https://twitter.com/ryanleonbutler">Twitter</a> and
+<a href="https://www.linkedin.com/in/ryanleonbutler/">LinkedIn</a> if you like the content
+I am creating or just any Python related questions or questions regarding this
+post. Thank you for the support!</p>
+<h1 id="1-what-is-poetry">1. What is Poetry?</h1>
+<p>Poetry's main goal is dependency management and packaging in Python. The tool
+allows you to declare the libraries your project uses and will manage them for
+you, either by installing or updating them. It also has a bunch of other
+features, which include creating a 'pyproject.toml', creating virtual
+environments and publishing a Python application or module to
+<a href="https://pypi.org/">PyPI</a>.</p>
+<h1 id="2-installation">2. Installation</h1>
+<p>Just like any other Python package, Poetry can be installed using pip.</p>
+<div class="highlight"><pre><span></span><code>// Install poetry 
+❯ pip install poetry
+</code></pre></div>
+<p>I recommend using <a href="https://github.com/pypa/pipx">pipx</a> in this case. It is
+great for installing system wide Python applications in isolation. This avoids
+installing Poetry to a specific Python installation or virtual environment. It
+also adds the command line application to your system path allowing you to
+execute the tool even if other Python virtual environments are active.</p>
+<div class="highlight"><pre><span></span><code>// Install pipx and add it to the system path 
+❯ brew install pipx 
+❯ pipx ensure path
+</code></pre></div>
+<p>Just a tip on using pipx, if you wish to use a specific Python version in your
+pipx environments, I recommend setting an environment variable in your shell
+start-up script (e.g. in 'config.fish') to change the version to use
+<a href="https://asdf-vm.com/">asdf</a>'s path. This is important when using Poetry, since
+Poetry will inherit the Python version from pipx in order to create its own
+virtual environments.</p>
+<div class="highlight"><pre><span></span><code>// ~/.config/fish/config.fish 
+❯ <span class="nb">set</span> -g PIPX_DEFAULT_PYTHON ~/.asdf/shims/python
+</code></pre></div>
+<p>Now we can install Poetry using pipx.</p>
+<div class="highlight"><pre><span></span><code>// using pipx to install poetry globally 
+❯ pipx install poetry
+</code></pre></div>
+<h1 id="3-basic-usage-in-order-to-create-a-new-directory-with-predefined-files-and">3. Basic Usage In order to create a new directory with predefined files and</h1>
+<p>project structure you can simply run:</p>
+<div class="highlight"><pre><span></span><code>// creates new project 
+❯ poetry new my_project
+</code></pre></div>
+<p>You will be presented with a few prompts regarding your project and once
+completed a new directory will be created with the below contents:</p>
+<div class="highlight"><pre><span></span><code>// example project structure 
+my_project 
+&boxvr;&boxh;&boxh; pyproject.toml 
+&boxvr;&boxh;&boxh; README.rst
+&boxvr;&boxh;&boxh; my_project 
+&boxv;   &boxur;&boxh;&boxh; __init__.py 
+&boxur;&boxh;&boxh; tests 
+    &boxvr;&boxh;&boxh; __init__.py 
+    &boxur;&boxh; test_my_project.py
+</code></pre></div>
+<p>If you have an existing Python project and directory structure you can navigate
+to the project directory and then run:</p>
+<div class="highlight"><pre><span></span><code>// creates poetry project <span class="k">in</span> existing project 
+❯ poetry init
+</code></pre></div>
+<p>Enter the details in the prompts and at the end you will notice a new file
+called 'pyproject.toml' is created in the root of your new project, if there if
+not one present already.</p>
+<p>To manage dependencies you can simply use the 'add', 'remove', 'install' and
+'update' commands.</p>
+<div class="highlight"><pre><span></span><code>// example poetry commands <span class="k">for</span> managing depedencies 
+❯ poetry add pprint  // Adds pprint to depedencies 
+❯ poetry add -D black  // Adds black to your developer dependencies 
+❯ poetry remove -D black  // Removes black 
+❯ poetry update  // Updates all depedencies 
+❯ poetry install // Installs all depedencies <span class="k">in</span> the virtual environment
+</code></pre></div>
+<p>Poetry also has some bonus features like exporting your dependencies to a
+requirements file.</p>
+<div class="highlight"><pre><span></span><code>// Exports all depedencies to requirements file 
+❯ poetry <span class="nb">export</span> --without-hashes -o requirements.txt
+</code></pre></div>
+<h2 id="4-my-workflow">4. My Workflow</h2>
+<p>Moving to my workflow when starting a new project, I use a combination of
+Poetry and asdf to setup my project. Typically I have a 'workspace' or
+'development' folder in my home directory on my local machine. Within this
+directory I save store all my projects.</p>
+<div class="highlight"><pre><span></span><code>// contents of development folder 
+❯ <span class="nb">cd</span> ~/development
+
+❯ ls -l 
+drwxr-xr-x  <span class="m">20</span> user  staff   640B Oct <span class="m">18</span> <span class="m">21</span>:30 dotfiles/ 
+drwxr-xr-x   <span class="m">4</span> user  staff   128B Aug <span class="m">25</span> <span class="m">20</span>:01 scratches/ 
+drwxr-xr-x   <span class="m">5</span> user  staff   160B Jul <span class="m">23</span> <span class="m">10</span>:36 scripts/ 
+drwxr-xr-x  <span class="m">14</span> user  staff   448B Sep <span class="m">20</span> <span class="m">13</span>:52 tests/
+</code></pre></div>
+<p>First let's check which Python versions we have installed using asdf.</p>
+<div class="highlight"><pre><span></span><code>// check available versions 
+❯ asdf list python
+  <span class="m">3</span>.11.0
+ *3.11.1
+</code></pre></div>
+<p>As you can see from the above I have two Python versions installed, "system"
+which will be the version which is managed by my OS and the OS package manager,
+for example HomeBrew on MacOS and one that I previously installed with pyenv,
+namely 3.9.7. In this project I want to use 3.9.7 and in order to ensure I am 
+using this Python version, I can set it as the global default on my system  as 
+well as check the version and location of the binary.</p>
+<div class="highlight"><pre><span></span><code>// <span class="nb">set</span> python version 
+❯ pyenv global <span class="m">3</span>.9.7
+
+❯ python -V 
+Python <span class="m">3</span>.9.7
+
+❯ which python 
+/Users/user/.pyenv/shims/python-poetry
+</code></pre></div>
+<p>Now that we have confirmed Python 3.9.7 is set as the default Python binary we
+can create our project using Poetry.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># creates new project </span>
+❯ poetry new my_project
+</code></pre></div>
+<p>We now have our basic skeleton, let's change a few things.</p>
+<div class="highlight"><pre><span></span><code>// additional project setup 
+❯ <span class="nb">cd</span> my_project <span class="o">&amp;&amp;</span> git init 
+❯ rm README.rst <span class="o">&amp;&amp;</span> touch README.md  // I prefer markdown 
+❯ <span class="nb">echo</span> <span class="s1">'# my_project'</span> &gt;&gt; README.md 
+❯ touch my_project/main.py 
+❯ <span class="nb">echo</span> <span class="s1">'import pprint as print\nprint("Poetry is great!")'</span> &gt;&gt; my_project/main.py
+</code></pre></div>
+<p>See basic a example of a 'pyproject.toml' file for a Python project on my GitHub
+profile in the 'python_project' repository
+<a href="https://github.com/ryanleonbutler/python_project/blob/main/pyproject.toml">here</a>.</p>
+<p>You will notice there are a lot of other developer tools listed in the
+dev-dependencies section of the above 'pyproject.toml' example. These are just
+some additional tools which I added over time into my workflow. I will cover
+them in a future post, but for your ease of reference see the links to the
+respective home pages for more information:</p>
+<ul>
+<li><a href="https://tox.wiki/en/latest/">Tox</a></li>
+<li><a href="https://pre-commit.com/">Pre-commit</a></li>
+<li><a href="https://github.com/psf/black">Black</a></li>
+<li><a href="https://flake8.pycqa.org/en/latest/">flake8</a></li>
+<li><a href="https://github.com/PyCQA/isort">isort</a></li>
+<li><a href="https://docs.pytest.org/en/6.2.x/">pytest</a></li>
+<li><a href="https://coverage.readthedocs.io/en/6.0.2/">coverage</a></li>
+<li><a href="https://www.sphinx-doc.org/en/master/">Sphinx</a></li>
+</ul>
+<p>We are now ready to run the Python project. There are two ways you can achieve
+this.</p>
+<div class="highlight"><pre><span></span><code>// <span class="m">1</span>. using the Poetry <span class="s1">'run'</span> <span class="nb">command</span> will run the Python version which
+Poetry is managing <span class="k">for</span> you 
+❯ poetry run python my_project/main.py
+
+Poetry is great!
+
+// <span class="m">2</span>. drop into a new shell with the Poetry Python version as the activated
+virtual environment 
+❯ poetry shell <span class="o">(</span>.venv<span class="o">)</span> ❯ python my_project/main.py
+
+Poetry is great!
+</code></pre></div>
+<p>Note, regarding option 2. above, if you prefer that Poetry creates a virtual
+environment in the root if your project, you can set the following
+configuration.</p>
+<div class="highlight"><pre><span></span><code>// example venv path configuration 
+❯ poetry config --list
+
+... virtualenvs.in-project <span class="o">=</span> <span class="nb">false</span> ...
+
+❯ poetry config virtualenvs.in-project <span class="nb">true</span>
+❯ poetry config --list
+
+... virtualenvs.in-project <span class="o">=</span> <span class="nb">true</span> ...
+</code></pre></div>
+<p>It is as simple as that to get started with Poetry. I like how it has abstracted
+the repetitive tasks and additional overhead added to the developer in managing
+depedencies and virtual environments.</p>
+    <!-- <div class="aspect-w-16 aspect-h-9 mx-auto"></div> CSS placeholder -->
+  </div>
+  <footer class="flex flex-col mt-10 ">
+    <ul class="flex flex-wrap">
+      <a href="./tag/python.html">
+        <li
+          class="bg-zinc-200 hover:bg-zinc-300 dark:hover:bg-zinc-800 dark:bg-zinc-700 text-zinc-500 dark:text-neutral-400 mb-2 mr-2 px-3 py-1.5 rounded-md transition ease-in active:-translate-y-1 active:scale-110 duration-75">
+          Python
+        </li>
+      </a>
+      <a href="./tag/tools.html">
+        <li
+          class="bg-zinc-200 hover:bg-zinc-300 dark:hover:bg-zinc-800 dark:bg-zinc-700 text-zinc-500 dark:text-neutral-400 mb-2 mr-2 px-3 py-1.5 rounded-md transition ease-in active:-translate-y-1 active:scale-110 duration-75">
+          Tools
+        </li>
+      </a>
+    </ul>
+    <div class="flex w-full my-2 bg-zinc-200 dark:bg-zinc-700 rounded-lg">
+      <div class="w-1/2 rounded-l-lg"></div>
+    </div>
+    <div class="flex bg-zinc-200 dark:bg-zinc-700 py-2 rounded-lg justify-center space-x-2 text-xs">
+      <ul>
+        <a target="_blank" rel="noopener noreferrer" title="twitter" aria-label="share Features on twitter"
+          href="https://twitter.com/intent/tweet/?text=Features&amp;url=./how-to-manage-python-projects.html">
+          <li class="bg-gray-900 p-1 text-white rounded-md">
+            <i class="fab fa-twitter fa-2x" aria-hidden="true"></i>
+          </li>
+        </a>
+      </ul>
+      <ul>
+        <a target="_blank" rel="noopener noreferrer" title="linkedin" aria-label="share Features on linkedin"
+          href="https://www.linkedin.com/sharing/share-offsite/?url=./how-to-manage-python-projects.html">
+          <li class="bg-gray-900 p-1 text-white rounded-md">
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </li>
+        </a>
+      </ul>
+      <ul>
+        <a target="_blank" rel="noopener noreferrer" title="reddit" aria-label="share Features on reddit"
+          href="https://reddit.com/submit?url=./how-to-manage-python-projects.html">
+          <li class="bg-gray-900 p-1 text-white rounded-md">
+            <i class="fab fa-reddit fa-2x" aria-hidden="true"></i>
+          </li>
+        </a>
+      </ul>
+      <ul>
+        <a target="_blank" rel="noopener noreferrer" title="facebook" aria-label="share Features on facebook"
+          href="https://facebook.com/sharer/sharer.php?u=./how-to-manage-python-projects.html">
+          <li class="bg-gray-900 p-1 text-white rounded-md">
+            <i class="fab fa-facebook fa-2x" aria-hidden="true"></i>
+          </li>
+        </a>
+      </ul>
+      <ul>
+        <a target="_blank" rel="noopener noreferrer" title="whatsapp" aria-label="share Features on whatsapp"
+          href="https://api.whatsapp.com/send?text=Features - ./how-to-manage-python-projects.html">
+          <li class="bg-gray-900 p-1 text-white rounded-md">
+            <i class="fab fa-whatsapp fa-2x" aria-hidden="true"></i>
+          </li>
+        </a>
+      </ul>
+      <ul>
+        <a target="_blank" rel="noopener noreferrer" title="telegram" aria-label="share Features on telegram"
+          href="https://telegram.me/share/url?text=Features&amp;url=./how-to-manage-python-projects.html">
+          <li class="bg-gray-900 p-1 text-white rounded-md">
+            <i class="fab fa-telegram fa-2x" aria-hidden="true"></i>
+          </li>
+        </a>
+      </ul>
+    </div>
+  </footer>
+  <div>
+  </div>
+</main>
+
+    </div>
+    <footer class="flex w-full text-xs justify-center mt-10 mb-6 text-zinc-500 dark:text-zinc-400">
+        <div class="px-4">
+            <span>©2022&nbsp;&#8226;&nbsp;</span>Powered by
+            <a class="underline" href="https://getpelican.com/">Pelican</a>&nbsp;&
+            <a class="underline" href="https://github.com/aleylara/Papyrus">&nbsp;Papyrus</a>
+        </div>
+    </footer>
+
+<script type="text/javascript">
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-160973492-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+    <script>
+        let themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        let themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+        let themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', function () {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
+    <script src="https://files.stork-search.net/releases/v1.4.0/stork.js"></script>
+    <script>
+        stork.register("sitesearch", "./search-index.st")
+    </script>
+</body>
+
+</html>
