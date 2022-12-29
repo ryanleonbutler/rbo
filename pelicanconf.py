@@ -64,7 +64,7 @@ SHARE = (
 DEFAULT_PAGINATION = 8
 
 # Uncomment following line if you want document-relative URLs when developing
-RELATIVE_URLS = True
+RELATIVE_URLS = False
 
 # DISQUS_SITENAME = ""
 GOOGLE_ANALYTICS = "UA-160973492-1"
