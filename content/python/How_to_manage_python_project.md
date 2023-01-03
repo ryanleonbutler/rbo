@@ -143,22 +143,22 @@ First let's check which Python versions we have installed using asdf.
 
 As you can see from the above I have two Python versions installed, "system"
 which will be the version which is managed by my OS and the OS package manager,
-for example HomeBrew on MacOS and one that I previously installed with pyenv,
-namely 3.9.7. In this project I want to use 3.9.7 and in order to ensure I am 
+for example HomeBrew on MacOS and one that I previously installed with asdf,
+namely 3.11.1. In this project I want to use 3.11.1 and in order to ensure I am 
 using this Python version, I can set it as the global default on my system  as 
 well as check the version and location of the binary.
 
     :::bash
     // set python version 
-    ❯ pyenv global 3.9.7
+    ❯ asdf global python 3.11.1
 
     ❯ python -V 
-    Python 3.9.7
+    Python 3.11.1
 
     ❯ which python 
-    /Users/user/.pyenv/shims/python-poetry
+    /Users/butryan/.asdf/shims/python
 
-Now that we have confirmed Python 3.9.7 is set as the default Python binary we
+Now that we have confirmed Python 3.11.1 is set as the default Python runtime we
 can create our project using Poetry.
 
     :::bash

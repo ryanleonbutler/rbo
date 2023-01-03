@@ -154,3 +154,8 @@ static/resume/
 
 # hugo
 hugo/
+
+# Pants workspace files
+/.pants.*
+/dist/
+/.pids
