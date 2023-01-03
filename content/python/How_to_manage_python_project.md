@@ -2,8 +2,7 @@ Title: How to manage Python projects
 Date: 2022-01-10 
 Tags: Python, Tools
 Category: Productivity 
-Summary: Have you ever struggled to manage your Python
-projects? Let's see how Poetry can help manage your Python projects.
+Summary: Have you ever struggled to manage your Python projects? Let's see how Poetry can help manage your Python projects.
 
 <img src="{static}/images/joshua-j-cotten-uyKB8ZZApU0-unsplash.webp"
 alt="screenshot" style="width:100%;" />
@@ -11,18 +10,19 @@ alt="screenshot" style="width:100%;" />
 From installing different Python versions, creating virtual environments,
 installing different libraries and dependencies and creating configuration
 files for your project. I have been through this journey a few times, tried
-multiple approaches and tools, none which really worked or which I liked. About
-a year or so ago, I was listening to a podcast about Python where the hosts
-were talking about a tool called [Poetry](https://python-poetry.org/). Some of
-you might have heard about Poetry before or even use it already, regardless I
-will share with you my experience using Poetry in managing Python projects and
-how it has made my life so much simpler. I will also share other tools in this
-post, which compliment Poetry. I will also share an example of my workflow when
-starting a new Python project. Please follow me on
-[Twitter](https://twitter.com/ryanleonbutler) and
+multiple approaches and tools, none which really worked or which I liked.
+During 2021, I was listening to a [podcast
+episode](https://talkpython.fm/episodes/show/314/ask-us-about-modern-python-projects-and-tools)
+where the hosts were covering a tool called
+[Poetry](https://python-poetry.org/). Some of you might have heard about Poetry
+before or even use it already, regardless I will share with you my experience
+using Poetry in managing Python projects and how it has made my life so much
+simpler. I will also share other tools in this post, which compliment Poetry. I
+will also share an example of my workflow when starting a new Python project.
+Please follow me on [Twitter](https://twitter.com/ryanleonbutler) and
 [LinkedIn](https://www.linkedin.com/in/ryanleonbutler/) if you like the content
 I am creating or just any Python related questions or questions regarding this
-post. Thank you for the support!
+post. Thank you for your support!
 
 # 1. What is Poetry?
 Poetry's main goal is dependency management and packaging in Python. The tool
@@ -66,6 +66,10 @@ Now we can install Poetry using pipx.
     :::bash
     // using pipx to install poetry globally 
     ❯ pipx install poetry 
+
+For information on pipx, you can also listen to
+[this](https://talkpython.fm/episodes/show/371/pipx-installable-isolated-python-applications)
+podcast episode.
 
 # 3. Basic Usage In order to create a new directory with predefined files and
 project structure you can simply run:
@@ -172,8 +176,8 @@ We now have our basic skeleton, let's change a few things.
     ❯ cd my_project && git init 
     ❯ rm README.rst && touch README.md  // I prefer markdown 
     ❯ echo '# my_project' >> README.md 
-    ❯ touch my_project/main.py 
-    ❯ echo 'import pprint as print\nprint("Poetry is great!")' >> my_project/main.py 
+    ❯ touch my_project/src/main.py 
+    ❯ echo 'import pprint as print\nprint("Poetry is great!")' >> my_project/src/main.py 
 
 See basic a example of a 'pyproject.toml' file for a Python project on my GitHub
 profile in the 'python_project' repository
@@ -185,14 +189,12 @@ some additional tools which I added over time into my workflow. I will cover
 them in a future post, but for your ease of reference see the links to the
 respective home pages for more information:
 
-- [Tox](https://tox.wiki/en/latest/)
 - [Pre-commit](https://pre-commit.com/)
 - [Black](https://github.com/psf/black)
 - [flake8](https://flake8.pycqa.org/en/latest/)
 - [isort](https://github.com/PyCQA/isort)
 - [pytest](https://docs.pytest.org/en/6.2.x/)
 - [coverage](https://coverage.readthedocs.io/en/6.0.2/)
-- [Sphinx](https://www.sphinx-doc.org/en/master/)
 
 We are now ready to run the Python project. There are two ways you can achieve
 this.
@@ -227,4 +229,5 @@ configuration.
 
 It is as simple as that to get started with Poetry. I like how it has abstracted
 the repetitive tasks and additional overhead added to the developer in managing
-depedencies and virtual environments.
+depedencies and virtual environments. I hope my article has inspired you to 
+try out Poetry, it is a great tool!
