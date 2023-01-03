@@ -1,5 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>RBO</title><link href="https://ryanbutler.online/" rel="alternate"></link><link href="https://ryanbutler.online/feeds/all.atom.xml" rel="self"></link><id>https://ryanbutler.online/</id><updated>2022-01-10T00:00:00+02:00</updated><entry><title>How to manage Python projects</title><link href="https://ryanbutler.online/how-to-manage-python-projects.html" rel="alternate"></link><published>2022-01-10T00:00:00+02:00</published><updated>2022-01-10T00:00:00+02:00</updated><author><name>Ryan Butler</name></author><id>tag:ryanbutler.online,2022-01-10:/how-to-manage-python-projects.html</id><summary type="html">&lt;p&gt;Have you ever struggled to manage your Python projects? Let's see how Poetry can help manage your Python projects.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="screenshot" src="https://ryanbutler.online/images/joshua-j-cotten-uyKB8ZZApU0-unsplash.webp" style="width:100%;"/&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>RBO</title><link href="https://ryanbutler.online/" rel="alternate"></link><link href="https://ryanbutler.online/feeds/all.atom.xml" rel="self"></link><id>https://ryanbutler.online/</id><updated>2022-02-10T00:00:00+02:00</updated><entry><title>Moving to fish shell</title><link href="https://ryanbutler.online/moving-to-fish-shell.html" rel="alternate"></link><published>2022-02-10T00:00:00+02:00</published><updated>2022-02-10T00:00:00+02:00</updated><author><name>Ryan Butler</name></author><id>tag:ryanbutler.online,2022-02-10:/moving-to-fish-shell.html</id><summary type="html">&lt;p&gt;Moving to fish shell for a feature rich shell improving productivity.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="screenshot" src="https://ryanbutler.online/images/worachat-sodsri-nCz_ZgnbtaE-unsplash.webp" style="width:100%;"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://fishshell.com/"&gt;Fish&lt;/a&gt; (short for Friendly Interactive Shell) is a Unix shell that aims to be
+more interactive and user-friendly than other shells such as the Bourne Shell
+(sh) or the Bourne Again Shell (bash).&lt;/p&gt;
+&lt;h1 id="1-features"&gt;1. Features&lt;/h1&gt;
+&lt;p&gt;Some of the features that make Fish more user-friendly include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Syntax highlighting: Fish automatically highlights different parts of the
+  command line to make it easier to read and understand.&lt;/li&gt;
+&lt;li&gt;Autosuggestions: As you type a command, Fish will suggest possible
+  completions based on your history and the contents of your directories.&lt;/li&gt;
+&lt;li&gt;Web-based configuration: Fish provides a web-based interface for configuring
+  and customizing the shell, which can be accessed by running the fish_config
+  command.&lt;/li&gt;
+&lt;li&gt;Consistency: Fish has a consistent syntax and naming conventions for its
+  commands, which can make it easier to learn and use.&lt;/li&gt;
+&lt;li&gt;Fish also includes a number of other features that can be useful for users,
+  such as tab completion, history search, and support for plugins and themes.
+  It is available for most Unix-like operating systems, including Linux, macOS,
+  and BSD.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="2-installation"&gt;2. Installation&lt;/h1&gt;
+&lt;p&gt;To install on macOS or Linux using Homebrew(Linuxbrew):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;// Install fish using HomeBrew on macOS 
+❯ brew install fish
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Once installed, enter &lt;code&gt;fish&lt;/code&gt; to start the shell:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;❯ fish
+Welcome to fish, the friendly interactive shell
+Type &lt;span class="nb"&gt;help&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; instructions on how to use fish
+you@hostname ~&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To make fish your default shell, you can add the fish executable, which was
+added to your &lt;code&gt;$PATH&lt;/code&gt;, to your &lt;code&gt;/etc/shells&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;❯ which fish
+/usr/local/bin/fish
+
+❯ &lt;span class="nb"&gt;echo&lt;/span&gt; /usr/local/bin/fish &lt;span class="p"&gt;|&lt;/span&gt; sudo tee -a /etc/shells
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then change your default shell with the below command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;❯ chsh -s /usr/local/bin/fish
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To get familiar with the basics I recommend reading through the official 
+&lt;a href="https://fishshell.com/docs/current/tutorial.html"&gt;tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id="3-configuration"&gt;3. Configuration&lt;/h1&gt;
+&lt;p&gt;The main configuraton file is &lt;code&gt;~/.config/fish/config.fish&lt;/code&gt;. Coming from bash
+and zsh I found the &lt;a href="https://fishshell.com/docs/current/fish_for_bash_users.html"&gt;fish for bash
+users&lt;/a&gt; reference
+really helpfull.&lt;/p&gt;
+&lt;p&gt;Below is a snippet from my &lt;code&gt;config.fish&lt;/code&gt; at the time of this article:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# set default editor to Neovim&lt;/span&gt;
+&lt;span class="nb"&gt;set&lt;/span&gt; -gx EDITOR nvim
+
+&lt;span class="c1"&gt;# set VIM key bindings&lt;/span&gt;
+&lt;span class="k"&gt;function&lt;/span&gt; fish_user_key_bindings
+    &lt;span class="nb"&gt;bind&lt;/span&gt; yy fish_clipboard_copy
+    &lt;span class="nb"&gt;bind&lt;/span&gt; Y fish_clipboard_copy
+    &lt;span class="nb"&gt;bind&lt;/span&gt; p fish_clipboard_paste
+end
+
+&lt;span class="c1"&gt;# disable greeting&lt;/span&gt;
+&lt;span class="nb"&gt;set&lt;/span&gt; fish_greeting
+
+&lt;span class="c1"&gt;# Set the maximum number of open file descriptors.&lt;/span&gt;
+&lt;span class="nb"&gt;ulimit&lt;/span&gt; -n &lt;span class="m"&gt;10240&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Force true-color support on &lt;/span&gt;
+&lt;span class="nb"&gt;set&lt;/span&gt; -g fish_term24bit &lt;span class="m"&gt;1&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Update $PATH&lt;/span&gt;
+&lt;span class="nb"&gt;set&lt;/span&gt; -gx PATH bin &lt;span class="nv"&gt;$PATH&lt;/span&gt;
+&lt;span class="nb"&gt;set&lt;/span&gt; -gx PATH ~/bin &lt;span class="nv"&gt;$PATH&lt;/span&gt;
+&lt;span class="nb"&gt;set&lt;/span&gt; -gx PATH ~/.local/bin &lt;span class="nv"&gt;$PATH&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Add Rust to $PATH&lt;/span&gt;
+&lt;span class="nb"&gt;set&lt;/span&gt; -U fish_user_paths &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.cargo/bin &lt;span class="nv"&gt;$fish_user_paths&lt;/span&gt;
+
+&lt;span class="c1"&gt;# aliases&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; v &lt;span class="s2"&gt;"nvim"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; vi &lt;span class="s2"&gt;"nvim"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; vim &lt;span class="s2"&gt;"nvim"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; t &lt;span class="s2"&gt;"tmux"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; sf &lt;span class="s2"&gt;"source ~/.config/fish/config.fish"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; tmuxrc &lt;span class="s2"&gt;"vim ~/development/dotfiles/tmux/tmux.conf"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; fishrc &lt;span class="s2"&gt;"vim ~/development/dotfiles/fish/config.fish"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; vimrc &lt;span class="s2"&gt;"vim ~/development/dotfiles/nvim"&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Git&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; gs &lt;span class="s2"&gt;"git status"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; ga &lt;span class="s2"&gt;"git add -A"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; gl &lt;span class="s2"&gt;"git log"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; gd &lt;span class="s2"&gt;"git diff"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; gcm &lt;span class="s2"&gt;"git commit -m"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; gma &lt;span class="s2"&gt;"git commit -am"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; gb &lt;span class="s2"&gt;"git branch"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; gc &lt;span class="s2"&gt;"git checkout"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; gp &lt;span class="s2"&gt;"git push"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; gw &lt;span class="s2"&gt;"git clone --bare"&lt;/span&gt;
+&lt;span class="nb"&gt;alias&lt;/span&gt; gf &lt;span class="s2"&gt;"git fetch --all"&lt;/span&gt;
+
+&lt;span class="c1"&gt;# exa&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt; -q exa
+  &lt;span class="nb"&gt;alias&lt;/span&gt; ll &lt;span class="s2"&gt;"exa -l -g --icons"&lt;/span&gt;
+  &lt;span class="nb"&gt;alias&lt;/span&gt; ls &lt;span class="s2"&gt;"exa --icons"&lt;/span&gt;
+  &lt;span class="nb"&gt;alias&lt;/span&gt; lla &lt;span class="s2"&gt;"ll -a"&lt;/span&gt;
+  &lt;span class="nb"&gt;alias&lt;/span&gt; tree &lt;span class="s2"&gt;"exa --tree --level 2 --icons --long --all --ignore-glob '.git|node_modules|*.pyc|__pycache__/.DS_Store'"&lt;/span&gt;
+end
+
+&lt;span class="c1"&gt;# ASDF&lt;/span&gt;
+&lt;span class="nb"&gt;source&lt;/span&gt; /usr/local/opt/asdf/libexec/asdf.fish
+
+&lt;span class="c1"&gt;# Pipx&lt;/span&gt;
+&lt;span class="nb"&gt;set&lt;/span&gt; -gx PATH &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.local/bin &lt;span class="nv"&gt;$PATH&lt;/span&gt;
+&lt;span class="nb"&gt;set&lt;/span&gt; -gx PIPX_DEFAULT_PYTHON &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.asdf/shims/python
+
+&lt;span class="c1"&gt;# fzf&lt;/span&gt;
+&lt;span class="c1"&gt;# nav with tab&lt;/span&gt;
+&lt;span class="nb"&gt;set&lt;/span&gt; FZF_DEFAULT_OPTS &lt;span class="s2"&gt;"--bind=shift-tab:up,tab:down"&lt;/span&gt;
+
+&lt;span class="c1"&gt;# rosepine&lt;/span&gt;
+&lt;span class="nb"&gt;set&lt;/span&gt; FZF_DEFAULT_OPTS &lt;span class="nv"&gt;$FZF_DEFAULT_OPTS&lt;/span&gt;&lt;span class="s2"&gt;" &lt;/span&gt;
+&lt;span class="s2"&gt; --color=fg:#e0def4,bg:#2a273f,hl:#6e6a86&lt;/span&gt;
+&lt;span class="s2"&gt; --color=fg+:#908caa,bg+:#232136,hl+:#908caa&lt;/span&gt;
+&lt;span class="s2"&gt; --color=info:#9ccfd8,prompt:#f6c177,pointer:#c4a7e7&lt;/span&gt;
+&lt;span class="s2"&gt; --color=marker:#ea9a97,spinner:#eb6f92,header:#ea9a97"&lt;/span&gt;
+
+&lt;span class="c1"&gt;# zoxide&lt;/span&gt;
+zoxide init fish &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nb"&gt;source&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Starship prompt&lt;/span&gt;
+starship init fish &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nb"&gt;source&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Below are screenshots from my &lt;a href="https://github.com/ryanleonbutler/dotfiles"&gt;current terminal
+configuration&lt;/a&gt; using Kitty, Fish,
+Starship, Exa and a rose-pine colour palette.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="screenshot" src="https://ryanbutler.online/images/fish_term_1.webp" style="width:100%;"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="screenshot" src="https://ryanbutler.online/images/fish_term_2.webp" style="width:100%;"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="screenshot" src="https://ryanbutler.online/images/fish_term_3.webp" style="width:100%;"/&gt;&lt;/p&gt;
+&lt;p&gt;It is really easy to move to fish and like that autosuggestions and other
+features are built-in. Opening new terminal windows loads instantly with the
+prompt ready for action. I hope my article has convinced you to give fish a 
+try, I just love it!&lt;/p&gt;</content><category term="Productivity"></category><category term="Tools"></category></entry><entry><title>How to manage Python projects</title><link href="https://ryanbutler.online/how-to-manage-python-projects.html" rel="alternate"></link><published>2022-01-10T00:00:00+02:00</published><updated>2022-01-10T00:00:00+02:00</updated><author><name>Ryan Butler</name></author><id>tag:ryanbutler.online,2022-01-10:/how-to-manage-python-projects.html</id><summary type="html">&lt;p&gt;Have you ever struggled to manage your Python projects? Let's see how Poetry can help manage your Python projects.&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="screenshot" src="https://ryanbutler.online/images/joshua-j-cotten-uyKB8ZZApU0-unsplash.webp" style="width:100%;"/&gt;&lt;/p&gt;
 &lt;p&gt;From installing different Python versions, creating virtual environments,
 installing different libraries and dependencies and creating configuration
 files for your project. I have been through this journey a few times, tried
