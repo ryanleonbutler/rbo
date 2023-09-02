@@ -96,7 +96,7 @@
       <div class="flex text-xs text-zinc-800 dark:text-zinc-400">
         <time>January 10, 2022</time>
         <div>
-          <span>&nbsp;·&nbsp;6 min read</span>
+          <span>&nbsp;·&nbsp;8 min read</span>
         </div>
         <div>
           <span>&nbsp;·&nbsp;Ryan Butler</span>
@@ -104,12 +104,6 @@
       </div>
     </footer>
   </header>
-  <details class="flex flex-col my-6 p-4 bg-zinc-200 dark:bg-zinc-800 rounded-lg">
-    <summary class="text-lg font-bold">Table of contents</summary>
-    <div class="mx-4 px-4 underline">
-      <div id="toc"><ul><li><a class="toc-href" href="#1-what-is-poetry" title="1. What is Poetry?">1. What is Poetry?</a></li><li><a class="toc-href" href="#2-installation" title="2. Installation">2. Installation</a></li><li><a class="toc-href" href="#3-basic-usage-in-order-to-create-a-new-directory-with-predefined-files-and" title="3. Basic Usage In order to create a new directory with predefined files and">3. Basic Usage In order to create a new directory with predefined files and</a><ul><li><a class="toc-href" href="#4-my-workflow" title="4. My Workflow">4. My Workflow</a></li></ul></li></ul></div>
-    </div>
-  </details>
   <div class="max-w-7xl container mx-auto my-8 text-zinc-800 dark:text-zinc-300  
               prose lg:max-w-none prose-headings:text-zinc-800 prose-headings:dark:text-zinc-300 
               prose-h1:text-3xl lg:prose-h1:text-3xl prose-headings:font-semibold 
@@ -126,7 +120,8 @@
               prose-code:font-light
               prose-img:rounded-md
               ">
-    <p><img alt="screenshot" src="./images/joshua-j-cotten-uyKB8ZZApU0-unsplash.webp" style="width:100%;"/></p>
+    <p><img src="./images/joshua-j-cotten-uyKB8ZZApU0-unsplash.webp"
+alt="screenshot" style="width:100%;" /></p>
 <p>From installing different Python versions, creating virtual environments,
 installing different libraries and dependencies and creating configuration
 files for your project. I have been through this journey a few times, tried
@@ -143,130 +138,144 @@ Please follow me on <a href="https://twitter.com/ryanleonbutler">Twitter</a> and
 <a href="https://www.linkedin.com/in/ryanleonbutler/">LinkedIn</a> if you like the content
 I am creating or just any Python related questions or questions regarding this
 post. Thank you for your support!</p>
-<h1 id="1-what-is-poetry">1. What is Poetry?</h1>
+<h1>1. What is Poetry?</h1>
 <p>Poetry's main goal is dependency management and packaging in Python. The tool
 allows you to declare the libraries your project uses and will manage them for
 you, either by installing or updating them. It also has a bunch of other
 features, which include creating a 'pyproject.toml', creating virtual
 environments and publishing a Python application or module to
 <a href="https://pypi.org/">PyPI</a>.</p>
-<h1 id="2-installation">2. Installation</h1>
+<h1>2. Installation</h1>
 <p>Just like any other Python package, Poetry can be installed using pip.</p>
-<div class="highlight"><pre><span></span><code>// Install poetry 
-❯ pip install poetry
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>Install<span class="w"> </span>poetry<span class="w"> </span>
+❯<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>poetry
 </code></pre></div>
+
 <p>I recommend using <a href="https://github.com/pypa/pipx">pipx</a> in this case. It is
 great for installing system wide Python applications in isolation. This avoids
 installing Poetry to a specific Python installation or virtual environment. It
 also adds the command line application to your system path allowing you to
 execute the tool even if other Python virtual environments are active.</p>
-<div class="highlight"><pre><span></span><code>// Install pipx and add it to the system path 
-❯ brew install pipx 
-❯ pipx ensure path
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>Install<span class="w"> </span>pipx<span class="w"> </span>and<span class="w"> </span>add<span class="w"> </span>it<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>system<span class="w"> </span>path<span class="w"> </span>
+❯<span class="w"> </span>brew<span class="w"> </span>install<span class="w"> </span>pipx<span class="w"> </span>
+❯<span class="w"> </span>pipx<span class="w"> </span>ensure<span class="w"> </span>path
 </code></pre></div>
+
 <p>Just a tip on using pipx, if you wish to use a specific Python version in your
 pipx environments, I recommend setting an environment variable in your shell
 start-up script (e.g. in 'config.fish') to change the version to use
 <a href="https://asdf-vm.com/">asdf</a>'s path. This is important when using Poetry, since
 Poetry will inherit the Python version from pipx in order to create its own
 virtual environments.</p>
-<div class="highlight"><pre><span></span><code>// ~/.config/fish/config.fish 
-❯ <span class="nb">set</span> -g PIPX_DEFAULT_PYTHON ~/.asdf/shims/python
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>~/.config/fish/config.fish<span class="w"> </span>
+❯<span class="w"> </span><span class="nb">set</span><span class="w"> </span>-g<span class="w"> </span>PIPX_DEFAULT_PYTHON<span class="w"> </span>~/.asdf/shims/python
 </code></pre></div>
+
 <p>Now we can install Poetry using pipx.</p>
-<div class="highlight"><pre><span></span><code>// using pipx to install poetry globally 
-❯ pipx install poetry
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>using<span class="w"> </span>pipx<span class="w"> </span>to<span class="w"> </span>install<span class="w"> </span>poetry<span class="w"> </span>globally<span class="w"> </span>
+❯<span class="w"> </span>pipx<span class="w"> </span>install<span class="w"> </span>poetry
 </code></pre></div>
+
 <p>For information on pipx, you can also listen to
 <a href="https://talkpython.fm/episodes/show/371/pipx-installable-isolated-python-applications">this</a>
 podcast episode.</p>
-<h1 id="3-basic-usage-in-order-to-create-a-new-directory-with-predefined-files-and">3. Basic Usage In order to create a new directory with predefined files and</h1>
+<h1>3. Basic Usage In order to create a new directory with predefined files and</h1>
 <p>project structure you can simply run:</p>
-<div class="highlight"><pre><span></span><code>// creates new project 
-❯ poetry new my_project
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>creates<span class="w"> </span>new<span class="w"> </span>project<span class="w"> </span>
+❯<span class="w"> </span>poetry<span class="w"> </span>new<span class="w"> </span>my_project
 </code></pre></div>
+
 <p>You will be presented with a few prompts regarding your project and once
 completed a new directory will be created with the below contents:</p>
-<div class="highlight"><pre><span></span><code>// example project structure 
-my_project 
-&boxvr;&boxh;&boxh; pyproject.toml 
-&boxvr;&boxh;&boxh; README.rst
-&boxvr;&boxh;&boxh; my_project 
-&boxv;   &boxur;&boxh;&boxh; __init__.py 
-&boxur;&boxh;&boxh; tests 
-    &boxvr;&boxh;&boxh; __init__.py 
-    &boxur;&boxh; test_my_project.py
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>example<span class="w"> </span>project<span class="w"> </span>structure<span class="w"> </span>
+my_project<span class="w"> </span>
+├──<span class="w"> </span>pyproject.toml<span class="w"> </span>
+├──<span class="w"> </span>README.rst
+├──<span class="w"> </span>my_project<span class="w"> </span>
+│<span class="w">   </span>└──<span class="w"> </span>__init__.py<span class="w"> </span>
+└──<span class="w"> </span>tests<span class="w"> </span>
+<span class="w">    </span>├──<span class="w"> </span>__init__.py<span class="w"> </span>
+<span class="w">    </span>└─<span class="w"> </span>test_my_project.py
 </code></pre></div>
+
 <p>If you have an existing Python project and directory structure you can navigate
 to the project directory and then run:</p>
-<div class="highlight"><pre><span></span><code>// creates poetry project <span class="k">in</span> existing project 
-❯ poetry init
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>creates<span class="w"> </span>poetry<span class="w"> </span>project<span class="w"> </span><span class="k">in</span><span class="w"> </span>existing<span class="w"> </span>project<span class="w"> </span>
+❯<span class="w"> </span>poetry<span class="w"> </span>init
 </code></pre></div>
+
 <p>Enter the details in the prompts and at the end you will notice a new file
 called 'pyproject.toml' is created in the root of your new project, if there if
 not one present already.</p>
 <p>To manage dependencies you can simply use the 'add', 'remove', 'install' and
 'update' commands.</p>
-<div class="highlight"><pre><span></span><code>// example poetry commands <span class="k">for</span> managing depedencies 
-❯ poetry add pprint  // Adds pprint to depedencies 
-❯ poetry add -D black  // Adds black to your developer dependencies 
-❯ poetry remove -D black  // Removes black 
-❯ poetry update  // Updates all depedencies 
-❯ poetry install // Installs all depedencies <span class="k">in</span> the virtual environment
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>example<span class="w"> </span>poetry<span class="w"> </span>commands<span class="w"> </span><span class="k">for</span><span class="w"> </span>managing<span class="w"> </span>depedencies<span class="w"> </span>
+❯<span class="w"> </span>poetry<span class="w"> </span>add<span class="w"> </span>pprint<span class="w">  </span>//<span class="w"> </span>Adds<span class="w"> </span>pprint<span class="w"> </span>to<span class="w"> </span>depedencies<span class="w"> </span>
+❯<span class="w"> </span>poetry<span class="w"> </span>add<span class="w"> </span>-D<span class="w"> </span>black<span class="w">  </span>//<span class="w"> </span>Adds<span class="w"> </span>black<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>developer<span class="w"> </span>dependencies<span class="w"> </span>
+❯<span class="w"> </span>poetry<span class="w"> </span>remove<span class="w"> </span>-D<span class="w"> </span>black<span class="w">  </span>//<span class="w"> </span>Removes<span class="w"> </span>black<span class="w"> </span>
+❯<span class="w"> </span>poetry<span class="w"> </span>update<span class="w">  </span>//<span class="w"> </span>Updates<span class="w"> </span>all<span class="w"> </span>depedencies<span class="w"> </span>
+❯<span class="w"> </span>poetry<span class="w"> </span>install<span class="w"> </span>//<span class="w"> </span>Installs<span class="w"> </span>all<span class="w"> </span>depedencies<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>virtual<span class="w"> </span>environment
 </code></pre></div>
+
 <p>Poetry also has some bonus features like exporting your dependencies to a
 requirements file.</p>
-<div class="highlight"><pre><span></span><code>// Exports all depedencies to requirements file 
-❯ poetry <span class="nb">export</span> --without-hashes -o requirements.txt
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>Exports<span class="w"> </span>all<span class="w"> </span>depedencies<span class="w"> </span>to<span class="w"> </span>requirements<span class="w"> </span>file<span class="w"> </span>
+❯<span class="w"> </span>poetry<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--without-hashes<span class="w"> </span>-o<span class="w"> </span>requirements.txt
 </code></pre></div>
-<h2 id="4-my-workflow">4. My Workflow</h2>
+
+<h2>4. My Workflow</h2>
 <p>Moving to my workflow when starting a new project, I use a combination of
 Poetry and asdf to setup my project. Typically I have a 'workspace' or
 'development' folder in my home directory on my local machine. Within this
 directory I save store all my projects.</p>
-<div class="highlight"><pre><span></span><code>// contents of development folder 
-❯ <span class="nb">cd</span> ~/development
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>contents<span class="w"> </span>of<span class="w"> </span>development<span class="w"> </span>folder<span class="w"> </span>
+❯<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/development
 
-❯ ls -l 
-drwxr-xr-x  <span class="m">20</span> user  staff   640B Oct <span class="m">18</span> <span class="m">21</span>:30 dotfiles/ 
-drwxr-xr-x   <span class="m">4</span> user  staff   128B Aug <span class="m">25</span> <span class="m">20</span>:01 scratches/ 
-drwxr-xr-x   <span class="m">5</span> user  staff   160B Jul <span class="m">23</span> <span class="m">10</span>:36 scripts/ 
-drwxr-xr-x  <span class="m">14</span> user  staff   448B Sep <span class="m">20</span> <span class="m">13</span>:52 tests/
+❯<span class="w"> </span>ls<span class="w"> </span>-l<span class="w"> </span>
+drwxr-xr-x<span class="w">  </span><span class="m">20</span><span class="w"> </span>user<span class="w">  </span>staff<span class="w">   </span>640B<span class="w"> </span>Oct<span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">21</span>:30<span class="w"> </span>dotfiles/<span class="w"> </span>
+drwxr-xr-x<span class="w">   </span><span class="m">4</span><span class="w"> </span>user<span class="w">  </span>staff<span class="w">   </span>128B<span class="w"> </span>Aug<span class="w"> </span><span class="m">25</span><span class="w"> </span><span class="m">20</span>:01<span class="w"> </span>scratches/<span class="w"> </span>
+drwxr-xr-x<span class="w">   </span><span class="m">5</span><span class="w"> </span>user<span class="w">  </span>staff<span class="w">   </span>160B<span class="w"> </span>Jul<span class="w"> </span><span class="m">23</span><span class="w"> </span><span class="m">10</span>:36<span class="w"> </span>scripts/<span class="w"> </span>
+drwxr-xr-x<span class="w">  </span><span class="m">14</span><span class="w"> </span>user<span class="w">  </span>staff<span class="w">   </span>448B<span class="w"> </span>Sep<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">13</span>:52<span class="w"> </span>tests/
 </code></pre></div>
+
 <p>First let's check which Python versions we have installed using asdf.</p>
-<div class="highlight"><pre><span></span><code>// check available versions 
-❯ asdf list python
-  <span class="m">3</span>.11.0
- *3.11.1
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>check<span class="w"> </span>available<span class="w"> </span>versions<span class="w"> </span>
+❯<span class="w"> </span>asdf<span class="w"> </span>list<span class="w"> </span>python
+<span class="w">  </span><span class="m">3</span>.11.0
+<span class="w"> </span>*3.11.1
 </code></pre></div>
+
 <p>As you can see from the above I have two Python versions installed, "system"
 which will be the version which is managed by my OS and the OS package manager,
 for example HomeBrew on MacOS and one that I previously installed with asdf,
 namely 3.11.1. In this project I want to use 3.11.1 and in order to ensure I am 
 using this Python version, I can set it as the global default on my system  as 
 well as check the version and location of the binary.</p>
-<div class="highlight"><pre><span></span><code>// <span class="nb">set</span> python version 
-❯ asdf global python <span class="m">3</span>.11.1
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span><span class="nb">set</span><span class="w"> </span>python<span class="w"> </span>version<span class="w"> </span>
+❯<span class="w"> </span>asdf<span class="w"> </span>global<span class="w"> </span>python<span class="w"> </span><span class="m">3</span>.11.1
 
-❯ python -V 
-Python <span class="m">3</span>.11.1
+❯<span class="w"> </span>python<span class="w"> </span>-V<span class="w"> </span>
+Python<span class="w"> </span><span class="m">3</span>.11.1
 
-❯ which python 
+❯<span class="w"> </span>which<span class="w"> </span>python<span class="w"> </span>
 /Users/butryan/.asdf/shims/python
 </code></pre></div>
+
 <p>Now that we have confirmed Python 3.11.1 is set as the default Python runtime we
 can create our project using Poetry.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># creates new project </span>
-❯ poetry new my_project
+❯<span class="w"> </span>poetry<span class="w"> </span>new<span class="w"> </span>my_project
 </code></pre></div>
+
 <p>We now have our basic skeleton, let's change a few things.</p>
-<div class="highlight"><pre><span></span><code>// additional project setup 
-❯ <span class="nb">cd</span> my_project <span class="o">&amp;&amp;</span> git init 
-❯ rm README.rst <span class="o">&amp;&amp;</span> touch README.md  // I prefer markdown 
-❯ <span class="nb">echo</span> <span class="s1">'# my_project'</span> &gt;&gt; README.md 
-❯ touch my_project/src/main.py 
-❯ <span class="nb">echo</span> <span class="s1">'import pprint as print\nprint("Poetry is great!")'</span> &gt;&gt; my_project/src/main.py
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>additional<span class="w"> </span>project<span class="w"> </span>setup<span class="w"> </span>
+❯<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>my_project<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>init<span class="w"> </span>
+❯<span class="w"> </span>rm<span class="w"> </span>README.rst<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>touch<span class="w"> </span>README.md<span class="w">  </span>//<span class="w"> </span>I<span class="w"> </span>prefer<span class="w"> </span>markdown<span class="w"> </span>
+❯<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;# my_project&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>README.md<span class="w"> </span>
+❯<span class="w"> </span>touch<span class="w"> </span>my_project/src/main.py<span class="w"> </span>
+❯<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;import pprint as print\nprint(&quot;Poetry is great!&quot;)&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>my_project/src/main.py
 </code></pre></div>
+
 <p>See basic a example of a 'pyproject.toml' file for a Python project on my GitHub
 profile in the 'python_project' repository
 <a href="https://github.com/ryanleonbutler/python_project/blob/main/pyproject.toml">here</a>.</p>
@@ -285,31 +294,33 @@ respective home pages for more information:</p>
 </ul>
 <p>We are now ready to run the Python project. There are two ways you can achieve
 this.</p>
-<div class="highlight"><pre><span></span><code>// <span class="m">1</span>. using the Poetry <span class="s1">'run'</span> <span class="nb">command</span> will run the Python version which
-Poetry is managing <span class="k">for</span> you 
-❯ poetry run python my_project/main.py
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span><span class="m">1</span>.<span class="w"> </span>using<span class="w"> </span>the<span class="w"> </span>Poetry<span class="w"> </span><span class="s1">&#39;run&#39;</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>will<span class="w"> </span>run<span class="w"> </span>the<span class="w"> </span>Python<span class="w"> </span>version<span class="w"> </span>which
+Poetry<span class="w"> </span>is<span class="w"> </span>managing<span class="w"> </span><span class="k">for</span><span class="w"> </span>you<span class="w"> </span>
+❯<span class="w"> </span>poetry<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>my_project/main.py
 
-Poetry is great!
+Poetry<span class="w"> </span>is<span class="w"> </span>great!
 
-// <span class="m">2</span>. drop into a new shell with the Poetry Python version as the activated
-virtual environment 
-❯ poetry shell <span class="o">(</span>.venv<span class="o">)</span> ❯ python my_project/main.py
+//<span class="w"> </span><span class="m">2</span>.<span class="w"> </span>drop<span class="w"> </span>into<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>shell<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>Poetry<span class="w"> </span>Python<span class="w"> </span>version<span class="w"> </span>as<span class="w"> </span>the<span class="w"> </span>activated
+virtual<span class="w"> </span>environment<span class="w"> </span>
+❯<span class="w"> </span>poetry<span class="w"> </span>shell<span class="w"> </span><span class="o">(</span>.venv<span class="o">)</span><span class="w"> </span>❯<span class="w"> </span>python<span class="w"> </span>my_project/main.py
 
-Poetry is great!
+Poetry<span class="w"> </span>is<span class="w"> </span>great!
 </code></pre></div>
+
 <p>Note, regarding option 2. above, if you prefer that Poetry creates a virtual
 environment in the root if your project, you can set the following
 configuration.</p>
-<div class="highlight"><pre><span></span><code>// example venv path configuration 
-❯ poetry config --list
+<div class="highlight"><pre><span></span><code>//<span class="w"> </span>example<span class="w"> </span>venv<span class="w"> </span>path<span class="w"> </span>configuration<span class="w"> </span>
+❯<span class="w"> </span>poetry<span class="w"> </span>config<span class="w"> </span>--list
 
-... virtualenvs.in-project <span class="o">=</span> <span class="nb">false</span> ...
+...<span class="w"> </span>virtualenvs.in-project<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span>...
 
-❯ poetry config virtualenvs.in-project <span class="nb">true</span>
-❯ poetry config --list
+❯<span class="w"> </span>poetry<span class="w"> </span>config<span class="w"> </span>virtualenvs.in-project<span class="w"> </span><span class="nb">true</span>
+❯<span class="w"> </span>poetry<span class="w"> </span>config<span class="w"> </span>--list
 
-... virtualenvs.in-project <span class="o">=</span> <span class="nb">true</span> ...
+...<span class="w"> </span>virtualenvs.in-project<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span>...
 </code></pre></div>
+
 <p>It is as simple as that to get started with Poetry. I like how it has abstracted
 the repetitive tasks and additional overhead added to the developer in managing
 depedencies and virtual environments. I hope my article has inspired you to 
@@ -337,6 +348,14 @@ try out Poetry, it is a great tool!</p>
           <div class="mx-4 py-2 text-left">
             <p class="text-zinc-500 dark:text-neutral-400 text-sm">« PREV PAGE</p>
             <p class="text-left py-1 hover:underline">Moving to fish shell</p>
+          </div>
+        </a>
+      </div>
+      <div class="w-1/2 hover:bg-zinc-300 dark:hover:bg-zinc-800 rounded-r-lg ">
+        <a class="flex flex-col" href="./introduction.html">
+          <div class="text-right mx-4 py-2">
+            <p class="text-zinc-500 dark:text-neutral-400 text-sm">NEXT PAGE »</p>
+            <p class="text-right py-1 hover:underline">Introduction</p>
           </div>
         </a>
       </div>

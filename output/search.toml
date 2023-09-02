@@ -3,6 +3,11 @@ base_directory = "output"
 html_selector = "main"
 
 [[input.files]]
+path = "my-terminal-setup.html"
+url = "/my-terminal-setup.html"
+title = "My terminal setup"
+
+[[input.files]]
 path = "moving-to-fish-shell.html"
 url = "/moving-to-fish-shell.html"
 title = "Moving to fish shell"
@@ -11,3 +16,8 @@ title = "Moving to fish shell"
 path = "how-to-manage-python-projects.html"
 url = "/how-to-manage-python-projects.html"
 title = "How to manage Python projects"
+
+[[input.files]]
+path = "introduction.html"
+url = "/introduction.html"
+title = "Introduction"

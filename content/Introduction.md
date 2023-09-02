@@ -1,4 +1,11 @@
-![](/static/markdownx/anchor-lee-VepnJaqqP6s-unsplash.webp)
+Title: Introduction
+Date: 2021-5-24 
+Tags: Other
+Category: Other 
+Summary: Introduction to RBO and the author
+
+<img src="{static}/images/anchor-lee-VepnJaqqP6s-unsplash.webp"
+alt="screenshot" style="width:100%;" />
 
 ## Introduction to RBO
 
