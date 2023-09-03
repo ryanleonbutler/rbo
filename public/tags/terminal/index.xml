@@ -1,45 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Terminal on RBO</title>
-    <link>https://ryanbutler.online/tags/terminal/</link>
-    <description>Recent content in Terminal on RBO</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 03 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ryanbutler.online/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>My terminal setup 2.0</title>
-      <link>https://ryanbutler.online/posts/my_terminal_setup.2.0/</link>
-      <pubDate>Sun, 03 Sep 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://ryanbutler.online/posts/my_terminal_setup.2.0/</guid>
-      <description>Previous post: My terminal setup
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Terminal on RBO</title><link>https://ryanbutler.online/tags/terminal/</link><description>Recent content in Terminal on RBO</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 03 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ryanbutler.online/tags/terminal/index.xml" rel="self" type="application/rss+xml"/><item><title>My terminal setup 2.0</title><link>https://ryanbutler.online/posts/my_terminal_setup.2.0/</link><pubDate>Sun, 03 Sep 2023 00:00:00 +0000</pubDate><guid>https://ryanbutler.online/posts/my_terminal_setup.2.0/</guid><description>Previous post: My terminal setup
 Install Alacritty TODO
 Customize Alacritty TODO
 Moving to Fish and Starship prompt TODO
-Summary TODO</description>
-    </item>
-    
-    <item>
-      <title>Moving to fish shell</title>
-      <link>https://ryanbutler.online/posts/moving_to_fish_shell/</link>
-      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://ryanbutler.online/posts/moving_to_fish_shell/</guid>
-      <description>Fish (short for Friendly Interactive Shell) is a Unix shell that aims to be more interactive and user-friendly than other shells such as the Bourne Shell (sh) or the Bourne Again Shell (bash).
+Summary TODO</description></item><item><title>Moving to fish shell</title><link>https://ryanbutler.online/posts/moving_to_fish_shell/</link><pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate><guid>https://ryanbutler.online/posts/moving_to_fish_shell/</guid><description>Fish (short for Friendly Interactive Shell) is a Unix shell that aims to be more interactive and user-friendly than other shells such as the Bourne Shell (sh) or the Bourne Again Shell (bash).
 Features Some of the features that make Fish more user-friendly include:
-Syntax highlighting: Fish automatically highlights different parts of the command line to make it easier to read and understand. Autosuggestions: As you type a command, Fish will suggest possible completions based on your history and the contents of your directories.</description>
-    </item>
-    
-    <item>
-      <title>My terminal setup</title>
-      <link>https://ryanbutler.online/posts/my_terminal_setup/</link>
-      <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://ryanbutler.online/posts/my_terminal_setup/</guid>
-      <description>Having an efficient and tailored terminal setup is almost as important as your IDE or code editor in my opinion. Lets face it, whether your a Software Engineer, working DevOps or any other role within IT, chances are pretty good you will be spending a lot of your time working inside a terminal window.
-It also does not hurt if your terminal looks great when you boasting your terminal skills to your colleagues at work.</description>
-    </item>
-    
-  </channel>
-</rss>
+Syntax highlighting: Fish automatically highlights different parts of the command line to make it easier to read and understand. Autosuggestions: As you type a command, Fish will suggest possible completions based on your history and the contents of your directories.</description></item><item><title>My terminal setup</title><link>https://ryanbutler.online/posts/my_terminal_setup/</link><pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate><guid>https://ryanbutler.online/posts/my_terminal_setup/</guid><description>Having an efficient and tailored terminal setup is almost as important as your IDE or code editor in my opinion. Lets face it, whether your a Software Engineer, working DevOps or any other role within IT, chances are pretty good you will be spending a lot of your time working inside a terminal window.
+It also does not hurt if your terminal looks great when you boasting your terminal skills to your colleagues at work.</description></item></channel></rss>
