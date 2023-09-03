@@ -5,6 +5,7 @@ languageCode = "en"
 defaultContentLanguage = "en"
 enableEmoji = true
 enableRobotsTXT = true
+googleAnalytics = "UA-160973492-1"
 
 # Choose one of emacs, trac or perldoc
 pygmentsStyle = "monokai"
@@ -15,26 +16,6 @@ pygmentsStyle = "monokai"
   avatarURL = "/images/avatar.webp"
   AvatarAltText = "rbo logo"
   avatarSize = "size-xl"
-  customHeadHTML = """
-    <!-- KaTeX -->
-    <link rel="stylesheet" href="/css/katex.min.css">
-    <script defer src="/css/katex.min.js"></script>
-    <script defer src="/css/auto-render.min.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, {
-          // customised options
-          // • auto-render specific keys, e.g.:
-          delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false},
-          ],
-          // • rendering keys, e.g.:
-          throwOnError : false
-        });
-      });
-    </script>
-  """
   socialIcons = [
     {name = "github", url = "https://github.com/ryanleonbutler/"},
     {name = "linkedin", url = "https://www.linkedin.com/in/ryanleonbutler/"},
