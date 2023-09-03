@@ -1,3 +1,3 @@
-[submodule "resume_hugo/themes/resume-a4"]
-	path = resume_hugo/themes/resume-a4
-	url = https://gitlab.com/mertbakir/resume-a4
+[submodule "themes/hugo-theme-monochrome"]
+	path = themes/hugo-theme-monochrome
+	url = https://github.com/kaiiiz/hugo-theme-monochrome.git

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RBO</title>
+    <link>https://ryanbutler.online/</link>
+    <description>Recent content on RBO</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 03 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://ryanbutler.online/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My terminal setup 2.0</title>
+      <link>https://ryanbutler.online/posts/my_terminal_setup.2.0/</link>
+      <pubDate>Sun, 03 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryanbutler.online/posts/my_terminal_setup.2.0/</guid>
+      <description>Previous post: My terminal setup
+Install Alacritty TODO
+Customize Alacritty TODO
+Moving to Fish and Starship prompt TODO
+Summary TODO</description>
+    </item>
+    
+    <item>
+      <title>Moving to fish shell</title>
+      <link>https://ryanbutler.online/posts/moving_to_fish_shell/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryanbutler.online/posts/moving_to_fish_shell/</guid>
+      <description>Fish (short for Friendly Interactive Shell) is a Unix shell that aims to be more interactive and user-friendly than other shells such as the Bourne Shell (sh) or the Bourne Again Shell (bash).
+Features Some of the features that make Fish more user-friendly include:
+Syntax highlighting: Fish automatically highlights different parts of the command line to make it easier to read and understand. Autosuggestions: As you type a command, Fish will suggest possible completions based on your history and the contents of your directories.</description>
+    </item>
+    
+    <item>
+      <title>How to manage Python projects</title>
+      <link>https://ryanbutler.online/posts/how_to_manage_python_projects/</link>
+      <pubDate>Mon, 10 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryanbutler.online/posts/how_to_manage_python_projects/</guid>
+      <description>From installing different Python versions, creating virtual environments, installing different libraries and dependencies and creating configuration files for your project. I have been through this journey a few times, tried multiple approaches and tools, none which really worked or which I liked. During 2021, I was listening to a podcast episode where the hosts were covering a tool called Poetry. Some of you might have heard about Poetry before or even use it already, regardless I will share with you my experience using Poetry in managing Python projects and how it has made my life so much simpler.</description>
+    </item>
+    
+    <item>
+      <title>My terminal setup</title>
+      <link>https://ryanbutler.online/posts/my_terminal_setup/</link>
+      <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryanbutler.online/posts/my_terminal_setup/</guid>
+      <description>Having an efficient and tailored terminal setup is almost as important as your IDE or code editor in my opinion. Lets face it, whether your a Software Engineer, working DevOps or any other role within IT, chances are pretty good you will be spending a lot of your time working inside a terminal window.
+It also does not hurt if your terminal looks great when you boasting your terminal skills to your colleagues at work.</description>
+    </item>
+    
+    <item>
+      <title>Init</title>
+      <link>https://ryanbutler.online/posts/introduction/</link>
+      <pubDate>Tue, 24 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryanbutler.online/posts/introduction/</guid>
+      <description>Introduction to RBO For many years now I have been trying to start my own blog. I just never got around to it. My go to excuse to myself was: &amp;ldquo;I just don&amp;rsquo;t have time. I am too busy juggling family, work and life.&amp;rdquo; The truth is, there is time, you just have to make some time available and cut some time out of other unimportant areas in your life, whilst keeping a balance of course.</description>
+    </item>
+    
+    <item>
+      <title>Blüdhaven</title>
+      <link>https://ryanbutler.online/projects/bludhaven/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryanbutler.online/projects/bludhaven/</guid>
+      <description>History Blüdhaven was a former whaling town, which was officially incorporated as a &amp;ldquo;Commonwealth&amp;rdquo; in 1912. The town had a generally poor socio-economic populace, owing in part to failed efforts to transform itself into a manufacturing and shipping center.</description>
+    </item>
+    
+    <item>
+      <title>Hydra</title>
+      <link>https://ryanbutler.online/projects/hydra/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryanbutler.online/projects/hydra/</guid>
+      <description>Motto Cut off one head and two will take their place</description>
+    </item>
+    
+    <item>
+      <title>Tatooine</title>
+      <link>https://ryanbutler.online/projects/tatooine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ryanbutler.online/projects/tatooine/</guid>
+      <description>A long time ago in a galaxy far, far away&amp;hellip;. A project was planned, but never completed</description>
+    </item>
+    
+  </channel>
+</rss>
