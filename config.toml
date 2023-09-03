@@ -1,0 +1,93 @@
+baseURL = "https://ryanbutler.online"
+title = "RBO"
+theme = "gokarna"
+languageCode = "en"
+defaultContentLanguage = "en"
+enableEmoji = true
+enableRobotsTXT = true
+
+# Choose one of emacs, trac or perldoc
+pygmentsStyle = "monokai"
+
+[params]
+  footer = "RBO"
+  description = "All things software development"
+  avatarURL = "/images/avatar.webp"
+  AvatarAltText = "rbo logo"
+  avatarSize = "size-xl"
+  customHeadHTML = """
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="/css/katex.min.css">
+    <script defer src="/css/katex.min.js"></script>
+    <script defer src="/css/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+      });
+    </script>
+  """
+  socialIcons = [
+    {name = "github", url = "https://github.com/ryanleonbutler/"},
+    {name = "linkedin", url = "https://www.linkedin.com/in/ryanleonbutler/"},
+    {name = "x", url = "https://x.com/ryanleonbutler"},
+    {name = "buymeacoffee", url = "https://www.buymeacoffee.com/ryanonline"},
+  ]
+  metaKeywords = ["software development", "software engineering", "blog", "Python", "Go", "Golang", "JavaScript", "Typescript", "aws", "Amazon Web Service", "neovim", "vim", "linux"]
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    pre = "<span data-feather='home'></span>"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Posts"
+    pre = "<span data-feather='book'></span>"
+    url = "/posts/"
+    weight = 2
+
+  [[menu.main]]
+    name = "Projects"
+    pre = "<span data-feather='code'></span>"
+    url = "/projects/"
+    weight = 3
+
+  [[menu.main]]
+    name = "Tags"
+    pre = "<span data-feather='tag'></span>"
+    url = "/tags/"
+    weight = 4
+
+  [[menu.main]]
+    identifier = "github"
+    pre = "<span data-feather='github'></span>"
+    url = "https://github.com/ryanleonbutler/rbo"
+    weight = 5
+
+  [[menu.main]]
+    identifier = "buymeacoffee"
+    pre = "<span data-feather='coffee'></span>"
+    url = "https://www.buymeacoffee.com/ryanonline"
+    weight = 6
+
+  [[menu.main]]
+    identifier = "rss"
+    pre = "<span data-feather='rss'></span>"
+    url = "/index.xml"
+    weight = 7
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 4
+    ordered = false

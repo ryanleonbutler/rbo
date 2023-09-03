@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>My terminal setup</title>
+    <meta name="description" content="Having an efficient and tailored terminal setup is almost as important as your IDE">
+    <meta name="keywords" content='software development, software engineering, blog, Python, Go, Golang, JavaScript, Typescript, aws, Amazon Web Service, neovim, vim, linux, Tools, Terminal'>
+
+    <meta property="og:url" content="https://ryanbutler.online/posts/my_terminal_setup/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="My terminal setup">
+    <meta property="og:description" content="Having an efficient and tailored terminal setup is almost as important as your IDE">
+    <meta property="og:image" content="https://ryanbutler.online/images/posts/david-clode-sI6MbZDxUas-unsplash.webp">
+    <meta property="og:image:secure_url" content="https://ryanbutler.online/images/posts/david-clode-sI6MbZDxUas-unsplash.webp">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="My terminal setup">
+    <meta name="twitter:description" content="Having an efficient and tailored terminal setup is almost as important as your IDE">
+    <meta property="twitter:domain" content="https://ryanbutler.online/posts/my_terminal_setup/">
+    <meta property="twitter:url" content="https://ryanbutler.online/posts/my_terminal_setup/">
+    <meta name="twitter:image" content="https://ryanbutler.online/images/posts/david-clode-sI6MbZDxUas-unsplash.webp">
+
+    
+    <link rel="canonical" href="https://ryanbutler.online/posts/my_terminal_setup/" />
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.edd985581bf860dfb4507e5885197f1680160c7fe19f23b31e183126d99dd596.js" integrity="sha256-7dmFWBv4YN&#43;0UH5YhRl/FoAWDH/hnyOzHhgxJtmd1ZY="></script>
+
+    
+    
+        <!-- KaTeX -->
+    <link rel="stylesheet" href="/css/katex.min.css">
+    <script defer src="/css/katex.min.js"></script>
+    <script defer src="/css/auto-render.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+      });
+    </script>
+  
+    
+</head>
+<body>
+        <script type="text/javascript">
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="https://ryanbutler.online">
+                <img src="https://ryanbutler.online/images/avatar.webp" alt="rbo logo" />
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="https://ryanbutler.online">RBO</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="https://ryanbutler.online/"><span data-feather='home'></span> Home </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://ryanbutler.online/posts/"><span data-feather='book'></span> Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://ryanbutler.online/projects/"><span data-feather='code'></span> Projects </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://ryanbutler.online/tags/"><span data-feather='tag'></span> Tags </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://github.com/ryanleonbutler/rbo"><span data-feather='github'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://www.buymeacoffee.com/ryanonline"><span data-feather='coffee'></span>  </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://ryanbutler.online/index.xml"><span data-feather='rss'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span id="dark-theme-toggle-screen-reader-target" class="sr-only"></span>
+                <a>
+                    <span id="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span id="hamburger-menu-toggle-screen-reader-target" class="sr-only">menu</span>
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="https://ryanbutler.online/"><span data-feather='home'></span> Home </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://ryanbutler.online/posts/"><span data-feather='book'></span> Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://ryanbutler.online/projects/"><span data-feather='code'></span> Projects </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://ryanbutler.online/tags/"><span data-feather='tag'></span> Tags </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://github.com/ryanleonbutler/rbo"><span data-feather='github'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://www.buymeacoffee.com/ryanonline"><span data-feather='coffee'></span>  </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://ryanbutler.online/index.xml"><span data-feather='rss'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span id="dark-theme-toggle-screen-reader-target" class="sr-only">theme</span>
+                    <a>
+                        <span id="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>My terminal setup</h1>
+        <small role="doc-subtitle">Having an efficient and tailored terminal setup is almost as important as your IDE</small>
+        <p class="post-date">
+            May 10, 2021
+        </p>
+
+        <ul class="post-tags">
+        
+            <li class="post-tag"><a href="https://ryanbutler.online/tags/tools">Tools</a></li>
+        
+            <li class="post-tag"><a href="https://ryanbutler.online/tags/terminal">Terminal</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <p>
+            <p><img src="/images/posts/david-clode-sI6MbZDxUas-unsplash.webp" alt=""></p>
+<p>Having an efficient and tailored terminal setup is almost as important as your IDE or code editor in my opinion. Lets face it, whether your a Software Engineer, working DevOps or any other role within IT, chances are pretty good you will be spending a lot of your time working inside a terminal window.</p>
+<p>It also does not hurt if your terminal looks great when you boasting your terminal skills to your colleagues at work. See below a short tutorial to replicate my current implementation, which I find efficient, informative and just looks nice.</p>
+<h1 id="install-iterm2">Install iTerm2</h1>
+<p><a href="https://iterm2.com/">iTerm2</a>, is arguably the most popular, customizable and great looking terminal window. Therefore my first choice for laying the foundation of a great terminal experience.</p>
+<p>Install iTerm2 terminal using <a href="https://brew.sh/">Homebrew</a> or download the installer from iTerm2&rsquo;s website <a href="https://iterm2.com/">here</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install --cask iterm2
+</span></span></code></pre></div><h1 id="customize-iterm2">Customize iTerm2</h1>
+<p>The default look of iTerm2 is already pretty good but I like changing a few things. Launch iTerm2 and navigate to the Preferences menu (command + ,).</p>
+<ol>
+<li>On the Appearance tab, choose &ldquo;Dark&rdquo; in the Theme dropdown menu.</li>
+<li>On the Profiles tab, choose the &ldquo;Default&rdquo; profile and select Colors. I am using &ldquo;Dracula+&rdquo; as a Color Preset.</li>
+<li>On the Text tab, change the Font and the Size. I am using a font which I installed separately beforehand, namely &ldquo;<a href="https://github.com/tonsky/FiraCode">Fira Code</a>&rdquo;, with a font size of &ldquo;15&rdquo;.</li>
+</ol>
+<p>That&rsquo;s all that needs changing with regards to iTerm. I will however mention that configuring multiple profiles to automatically switch and change your terminal background color when you SSH to Hosts for example PROD, BETA, DEV is really helpful. It provides you with a quick context reminder especially when you have multiple terminal sessions running at the same time. See this <a href="https://apple.stackexchange.com/questions/51739/how-to-change-color-profiles-on-ssh-iterm2-on-ssh">link</a> in order to configure multiple profiles to change when you ssh to a specific host.</p>
+<h1 id="install-oh-my-zsh">Install Oh My Zsh</h1>
+<p>Oh My Zsh, is a custom implementation of the classic zsh shell. Think of it as a framework which allows you to easily customize and tailor your zsh setup.</p>
+<p>Firstly change your shell to use zsh if not already done (macOS Mojave and earlier (10.14-)).</p>
+<ul>
+<li>Open up the User&rsquo;s &amp; Groups panel in System Preferences.</li>
+<li>Ensure the panel is unlocked (bottom left).</li>
+<li>Control click on your username (top left) and select Advanced Options&hellip; (This is only available if you are an Administrator).</li>
+<li>Change the Login shell value to &ldquo;/bin/zsh&rdquo;.</li>
+<li>Click OK to save your changes.</li>
+</ul>
+<p>Once your default shell is configured to use zsh, there are two methods for installing <a href="https://ohmyz.sh/#install">Oh My Zsh</a>, via curl or wget:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>Once you installed Oh My Zsh, close and re-open your terminal window.</p>
+<h1 id="customize-oh-my-zsh">Customize Oh My Zsh</h1>
+<p>Open ~/.zshrc with your favourite terminal text editer. I prefer nano.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano ~/.zshrc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Add/edit below in your local .zshrc file:
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ZSH_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;spaceship&#34;</span>   <span style="color:#75715e"># My current favorite theme</span>
+</span></span><span style="display:flex;"><span>DEFAULT_USER<span style="color:#f92672">=</span>&lt;enter_username&gt;   <span style="color:#75715e"># This avoids your username appearing in the prompt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plugins<span style="color:#f92672">=(</span>
+</span></span><span style="display:flex;"><span>    git
+</span></span><span style="display:flex;"><span>    osx
+</span></span><span style="display:flex;"><span>    python
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Aliases - You can add more but these are the essentials for me.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Favourites</span>
+</span></span><span style="display:flex;"><span>alias zshconfig<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;nano /.zshrc&#34;</span>
+</span></span><span style="display:flex;"><span>alias reload<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;source /.zshrc&#34;</span>
+</span></span><span style="display:flex;"><span>alias va<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;source venv/bin/activate&#34;</span>
+</span></span><span style="display:flex;"><span>alias vd<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;deactivate&#34;</span>
+</span></span><span style="display:flex;"><span>alias ls<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ls -GFh&#34;</span>
+</span></span><span style="display:flex;"><span>alias ll<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ls -GFhl&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Git</span>
+</span></span><span style="display:flex;"><span>alias gs<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;git status&#34;</span>
+</span></span><span style="display:flex;"><span>alias ga<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;git add -A&#34;</span>
+</span></span><span style="display:flex;"><span>alias gl<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;git log&#34;</span>
+</span></span><span style="display:flex;"><span>alias gd<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;git diff&#39;</span>
+</span></span><span style="display:flex;"><span>alias gm<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;git commit -m&#39;</span>
+</span></span><span style="display:flex;"><span>alias gma<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;git commit -am&#39;</span>
+</span></span><span style="display:flex;"><span>alias gb<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;git branch&#39;</span>
+</span></span><span style="display:flex;"><span>alias gc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;git checkout&#39;</span>
+</span></span></code></pre></div><h1 id="other-configurations">Other configurations</h1>
+<h2 id="aws-cli">AWS CLI</h2>
+<p>I use the <a href="https://aws.amazon.com/cli/">AWS CLI</a> a lot and without the below variable exported to the current terminal session, the API responses are returned to less, which I personally dislike. The below variable export will print it out to STD OUT in the terminal window only.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export AWS_PAGER<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+</span></span></code></pre></div><h2 id="pyenv">Pyenv</h2>
+<p>I use <a href="https://github.com/pyenv/pyenv">pyenv</a> to manage my Python versions and virtual environment. In order for it to work correctly you will require the below in your .zshrc configuration file as well:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export PYENV_ROOT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.pyenv&#34;</span>
+</span></span><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$PYENV_ROOT<span style="color:#e6db74">/bin:</span>$PATH<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> command -v pyenv 1&gt;/dev/null 2&gt;&amp;1; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  eval <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>pyenv init -<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>eval <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>pyenv virtualenv-init -<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><h1 id="summary">Summary</h1>
+<p>That&rsquo;s it, basic, but found this setup to work for me day-to-day in most environments. From here you can extend and modify your terminal experience to your specific needs.</p>
+<p>That is all for now and have fun showing off your new terminal!</p>
+
+        </p>
+        
+    </div>
+
+    <div class="prev-next">
+        
+    </div>
+</div>
+
+<aside class="post-toc">
+    <nav id="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-iterm2">Install iTerm2</a></li>
+    <li><a href="#customize-iterm2">Customize iTerm2</a></li>
+    <li><a href="#install-oh-my-zsh">Install Oh My Zsh</a></li>
+    <li><a href="#customize-oh-my-zsh">Customize Oh My Zsh</a></li>
+    <li><a href="#other-configurations">Other configurations</a>
+      <ul>
+        <li><a href="#aws-cli">AWS CLI</a></li>
+        <li><a href="#pyenv">Pyenv</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+    </nav>
+</aside>
+
+
+
+    
+
+        </main><footer class="footer">
+    
+    
+
+    
+    <span>&copy; 2023 RBO</span>
+    
+    <span>
+        Made with &#10084;&#65039; using <a target="_blank" href="https://gohugo.io">Hugo</a>
+    </span>
+</footer>
+</body>
+</html>
