@@ -22,24 +22,19 @@ Hold on tight, Go is fast, really fast!
 # Installing Go
 
 Seems to be a few ways to go about this. My preference, like I have been doing with Python and Node, is using
-[asdf](https://asdf-vm.com). You would need to install the [asdf-go](https://github.com/asdf-community/asdf-golang)
-plugin as well. Once you have that out the way we can install golang v1.21.1.
+[mise](https://mise.jdx.dev/).
 
 ```bash
-asdf install golang 1.21.1
+> mise use -g go@latest
 ```
 
-Once installed you can set it to the local or global shim using asdf to add the new installed version to your path
+The above will install latest version of Go and set it as the default global version to use.
+
+Now we can confirm if we have the latest verson Go available.
 
 ```bash
-asdf global golang 1.21.1
-```
-
-Now we can confirm if we have the installed version available.
-
-```bash
-go version                                                                   │
-go version go1.21.1 darwin/arm64                                                                                 │
+> go version                                                                   │
+go version go1.22.3 darwin/arm64
 ```
 
 # Starting a new Go project
@@ -53,14 +48,14 @@ mkdir learn_go && cd learn_go && git init && touch README.md
 Next let's start with a classic, the old `"Hello, world!"`
 
 ```bash
-mkdir example && cd example
+> mkdir hello_world
 
-go mod init example/hello
-go: creating new go.mod: module example/hello
+> go mod init hello_world/main
+go: creating new go.mod: module hello_world/main
 
 go mod tidy
 
-touch hello.go
+cd hello_world && touch main.go && nvim main.go
 ```
 
 # Hello world code
@@ -75,9 +70,24 @@ func main() {
 }
 ```
 
-# Running code
-```bash
-go run hello.go
+# Formatting code with go fmt
 
+```bash
+> go fmt
+main.go
+```
+
+# Running code
+
+```bash
+> go run main.go
 Hello, World!
 ```
+
+# Last words
+
+Wow! I like how easy it is to started with Go and the built-in dev tools. I look forward to the next step and learning more about Go. 
+
+# Post History
+- Updated: 2024-07-12
+- Posted: 2023-10-06
